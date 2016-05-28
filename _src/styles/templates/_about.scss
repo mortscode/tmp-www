@@ -1,0 +1,52 @@
+.about {
+  &__image {
+    @include span(6);
+    @include push(3);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+
+    @include breakpoint($vp4) {
+      @include span(8);
+      @include push(2);
+    }
+
+    @include breakpoint($vp3) {
+      @include span(10);
+      @include push(1);
+    }
+
+    @include breakpoint($vp1) {
+      @include span(12);
+      @include push(0);
+    }
+
+    &:after {
+      content: "";
+      display: block;
+      padding-bottom: 56%;
+    }
+  }
+
+  &__body {
+    @include span(6);
+    @include push(3);
+    margin-top: $base-spacing;
+    margin-bottom: $large-spacing;
+    padding: 0 $large-spacing;
+
+    @include breakpoint($vp4) {
+      padding: 0;
+    }
+
+    @include breakpoint($vp3) {
+      @include span(8);
+      @include push(2);
+    }
+
+    @include breakpoint($vp2) {
+      @include span(10);
+      @include push(1);
+    }
+  }
+}

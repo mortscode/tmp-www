@@ -1,0 +1,16 @@
+$susy: (
+  columns: 12,
+  gutters: 0.25,
+  column-width: $base-spacing * 4,
+  math: fluid,
+  output: float,
+  container: em(1440),
+  gutter-position: after,
+  global-box-sizing: border-box,
+  debug: (
+    // image: show,
+    color: rgba(#66f, 0.05),
+    output: background,
+    toggle: top right,
+  ),
+);

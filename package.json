@@ -1,0 +1,38 @@
+{
+  "name": "tmp-www",
+  "version": "1.2.0",
+  "description": "The Modern Proper | built with Craft.",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run watch",
+    "build": "NODE_ENV=production webpack ./_src/js/scripts.js",
+    "watch": "./node_modules/.bin/webpack -d --watch",
+    "sync": "browser-sync start --proxy 'http://modprop.craft.dev' --files '/assets/styles/**/*.css'"
+  },
+  "author": "mrtmr",
+  "devDependencies": {
+    "babel-core": "^6.3.17",
+    "babel-eslint": "^4.1.6",
+    "babel-loader": "^6.2.0",
+    "babel-preset-es2015": "^6.3.13",
+    "browser-sync": "^2.12.3",
+    "browser-sync-webpack-plugin": "^1.0.1",
+    "css-loader": "^0.23.0",
+    "eslint": "^1.10.3",
+    "eslint-config-airbnb": "^2.0.0",
+    "eslint-loader": "^1.2.0",
+    "file-loader": "^0.8.5",
+    "gsap": "^1.18.2",
+    "node-sass": "^3.4.2",
+    "phantomjs-polyfill": "0.0.1",
+    "properjs-controller": "^0.2.0",
+    "properjs-hobo": "^0.3.8",
+    "properjs-imageloader": "^0.3.1",
+    "properjs-resizecontroller": "^0.2.1",
+    "properjs-scrollcontroller": "^0.2.1",
+    "sass-loader": "^3.1.2",
+    "scrollreveal": "^3.0.9",
+    "svg-injector": "^1.1.3",
+    "webpack": "^1.12.9"
+  }
+}

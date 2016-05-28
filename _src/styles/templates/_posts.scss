@@ -1,0 +1,149 @@
+.posts {
+  @include span(last 19 of 24);
+  padding-top: $large-spacing;
+  padding-right: span(1 of 24);
+  margin-bottom: $large-spacing;
+
+  @include breakpoint($vp3) {
+    @include full;
+    padding: $large-spacing span(1 of 24) 0;
+  }
+
+  &__title {
+    @include clearfix;
+    color: $tmp-gray;
+
+    @include breakpoint($vp2) {
+      text-align: center;
+    }
+  }
+
+  &__results {
+    @include full;
+    @include clearfix;
+  }
+
+  &__result {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: $white;
+    background-size: 50% auto;
+    background-position: 0 50%;
+    background-repeat: no-repeat;
+
+    @include breakpoint($vp2) {
+      background-size: cover;
+      background-position: 50% 50%;
+    }
+
+    &:hover {
+
+      .posts__result--title {
+        color: darken($tmp-brand, 15%);
+      }
+
+      .posts__result--date {
+        background-color: rgba($tmp-gray, 0.9);
+      }
+    }
+
+    &.month {
+      background-color: darken($tmp-light, 5%);
+      color: $tmp-gray;
+
+      .month__title {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        text-align: center;
+        transform: translateY(-50%);
+        font-size: 200%;
+        line-height: 1.4;
+        padding: 0 $small-spacing;
+
+        @include breakpoint($vp2) {
+          font-size: 175%;
+        }
+      }
+    }
+
+    &--item {
+      @include gallery(4);
+      position: relative;
+      margin-bottom: gutter(12);
+
+      @include breakpoint($vp4) {
+        @include gallery(3 of 6);
+        margin-bottom: gutter(6);
+      }
+
+      &:after {
+        content: "";
+        display: block;
+        padding-bottom: 60%;
+
+        @include breakpoint($vp2) {
+          padding-bottom: 150%;
+        }
+      }
+    }
+
+    &--wrapper {
+      @include full;
+    }
+
+    &--title {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      width: 50%;
+      margin: 0;
+      padding: 0 span(1);
+      transform: translateY(-50%);
+      color: $tmp-gray;
+      transition: color $quick-ease;
+
+      @include breakpoint($vp2) {
+        padding: span(1);
+        line-height: 1.2;
+        width: auto;
+        top: auto;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        transform: none;
+        background-color: rgba($white, 0.95);
+        font-size: 90%;
+        color: $tmp-dark;
+        border-bottom: 1px solid $tmp-gray;
+      }
+    }
+
+    &--date {
+      @include span(5);
+      position: absolute;
+      background-color: rgba($tmp-gray, 0.8);
+      top: 0;
+      left: 0;
+      padding: 3px span(1);
+      margin: 0;
+      width: 50%;
+      font-size: 98%;
+      font-weight: 600;
+      font-style: italic;
+      text-align: center;
+      color: $white;
+      transition: background-color $quick-ease;
+
+      @include breakpoint($vp2) {
+        @include full;
+        right: 0;
+        left: auto;
+        text-align: center;
+        background-color: rgba($tmp-gray, 0.9);
+      }
+    }
+  }
+}
+

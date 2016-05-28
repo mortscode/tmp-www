@@ -1,0 +1,12 @@
+.footer {
+  background-color: $white;
+  padding: $base-spacing span(1 of 24);
+  font-size: rem(12);
+  font-family: $sans;
+  font-weight: 600;
+
+  @include breakpoint($vp3) {
+    padding: $small-spacing 0;
+    text-align: center;
+  }
+}

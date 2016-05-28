@@ -1,0 +1,21 @@
+.error {
+  @include span(4);
+  @include push(4);
+  text-align: center;
+  padding: ($large-spacing + $base-spacing) 0 0;
+
+  @include breakpoint($vp4) {
+    @include span(6);
+    @include push(3);
+  }
+
+  @include breakpoint($vp3) {
+    @include span(8);
+    @include push(2);
+  }
+
+  @include breakpoint($vp2) {
+    @include span(10);
+    @include push(1);
+  }
+}

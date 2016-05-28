@@ -1,0 +1,29 @@
+<?php
+
+return array(
+  '*' => array(
+    'omitScriptNameInUrls' => true,
+  ),
+
+  'craft.dev' => array(
+    'devMode' => true,
+    'environment' => 'local',
+    'siteUrl' => 'http://tmp-www.craft.dev'
+  ),
+
+  'staging.themodernproper.com' => array(
+    'siteUrl' => 'http://themodernproper.com',
+    'devMode' => true,
+    'environmentVariables' => array(
+      'baseUrl'  => 'http://staging.themodernproper.com',
+    ),
+  ),
+
+  'themodernproper.com' => array(
+    'siteUrl' => 'http://themodernproper.com',
+    'devMode' => false,
+    'environmentVariables' => array(
+      'baseUrl'  => 'http://themodernproper.com',
+    ),
+  ),
+);

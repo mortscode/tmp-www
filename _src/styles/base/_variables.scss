@@ -1,0 +1,65 @@
+// Typography
+$serif: 'minion-pro', georgia, serif;
+$sans: 'adelle-sans', -apple-system, sans-serif;
+
+$base-font-family: $serif;
+$heading-font-family: $serif;
+
+// Font Sizes
+$base-font-size: 1em;
+
+// Line height
+$base-line-height: 1.5;
+$heading-line-height: 1.2;
+
+// Other Sizes
+$base-border-radius: 1px;
+$base-spacing: $base-line-height * 1em;
+$xl-spacing: $base-spacing * 4;
+$large-spacing: $base-spacing * 2;
+$small-spacing: $base-spacing / 2;
+$base-z-index: 0;
+
+// Colors
+$blue: #477dca;
+$dark-gray: #333;
+$medium-gray: #999;
+$light-gray: #ddd;
+$white: #fff;
+
+$tmp-light: #f2f2f2;
+$tmp-gray: #8c928c;
+$tmp-brand: #f7c9b8;
+$tmp-dark: #212621;
+
+// Font Colors
+$base-background-color: $tmp-light;
+$base-font-color: $tmp-dark;
+$action-color: darken($tmp-brand, 15%);
+
+// Transitions
+$quick-ease: 250ms ease-in-out;
+$med-ease: 500ms ease-in-out;
+
+// Border
+$base-border-color: rgba($tmp-gray, 0.5);
+$base-border: 1px solid $base-border-color;
+
+// Forms
+$form-box-shadow: inset 0 1px 3px rgba(#000, 0.06);
+$form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($action-color, $lightness: -5%, $alpha: -0.3);
+
+// Navicon
+$navi-size: 18px;
+$navi-transition: 0.4s;
+
+// z-index
+$z-nav: 8765310;
+$z-modal: $z-nav + 10;
+$z-home-intro: $z-nav + 5;
+$z-m-nav: $z-nav + 10;
+$z-m-nav-menu: $z-nav + 10;
+$z-m-nav-box: $z-nav - 1;
+$z-search: $z-nav + 10;
+$z-post-title: 100;
+$z-post-content: 50;

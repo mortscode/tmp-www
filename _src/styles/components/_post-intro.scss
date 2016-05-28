@@ -1,0 +1,161 @@
+.post {
+  @include span(10 wide);
+  padding: $large-spacing $base-spacing;
+  margin-top: $large-spacing;
+  position: relative;
+
+  @include breakpoint($vp4) {
+    @include full;
+    padding: $large-spacing 0;
+  }
+
+  @include breakpoint($vp2) {
+    margin-top: $base-spacing;
+    padding: $base-spacing 0;
+  }
+
+  &__title {
+    @include full;
+    @include clearfix;
+    margin-bottom: $large-spacing;
+    position: relative;
+
+    &--date {
+      @include push(1 of 24);
+      color: $tmp-gray;
+
+      @include breakpoint($vp4) {
+        @include span(8);
+        @include push(2);
+        text-align: center;
+      }
+
+      @include breakpoint($vp2) {
+        @include span(12);
+        @include push(0);
+      }
+
+      &:before {
+        content: "";
+        display: inline-block;
+        height: 1px;
+        background-color: rgba($tmp-gray, 0.5);
+        width: $large-spacing;
+        margin-right: $small-spacing;
+        transform: translateY(-5px);
+      }
+    }
+
+    &--text {
+      @include span(7);
+      @include push(1 of 24);
+      margin-bottom: 0;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: darken($tmp-gray, 20%);
+
+      @include breakpoint($vp4) {
+        @include span(6);
+        @include push(3);
+        text-align: center;
+      }
+
+      @include breakpoint($vp3) {
+        @include span(8);
+        @include push(2);      }
+
+      @include breakpoint($vp2) {
+        @include span(10);
+        @include push(1);
+      }
+    }
+  }
+
+  &__share {
+    @include span(5 of 24);
+    @include push(1 of 24);
+
+    @include breakpoint($vp4) {
+      @include span(3);
+      @include push(9 of 24);
+    }
+
+    @include breakpoint($vp3) {
+      @include span(4);
+      @include push(4);
+    }
+
+    @include breakpoint($vp2) {
+      @include span(6);
+      @include push(3);
+
+      .share {
+        display: none;
+      }
+    }
+
+    &--download {
+      width: 100%;
+      padding: $small-spacing 0;
+      text-align: center;
+      margin-bottom: $large-spacing;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    top: 0;
+
+    &--wrapper {
+      @include span(6 wide);
+      @include push(1);
+      position: relative;
+      background-color: $white;
+
+      @include breakpoint($vp4) {
+        @include push(3);
+        margin-top: $base-spacing;
+      }
+
+      @include breakpoint($vp3) {
+        @include span(8);
+        @include push(2);
+        margin-top: $base-spacing;
+      }
+
+      @include breakpoint($vp2) {
+        @include span(12);
+        @include push(0);
+        margin-top: $base-spacing;
+      }
+
+      &:after {
+        content: "";
+        display: block;
+        padding-bottom: 150%;
+      }
+    }
+  }
+
+  &__author {
+
+    &--wrapper {
+      @include span(6 wide);
+      @include push(4);
+      margin-top: $large-spacing;
+      margin-bottom: -$base-spacing;
+      text-align: center;
+
+      @include breakpoint($vp4) {
+        @include span(8);
+        @include push(2);
+      }
+    }
+
+    &--text {
+      color: darken($tmp-brand, 20%);
+    }
+  }
+}

@@ -1,0 +1,76 @@
+.share {
+  width: 100%;
+  text-align: center;
+
+  @include breakpoint($vp3) {
+    margin-top: 0;
+  }
+
+  &__title {
+    @include clearfix;
+    display: inline-block;
+    color: $tmp-gray;
+    padding: 0 $small-spacing / 2;
+    background-color: $tmp-light;
+    margin-bottom: 0;
+
+    &--line {
+      margin-top: $small-spacing;
+      margin-bottom: -14px;
+      border-bottom: 1px solid rgba($tmp-gray, 0.5);
+    }
+  }
+
+  &__icon {
+    position: relative;
+    display: inline-block;
+    background-color: rgba($tmp-gray, 0.6);
+    color: $white;
+    width: 25%;
+    max-width: $large-spacing;
+    margin: $base-spacing 4%;
+    border-radius: 100%;
+    transition: background-color $quick-ease;
+
+    &:after {
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+    }
+
+    &--wrapper {
+      @include full;
+    }
+
+    .icon-logo {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      font-size: rem(18);
+      background-repeat: no-repeat;
+      background-size: 50% 50%;
+      background-position: center center;
+
+      &.twitter {
+        background-image: url("/assets/img/icons/twitter.svg");
+        opacity: 0.9;
+      }
+
+      &.facebook {
+        background-image: url("/assets/img/icons/facebook.svg");
+        opacity: 0.9;
+      }
+
+      &.pins {
+        background-image: url("/assets/img/icons/pinterest.svg");
+        opacity: 0.9;
+      }
+    }
+
+    &:hover {
+      background-color: $tmp-gray;
+    }
+  }
+}

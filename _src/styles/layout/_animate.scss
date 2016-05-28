@@ -1,0 +1,17 @@
+.animate {
+  &.-fade-up {
+    opacity: 0;
+    transform: translate(0, $large-spacing);
+    transition: opacity $med-ease, transform $med-ease;
+  }
+
+  &.-fade-in {
+    opacity: 0;
+    transition: opacity $med-ease;
+  }
+
+  &.active {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}

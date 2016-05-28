@@ -1,0 +1,126 @@
+.home-posts {
+  @include span(8 wide);
+  @include push(1);
+  padding-right: span(1 of 24);
+
+  @include breakpoint($vp4) {
+    @include push(1 of 24);
+  }
+
+  @include breakpoint($vp3) {
+    @include span(last 16 of 24);
+    @include push(0);
+  }
+
+  @include breakpoint($vp2) {
+    @include span(12);
+    padding-right: 0;
+  }
+
+  .post-summary {
+    @include clearfix;
+    position: relative;
+    padding: $large-spacing 0;
+    border-bottom: 1px solid rgba($tmp-gray, 0.7);
+    width: 100%;
+
+    @include breakpoint($vp1) {
+      border-bottom: none;
+      padding-top: 0;
+    }
+
+    .post-title {
+      transition: color $quick-ease;
+      color: darken($tmp-gray, 20%);
+
+      &:hover {
+        color: $tmp-gray;
+        text-decoration: none;
+      }
+    }
+
+    .post-image-wrapper {
+      @include span(13 wider of 24);
+      @include push(1 of 24);
+      position: relative;
+      background-color: rgba($white, 0);
+
+      @include breakpoint($vp3) {
+        @include span(10);
+        @include push(1);
+        @include clearfix;
+      }
+
+      @include breakpoint($vp1) {
+        @include span(12);
+      }
+
+      &:after {
+        content: "";
+        display: block;
+        padding-bottom: 150%;
+      }
+
+      .post-image {
+        position: absolute;
+        width: 100%;
+        height: auto;
+        top: 0;
+        left: 0;
+        right: 0;
+      }
+    }
+
+    .post-description {
+      @include span(4 wide);
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+
+      @include breakpoint($vp4) {
+        @include span(4 wider);
+        @include push(15 of 24);
+      }
+
+      @include breakpoint($vp3) {
+        @include span(10);
+        @include push(1);
+        position: relative;
+        top: 0;
+        transform: none;
+      }
+
+      .post-date {
+        color: $tmp-gray;
+
+        @include breakpoint($vp3) {
+          margin-top: $base-spacing;
+        }
+
+        &:before {
+          content: "";
+          display: inline-block;
+          height: 1px;
+          background-color: rgba($tmp-gray, 0.5);
+          width: $large-spacing;
+          margin-right: $small-spacing;
+          transform: translateY(-5px);
+        }
+      }
+
+      .post-link {
+        margin-top: $base-spacing;
+
+        @include breakpoint($vp4) {
+          font-size: 90%;
+        }
+
+        @include breakpoint($vp1) {
+          width: 100%;
+          text-align: center;
+        }
+      }
+    }
+  }
+}

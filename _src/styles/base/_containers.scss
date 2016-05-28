@@ -1,0 +1,9 @@
+.grid {
+  @include container();
+  @include clearfix;
+  // padding: 0 $base-spacing;
+
+  &.-rel {
+    position: relative;
+  }
+}

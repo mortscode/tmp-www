@@ -1,0 +1,140 @@
+.site-search {
+
+  &.desktop {
+    width: 0;
+    max-width: em(310);
+    z-index: $z-search;
+    position: absolute;
+    top: 50%;
+    bottom: 0;
+    left: $large-spacing + em(30);
+    transform: translateY(-50%);
+    padding: 0;
+    overflow: hidden;
+    transition: width $med-ease;
+
+    @include breakpoint($vp3) {
+      display: none;
+    }
+
+    .__form {
+      width: 100%;
+      padding: ($small-spacing / 2.5) em(50) ($small-spacing / 2.5) $small-spacing;
+    }
+
+    .__submit {
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
+      padding: 0 !important;
+      width: 40px;
+      background-color: rgba($tmp-gray, 0.5);
+      background-image: url("/assets/img/icons/go-icon.svg");
+      background-repeat: no-repeat;
+      background-size: auto 60%;
+      background-position: 50% 50%;
+
+      &:hover,
+      &:focus {
+        background-color: $tmp-gray;
+        outline: none;
+      }
+    }
+
+    &.is-open {
+      width: 40%;
+    }
+  }
+
+  &.mobile {
+    z-index: $z-search;
+    display: none;
+    height: 34px;
+    position: fixed;
+    top: 7px;
+    left: 55px;
+    right: 100%;
+    overflow: hidden;
+    transition: right $med-ease;
+    visibility: hidden;
+
+    @include breakpoint($vp3) {
+      display: block;
+    }
+
+    @include breakpoint($vp2) {
+      max-height: 28px;
+      top: 6;
+      left: 40px;
+    }
+
+    .__form {
+      width: 100%;
+      height: 36px;
+      padding: ($small-spacing / 2) 40px ($small-spacing / 2) $small-spacing;
+      z-index: $z-search;
+      font-size: rem(16);
+      background-color: darken($tmp-light, 3%);
+
+      @include breakpoint($vp2) {
+        height: 28px;
+      }
+    }
+
+    .__submit {
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
+      padding: 0 !important;
+      width: 36px;
+      background-color: rgba($tmp-gray, 0.5);
+      background-image: url("/assets/img/icons/go-icon.svg");
+      background-repeat: no-repeat;
+      background-size: auto 45%;
+      background-position: 50% 50%;
+
+      @include breakpoint($vp2) {
+        width: 28px;
+      }
+    }
+
+    &.is-open {
+      visibility: visible;
+      right: 55px;
+
+      @include breakpoint($vp2) {
+        right: 45px;
+      }
+    }
+  }
+}
+
+.m-search-btn {
+  z-index: $z-search;
+  position: fixed;
+  top: 0;
+  left: 5px;
+  height: 50px;
+  width: 50px;
+  background-image: url("/assets/img/icons/search-icon.svg");
+  background-repeat: no-repeat;
+  background-size: 40%;
+  background-position: 50% 50%;
+  background-color: rgba($white, 0);
+  opacity: 0.8;
+  transition: opacity $quick-ease;
+
+  @include breakpoint($vp2) {
+    left: 0;
+    height: 40px;
+    width: 40px;
+  }
+
+  &.close {
+    background-image: url("/assets/img/icons/close-icon.svg");
+    background-size: 30%;
+    opacity: 0.5;
+  }
+}

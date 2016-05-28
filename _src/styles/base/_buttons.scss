@@ -1,0 +1,77 @@
+#{$all-button-inputs},
+
+.btn {
+  @include appearance(none);
+  border: 0;
+  border-radius: 0;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: $sans;
+  font-size: $base-font-size;
+  letter-spacing: em(0.5);
+  -webkit-font-smoothing: antialiased;
+  font-weight: 600;
+  line-height: 1;
+  padding: $small-spacing $large-spacing;
+  text-decoration: none;
+  text-transform: uppercase;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  transition: background-color $quick-ease;
+
+  @include breakpoint($vp2) {
+    font-size: rem(13);
+  }
+
+  &.pop {
+    background-color: $action-color;
+
+    &:hover,
+    &:focus {
+      background-color: darken($action-color, 15%);
+      color: #fff;
+    }
+  }
+
+  &.gray {
+    background-color: $tmp-gray;
+
+    &:hover,
+    &:focus {
+      background-color: darken($tmp-gray, 15%);
+      color: #fff;
+    }
+  }
+
+  &.light {
+    background-color: $tmp-light;
+    color: $tmp-gray;
+
+    &:hover,
+    &:focus {
+      background-color: $white;
+    }
+  }
+
+  &.aside {
+    text-align: center;
+    width: 100%;
+    padding: $small-spacing 0;
+    font-size: rem(12);
+
+    &.buffer-bottom {
+      margin-bottom: $base-spacing;
+    }
+  }
+
+  &.small {
+    font-size: rem(12);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+}

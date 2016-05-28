@@ -1,0 +1,37 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.-hide {
+  display: none;
+}
+
+.no-scroll {
+  overflow: hidden;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.tk-fade {
+  transition: opacity 400ms ease-out;
+
+  .wf-loading & {
+    opacity: 0;
+  }
+
+  .wf-active & {
+    opacity: 1;
+  }
+}
+
+.no-wrap {
+  white-space: nowrap;
+}

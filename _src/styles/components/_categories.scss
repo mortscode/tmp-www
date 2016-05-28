@@ -1,0 +1,14 @@
+.categories {
+  @include span(2);
+  margin: $large-spacing 0;
+  padding: 0 0 0 span(1 wide of 24);
+
+  @include breakpoint($vp3) {
+    display: none;
+  }
+
+  &__cat-title {
+    margin-top: $base-spacing;
+    color: darken($tmp-gray, 10%);
+  }
+}

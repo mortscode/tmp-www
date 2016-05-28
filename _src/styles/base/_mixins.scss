@@ -1,0 +1,28 @@
+// scss-lint:disable VendorPrefix
+@mixin vertical-align($amt: 50%) {
+  position: relative;
+  top: $amt;
+  transform: translateY(-$amt);
+}
+
+@mixin vertical-reset {
+  position: relative;
+  top: auto;
+  transform: none;
+}
+// scss-lint:enable VendorPrefix
+
+@mixin debug($color: tomato, $type: solid) {
+  border: 1px $type $color;
+}
+
+// Navicon
+
+@mixin line {
+  display: inline-block;
+  width: $navi-size;
+  height: $navi-size/9;
+  background: $tmp-gray;
+  border-radius: $navi-size/14;
+  transition: $navi-transition;
+}
