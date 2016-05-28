@@ -1,0 +1,41 @@
+<head>
+  <meta charset="utf-8">
+
+  <!-- Always force latest IE rendering engine or request Chrome Frame -->
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+
+  <title>{% if entry is defined %}{% if entry.pageTitle|length %}{{ entry.pageTitle }}{% else %}{% if entry.title|length %}{{ entry.title }} / {% endif %}{{ siteName }}{% endif %}{% else %}{{ siteName }}{% endif %}</title>
+
+  {% if entry is defined %}
+   {% include 'partials/_meta-tags'%}  
+  {% else %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ seo.siteDescription }}" />
+    <meta name="keywords" content="{% if seo.siteKeywords|length %}{{ seo.siteKeywords }}{% endif %}">  
+  {% endif %}
+
+  <script src="https://use.typekit.net/hqj3djf.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+  <link rel="apple-touch-icon" sizes="57x57" href="/icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/icons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#f2f2f2">
+  <meta name="msapplication-TileImage" content="/icons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#f2f2f2">
+  <link rel="stylesheet" href="/assets/styles/main.css">
+  <link rel="alternate" type="application/rss+xml" 
+   href="{{ siteUrl }}feed.rss" title="RSS feed for The Modern Proper">
+ </head>

@@ -1,0 +1,50 @@
+<div class="builder">
+  <div class="builder__section builder--recipe top-double bot-double">
+    <div class="builder__section--ingredients">
+      {% if entry.recipeTitle|length %}
+        <h3 class="ingredients-title caps">{{ entry.recipeTitle }}</h3>
+      {% else %}
+        <h3 class="ingredients-title caps">{{ entry.title }}</h3>
+      {% endif %}
+
+      {% if entry.recipeServings > 0 %}
+        <p class="servings">Serves {{ entry.recipeServings }}</p>
+      {% endif %}
+
+      {% for block in entry.recipeBuilder %}
+
+        {% if block.listTitle|length %}
+          <h3 class="ingredients-title">{{ block.listTitle }}</h3>
+        {% else %}
+          <h3 class="ingredients-title">Ingredients</h3>
+        {% endif %}
+      
+        <table class="ingredients-list" style="width:100%">
+        {% for ingredient in block.list %}
+            <tr class="row">
+              <td class="amount">{{ ingredient.amount }}</td>
+              {% if ingredient.linkUrl|length %}
+                <td class="ingredient"><a href="{{ ingredient.linkUrl }}" target="_blank">{{ ingredient.ingredient }}</a></td>
+              {% else %}
+                <td class="ingredient">{{ ingredient.ingredient }}</td>
+              {% endif %}
+            </tr>
+        {% endfor %}
+        </table>
+
+      {% endfor %}
+
+      {% if entry.recipeMethod|length %}
+      
+        <h3>Method</h3>
+        <div class="method">
+          {{ entry.recipeMethod }}
+        </div>
+      {% endif %}
+
+      <div class="recipe__download">
+        <a href="#" target="_blank" class="js-print-recipe"><div class="recipe__download--button btn pop small">Print Recipe</div></a>
+      </div>
+    </div>
+  </div>
+</div>

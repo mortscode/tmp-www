@@ -1,0 +1,27 @@
+<aside class="categories">
+  <h3 class="categories__headline">Filter by Category</h3>
+  <ul>
+    {% nav cat in craft.categories.group('recipes').level(1) %}
+      <h4 class="categories__cat-title">{{ cat.title }}</h4>
+
+      {% set catKids = craft.categories.descendantOf(cat) %}
+      {% for kid in catKids %}
+      <li>
+          <a href="{{ kid.url }}">{{ kid.title }}</a>
+      </li>
+      {% endfor %}
+    {% endnav %}
+  </ul>
+  <ul>
+    {% nav cat in craft.categories.group('diy').level(1) %}
+      <h4 class="categories__cat-title">{{ cat.title }}</h4>
+
+      {% set catKids = craft.categories.descendantOf(cat) %}
+      {% for kid in catKids %}
+      <li>
+          <a href="{{ kid.url }}">{{ kid.title }}</a>
+      </li>
+      {% endfor %}
+    {% endnav %}
+  </ul>
+</aside>

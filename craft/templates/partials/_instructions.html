@@ -1,0 +1,17 @@
+<div class="instructions">
+  <div class="grid">
+    <div class="instructions__step--wrapper">
+      {% for step in instructions.instructionStep %}
+          <div class="instructions__step">
+            <div class="instructions__step--icon" style="background-image:url('{{ step.stepIcon.first.url }}');"></div>
+            <h2 class="instructions__step--title">{{ step.stepTitle }}</h2>
+            <p class="instructions__step--blurb js-avoid-orphan">{{ step.stepBlurb }}</p>
+          </div>
+      {% endfor %}
+    </div>
+    <div class="instructions__contact">
+      <h2 class="instructions__contact--text">Honestly, don't hesitate to reach out if you have any questions. We'd love to help.</h2>
+      <a href="/contact" class="btn light">Contact Us</a>
+    </div>
+  </div>
+</div>

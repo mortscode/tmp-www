@@ -24,7 +24,7 @@ module.exports = {
         // (which should be serving on http://localhost:3100/)
         // through BrowserSync
         proxy: {
-          target: 'http://modprop.craft.dev',
+          target: 'http://tmp-www.craft.dev',
           ws: true
         }
       }

@@ -1,0 +1,14 @@
+{#
+ # contact template
+ # ---------------
+ #}
+
+{% extends "_layout" %}
+
+{% block content %}
+  <div class="grid">
+    {% set vars = {'align' : 'left', 'featured' : 'false'} %}
+    {% include 'partials/_aside' with vars only %}
+    {% include 'partials/_contact-form' %}
+  </div>
+{% endblock %}

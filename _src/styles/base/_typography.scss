@@ -160,8 +160,8 @@ picture {
   max-width: 100%;
 }
 
-.builder &,
-.about & {
+.builder,
+.about {
   h1 {
     font-size: rem(36);
     line-height: rem(48);

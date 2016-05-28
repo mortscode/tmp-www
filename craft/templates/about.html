@@ -1,0 +1,20 @@
+{#
+ # About template
+ # ---------------
+ #}
+
+{% extends "_layout" %}
+
+{% block content %}
+<div class="grid">
+
+  <div class="about">
+    <div class="about__image" style="background-image:url('{{ entry.featuredImage.first.url }}');"></div>
+
+    <div class="about__body">
+      {{ entry.body }}
+    </div>
+
+  </div>
+</div>
+{% endblock %}

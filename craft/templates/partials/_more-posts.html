@@ -1,0 +1,22 @@
+{# look for a category first #}
+{% set cat = entry.postCategories %}
+{% set similar = craft.entries.section('postEntries').id('not ' ~ entry.id).relatedTo(cat).order('RAND()').limit(4) %}
+
+<div class="more-posts">
+  <div class="grid">
+    <div class="more-posts__title">
+      <h2 class="more-posts__title--text">You might also like...</h2>
+    </div>
+    <div class="more-posts__post--wrapper">
+      {% for post in similar %}
+          <a href="{{ post.url }}" class="more-posts__link">
+            <div class="more-posts__post" style="background-image:url('{{ post.featuredImage.first.url('smallFeature') }}');">
+              <div class="more-posts__post--title">
+                <h3 class="js-avoid-orphan">{{ post.title }}</h3>
+              </div>
+            </div>
+          </a>
+      {% endfor %}
+    </div>
+  </div>
+</div>

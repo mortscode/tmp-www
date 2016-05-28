@@ -1,0 +1,20 @@
+{% if navView == "desktop" %}
+  {% include 'partials/_site-search' with { 'searchView' : 'desktop' } %}
+{% endif %}
+<nav class="navigation">
+  <ul class="nav-list">
+    {% if navView == "desktop" %}
+      <li class="search-wrapper js-search-icon"></li>
+    {% endif %}
+    {% if navView == "mobile" %}
+      <a href="/" title="Home"><li class="nav-item">Home</li></a>
+    {% endif %}
+    {% for navLink in mainNavigation.navigationItems %}
+      {% set link = navLink.linkInfo %}
+      <a href="{{ link.url }}" {{ link.target ? ' target="_blank"' }} title="{{ link.linkText }}"><li class="nav-item">{{ link.linkText }}</li></a>
+    {% endfor %}
+    {% if navView == "mobile" %}
+      <a href="/contact" title="Contact"><li class="nav-item no-line">Contact</li></a>
+    {% endif %}
+  </ul>
+</nav>

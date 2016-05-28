@@ -1,33 +1,51 @@
 {#
  # Homepage template
  # ---------------
- #
- # When this template gets loaded, it will be because someone has accessed
- # http://yoursite.com/ (without any URI). Craft checks to see if you have
- # a Single section set to be the Homepage (as you do, by default), and
- # loads the section’s Template (this file). A special ‘entry’ variable
- # will already be set for you, assigned to the Homepage entry.
- #
- # It's worth noting that even if you didn't have a Homepage Single section,
- # as long as this template remains at craft/templates/index.html, it
- # would still be the one to get loaded when accessing http://yoursite.com/,
- # albeit without an ‘entry’ variable already set for you.
- #
- # See this page for more details on how Craft routes requests:
- # http://craftcms.com/docs/routing
  #}
 
 {% extends "_layout" %}
 
 {% block content %}
-	<h1>{{ entry.title }}</h1>
+<div class="grid">
 
-	{{ entry.body }}
+  {% set vars = {'align' : 'left', 'featured' : 'true'} %}
+  {% include 'partials/_aside' with vars %}
 
-	<h2>Recent News</h2>
-	<ul>
-		{% for entry in craft.entries.section('news').limit(5).find() %}
-			<li><a href="{{ entry.url }}">{{ entry.title }}</a></li>
-		{% endfor %}
-	</ul>
+  <div class="home-posts">
+    {% paginate craft.entries.section('postEntries').limit(8) as posts %}
+    {# {% set posts = craft.entries.section('posts') %} #}
+    {% cache %}
+      {% for post in posts %}
+        <article class="post-summary js-scrolls animate -fade{% if loop.first %}-in{% else %}-up{% endif %}" data-offset="0.75">
+          <div class="post-image-wrapper">
+            <a href="{{ post.url }}">
+              <img class="post-image js-lazy-img" data-img-src="{{ post.featuredImage.first.url('homeFeature') }}" alt="{{ post.title }}">
+            </a>
+          </div>
+          <div class="post-description">
+            <h3 class="post-date">{{ post.postDate|date("F j, Y") }}</h3>
+            <a href="{{ post.url }}"><h2 class="post-title">{{ post.title }}</h2></a>
+            <p class="post-blurb js-avoid-orphan">{{ post.postSummary }}</p>
+            <a href="{{ post.url }}" class="post-link btn gray">Read more</a>
+          </div>
+        </article>
+      {% endfor %}
+    {% endcache %}
+
+    <div class="paginate">
+
+      <div class="paginate__link prev">
+        {% if paginate.prevUrl %}
+            <a href="{{ paginate.prevUrl }}" class="paginate__link--text">Previous Page</a>
+        {% endif %}
+      </div>
+
+      <div class="paginate__link next">
+        {% if paginate.nextUrl %}
+            <a href="{{ paginate.nextUrl }}" class="paginate__link--text">Next Page</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}

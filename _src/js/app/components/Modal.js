@@ -38,7 +38,7 @@ export default class Modal {
     }).then((response) => {
       this._fillContainer(response);
     }).catch((error) => {
-      console.log(error);
+      this._fillContainer(error);
     });
   }
 

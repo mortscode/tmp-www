@@ -1,0 +1,134 @@
+<div class="builder">
+  {% for block in entry.postBuilder %}
+
+    {% if block.type == "textBlock" %}
+      <div class="builder__section builder--text top-double bot-double">
+        <div class="builder__section--text {{ block.position }}">
+          {{ block.text }}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if block.type == "callout" %}
+      <div class="builder__section builder--callout top-{{ block.paddingTop }} bot-{{ block.paddingBottom }}">
+        <div class="builder__section--callout">
+          <hr class="bq-hr top">
+          <blockquote class="text {{ block.textColor }} js-avoid-orphan">{{ block.text }}</blockquote>
+          {% if block.cite|length %}
+            <p class="cite {{ block.textColor }}">~ {{ block.cite }}</span>
+          {% endif %}
+          <hr class="bq-hr bot">
+        </div>
+      </div>
+    {% endif %}
+
+    {% if block.type == "photos" %}
+      <div class="builder__section builder--photos top-{{ block.paddingTop}} bot-{{ block.paddingBottom}}">
+        <div class="builder__section--photos {{ block.photoWidth }}">
+          {% for photo in block.imageFiles %}
+              <div class="image-wrapper {% if block.imageFiles|length >= 2 %}gallery{% endif %} {% if block.mobileStack.contains('stack') %}m-stack{% endif %} js-scrolls animate -fade-up" data-offset="0.8">
+                <img class="image js-lazy-img" data-img-src="{{ photo.url }}" alt="">
+              </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if block.type == "button" %}
+      <div class="builder__section builder--button top-{{ block.paddingTop}} bot-{{ block.paddingBottom}}">
+        <div class="builder__section--button">
+          {% set linkit = block.button %}
+          {% switch linkit.type %}
+
+              {% case "entry" %}
+
+                  <a href="{{ linkit.entry.url }}" {{ linkit.target ? ' target="_blank"' }} class="btn {{ block.color }}" title="{{ linkit.entry.title }}">{{ linkit.entry.title }}</a>
+
+              {% case "asset" %}
+
+                  <a href="{{ linkit.asset.url }}" {{ linkit.target ? ' target="_blank"' }} class="btn {{ block.color }}" title="{{ linkit.asset.title }}" download>{{ linkit.linkText }}</a>        
+
+              {% case "custom" %}
+
+                  <a href="{{ linkit.custom }}" {{ linkit.target ? ' target="_blank"' }} class="btn {{ block.color }}" title="{{ linkit.linkText }}">{{ linkit.linkText }}</a>
+
+          {% endswitch %}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if block.type == "recipe" %}
+      <div class="builder__section builder--recipe top-double bot-double">
+        <div class="builder__section--ingredients">
+          <h3 class="ingredients-title caps">{{ entry.title }}</h3>
+          <p class="servings">Serves {{ block.servings }}</p>
+
+          {% if block.mainListTitle|length %}
+            <h3 class="ingredients-title">{{ block.mainListTitle }}</h3>
+          {% else %}
+            <h3 class="ingredients-title">Ingredients</h3>
+          {% endif %}
+          
+          <table class="ingredients-list" style="width:100%">
+          {% for ingredient in block.mainIngredientsList %}
+              <tr class="row">
+                <td class="amount">{{ ingredient.amount }}</td>
+                {% if ingredient.linkUrl|length %}
+                  <td class="ingredient"><a href="{{ ingredient.linkUrl }}" target="_blank">{{ ingredient.ingredient }}</a></td>
+                {% else %}
+                  <td class="ingredient">{{ ingredient.ingredient }}</td>
+                {% endif %}
+              </tr>
+          {% endfor %}
+          </table>
+          
+          {% if block.secondListTitle|length %}
+            <h3 class="ingredients-title">{{ block.secondListTitle }}</h3>
+          {% endif %}
+          
+          {% if block.secondIngredientsList|length %}
+            <table class="ingredients-list" style="width:100%">
+            {% for ingredient in block.secondIngredientsList %}
+                <tr class="row">
+                  <td class="amount">{{ ingredient.amount }}</td>
+                  {% if ingredient.linkUrl|length %}
+                    <td class="ingredient"><a href="{{ ingredient.linkUrl }}" target="_blank">{{ ingredient.ingredient }}</a></td>
+                  {% else %}
+                    <td class="ingredient">{{ ingredient.ingredient }}</td>
+                  {% endif %}
+                </tr>
+            {% endfor %}
+            </table>
+          {% endif %}
+
+          {% if block.thirdListTitle|length %}
+            <h3 class="ingredients-title">{{ block.thirdListTitle }}</h3>
+          {% endif %}
+          
+          {% if block.thirdIngredientsList|length %}
+            <table class="ingredients-list" style="width:100%">
+            {% for ingredient in block.thirdIngredientsList %}
+                <tr class="row">
+                  <td class="amount">{{ ingredient.amount }}</td>
+                  {% if ingredient.linkUrl|length %}
+                    <td class="ingredient"><a href="{{ ingredient.linkUrl }}" target="_blank">{{ ingredient.ingredient }}</a></td>
+                  {% else %}
+                    <td class="ingredient">{{ ingredient.ingredient }}</td>
+                  {% endif %}
+                </tr>
+            {% endfor %}
+            </table>
+          {% endif %}
+          <h3>Method</h3>
+          <div class="method">
+            {{ block.method }}
+          </div>
+          <div class="recipe__download">
+            <a href="#" target="_blank" class="js-print-recipe"><div class="recipe__download--button btn pop small">Print Recipe</div></a>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+
+  {% endfor %}
+</div>

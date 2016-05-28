@@ -1,0 +1,32 @@
+{#
+ # News index template
+ # -------------------
+ #}
+
+{% extends "_layout" %}
+{% set title = "Categories" %}
+
+{% block content %}
+	<div class="grid">
+    {% include 'posts/_categories' %}
+
+    {% set mainCat = craft.categories.group('recipes') %}
+
+    <div class="posts">
+      <h1 class="posts__title">{{ category }}</h1>
+      <div class="posts__results">
+
+        {# Fetch all of the entries related to this category #}
+        {% set entries = craft.entries.relatedTo(category) %}
+        {% for entry in entries.limit(24) %}
+          <a class="posts__result--item" href="{{ entry.url }}">
+            <div class="posts__result" style="background-image:url('{{ entry.featuredImage.first.url('postImage') }}');">
+              <p class="posts__result--date">{{ entry.postDate|date("M j, Y") }}</p>
+              <h3 class="posts__result--title">{{ entry.title }}</h3>
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

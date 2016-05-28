@@ -1,0 +1,17 @@
+{# HOME INTRO #}
+{% set pageUrl = url(craft.request.path) %}
+{% if pageUrl == siteUrl %}
+ {% include 'partials/_home-intro' %}
+{% endif %}
+
+<header id="header" class="site-header js-site-header js-scrolls" data-int-offset="0">
+  <div class="sticky-header">
+    {% include 'partials/_navigation' with {'navView': 'desktop'} %}
+    <a href="/">
+     <div class="tmp-logo-wrapper js-header-logo">
+      <img class="tmp-logo" src="/assets/img/brand/tmp-logo.svg" onerror="this.onerror=null; this.src='/assets/img/brand/tmp-logo.png'">
+     </div>
+    </a>
+    {% include 'partials/_social-links' %}
+  </div>
+</header>

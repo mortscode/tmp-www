@@ -1,0 +1,88 @@
+{#
+ # News entry template
+ # -------------------
+ #}
+
+{% extends "_layout" %}
+
+{% block content %}
+	<div class="grid">
+    {% cache %}
+    <article class="post">
+      <div class="post__title">
+        <h3 class="post__title--date">{{ entry.postDate.format('F d, Y') }}</h3>
+        <h1 class="post__title--text">{{ entry.title }}</h1>
+      </div>
+
+        <div class="post__share">
+          {% set recipe = entry.recipeStatus %}
+          {% if recipe|length %}
+          <a href="#" class="js-print-recipe"><div class="post__share--download btn pop small">Print Recipe</div></a>
+          {% endif %}
+          {% include 'partials/_share' %}
+        </div>
+      <div class="post__image--wrapper">
+        <img src="{{ entry.featuredImage.first.url('homeFeature') }}" alt="{{ entry.title }}" class="post__image">
+      </div>
+
+      {% if entry.postAuthor|length %}
+        <div class="post__author--wrapper">
+          <h5 class="post__author--text">Story by {{ entry.postAuthor }}</h5>
+        </div>
+      {% endif %}
+
+      {% include 'partials/_post-builder' %}
+
+      {% if entry.recipeStatus|length %}
+        {% include 'partials/_recipe-builder' %}
+      {% endif %}
+    </article>
+
+    {% set vars = {'align' : 'right', 'featured' : 'false'} %}
+    {% include 'partials/_aside' with vars %}
+    {% endcache %}
+  </div>
+
+  {% include 'partials/_instructions' %}
+  {% include 'partials/_more-posts' %}
+  
+{% endblock %}
+
+{% block footerJs %}
+
+<script async defer data-pin-hover="true" data-pin-color="white" src="//assets.pinterest.com/js/pinit.js"></script>
+
+{# FB SHARE #}
+<script>
+
+  window.fbAsyncInit = function() {
+      FB.init({
+          appId: 942027902529517,
+          status: true,
+          cookie: true,
+          xfbml: true
+      });
+  };
+
+  (function(d, debug){var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];if   (d.getElementById(id)) {return;}js = d.createElement('script'); js.id = id; js.async = true;js.src = "//connect.facebook.net/en_US/all" + (debug ? "/debug" : "") + ".js";ref.parentNode.insertBefore(js, ref);}(document, /*debug*/ false));
+
+  function postToFeed(title, desc, url, image) {
+      var obj = {method: 'feed',link: url, picture: image,name: title,description: desc};
+      function callback(response) {}
+      FB.ui(obj, callback);
+  }
+
+  var fbShareBtn = document.querySelector('.fb_share');
+  fbShareBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      var title = fbShareBtn.getAttribute('data-title'),
+          desc = fbShareBtn.getAttribute('data-desc'),
+          url = fbShareBtn.getAttribute('href'),
+          image = fbShareBtn.getAttribute('data-image');
+      postToFeed(title, desc, url, image);
+
+      return false;
+  });
+</script>
+
+{% endblock %}

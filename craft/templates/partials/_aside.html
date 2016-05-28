@@ -1,0 +1,20 @@
+<aside class="aside-column {{ align }}">
+  <section class="about-tmp js-scrolls animate -fade-in" data-offset="0.75">
+    {% set pageUrl = url(craft.request.path) %}
+    {% if pageUrl != siteUrl %}
+      <div class="logo-wrapper">
+        <img class="logotype" src="/assets/img/brand/tmp-logotype.svg" onerror="this.onerror=null; this.src='/assets/img/brand/tmp-logotype@2x.png'">
+      </div>
+    {% endif %}
+    <a href="/about">
+      <div class="about-img" style="background-image:url('{{ asideColumn.asidePhoto.first.url('asidePhoto') }}');"></div>
+    </a>
+    <h3 class="aside-title">{{ asideColumn.asideTitle }}</span></h3>
+    <p class="aside-blurb js-avoid-orphan">{{ asideColumn.asideBlurb }}</p>
+    <a href="/contact"><div class="btn aside pop">Contact us</div></a>
+  </section>
+  {% include 'partials/_newsletter-button' %}
+  {% if featured == "true" %}
+    {% include 'partials/_featured' %}
+  {% endif %}
+</aside>

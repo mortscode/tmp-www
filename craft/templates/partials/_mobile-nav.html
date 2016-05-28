@@ -1,0 +1,17 @@
+<div class="mobile-nav">
+  <div class="m-nav-menu js-mobile-menu">
+    <div class="m-nav-content">
+      <div class="logo-wrapper">
+        <img class="logotype" src="/assets/img/brand/tmp-logotype.svg" onerror="this.onerror=null; this.src='/assets/img/brand/tmp-logotype@2x.png'">
+      </div>
+      {% include 'partials/_navigation' with {'navView' : 'mobile'} %}
+      {% include 'partials/_social-links' %}
+    </div>
+  </div>
+  <div class="m-nav-box"></div>
+  <div class="m-search-btn js-search-icon"></div>
+  {% include 'partials/_site-search' with { 'searchView' : 'mobile' } %}
+  <button class="nav-btn js-nav-button" type="button" role="button" aria-label="Toggle Navigation">
+    <span class="lines js-lines"></span>
+  </button>
+</div>

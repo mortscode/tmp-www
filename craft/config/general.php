@@ -12,18 +12,18 @@ return array(
   ),
 
   'staging.themodernproper.com' => array(
-    'siteUrl' => 'http://themodernproper.com',
+    'siteUrl' => 'http://staging.themodernproper.com',
     'devMode' => true,
     'environmentVariables' => array(
       'baseUrl'  => 'http://staging.themodernproper.com',
     ),
   ),
 
-  'themodernproper.com' => array(
-    'siteUrl' => 'http://themodernproper.com',
-    'devMode' => false,
-    'environmentVariables' => array(
-      'baseUrl'  => 'http://themodernproper.com',
-    ),
-  ),
+  // 'themodernproper.com' => array(
+  //   'siteUrl' => 'http://themodernproper.com',
+  //   'devMode' => false,
+  //   'environmentVariables' => array(
+  //     'baseUrl'  => 'http://themodernproper.com',
+  //   ),
+  // ),
 );

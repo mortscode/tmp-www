@@ -1,0 +1,23 @@
+<!-- // META GAME ON FLEEK // -->
+{% set siteImage = random(seo.siteImages) %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="{% if entry.pageDescription|length %}{{ entry.pageDescription }}{% else %}{{ seo.siteDescription }}{% endif %}" />
+<meta name="keywords" content="{% if seo.siteKeywords|length %}{{ seo.siteKeywords }}{% endif %}">
+
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@themodernproper">
+<meta name="twitter:creator" content="@themodernproper">
+<meta name="twitter:title" content="{% if entry.pageTitle|length %}{{ entry.pageTitle }}{% else %}{% if entry.title|length %}{{ entry.title }} / {% endif %}{{ siteName }}{% endif %}">
+<meta name="twitter:description" content="{% if entry.postSummary|length %}{{ entry.postSummary }}{% else %}{{ seo.siteDescription }}{% endif %}">
+<meta name="twitter:image" content="{{ siteUrl }}{% if entry.featuredImage|length %}{{ entry.featuredImage.first.url }}{% else %}{{ siteImage.url }}{% endif %}">
+
+<!-- Open Graph data -->
+<meta property="og:site_name" content="The Modern Proper" />
+<meta property="og:title" content="{% if entry.pageTitle|length %}{{ entry.pageTitle }}{% else %}{% if entry.title|length %}{{ entry.title }} / {% endif %}{{ siteName }}{% endif %}" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="{{ entry.url }}" />
+<meta property="og:image" content="{{ siteUrl }}{% if entry.featuredImage|length %}{{ entry.featuredImage.first.url }}{% else %}{{ siteImage.url }}{% endif %}" />
+<meta property="og:description" content="{% if entry.pageDescription|length %}{{ entry.pageDescription }}{% else %}{{ entry.postSummary }}{% endif %}" /> 
+<meta property="og:type" content="article" />
+{# <meta property="fb:admins" content="217725341721253" /> #}
