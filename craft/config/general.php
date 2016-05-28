@@ -3,6 +3,7 @@
 return array(
   '*' => array(
     'omitScriptNameInUrls' => true,
+    'limitAutoSlugsToAscii' => true,
   ),
 
   'craft.dev' => array(
