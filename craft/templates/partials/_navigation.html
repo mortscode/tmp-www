@@ -14,7 +14,8 @@
       <a href="{{ link.url }}" {{ link.target ? ' target="_blank"' }} title="{{ link.linkText }}"><li class="nav-item">{{ link.linkText }}</li></a>
     {% endfor %}
     {% if navView == "mobile" %}
-      <a href="/contact" title="Contact"><li class="nav-item no-line">Contact</li></a>
+      <a href="/contact" title="Contact"><li class="nav-item">Contact</li></a>
+      <a href="#" title="Contact"><li class="nav-item no-line js-modal-init" data-modal="newsletter">News & Updates</li></a>
     {% endif %}
   </ul>
 </nav>

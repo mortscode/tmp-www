@@ -38,8 +38,8 @@ $base-font-color: $tmp-dark;
 $action-color: darken($tmp-brand, 15%);
 
 // Transitions
-$quick-ease: 250ms ease-in-out;
-$med-ease: 500ms ease-in-out;
+$ease-fast: 250ms ease-in-out;
+$ease-med: 500ms ease-in-out;
 
 // Border
 $base-border-color: rgba($tmp-gray, 0.5);
@@ -55,6 +55,7 @@ $navi-transition: 0.4s;
 
 // z-index
 $z-nav: 8765310;
+$z-aside: $z-nav - 1;
 $z-modal: $z-nav + 10;
 $z-home-intro: $z-nav + 5;
 $z-m-nav: $z-nav + 10;

@@ -41,7 +41,7 @@
     pointer-events: none;
     opacity: 0;
     transform: translateX(-50%);
-    transition: opacity $quick-ease;
+    transition: opacity $ease-fast;
 
     @include breakpoint($vp3) {
       z-index: $z-m-nav;
@@ -84,7 +84,7 @@
 
       .search-wrapper {
         opacity: 0.7;
-        transition: opacity $quick-ease;
+        transition: opacity $ease-fast;
         cursor: pointer;
         display: inline-block;
         background-image: url("/assets/img/icons/search-icon.svg");
@@ -123,7 +123,7 @@
         color: rgba($tmp-dark, 0.7);
         font-size: rem(16);
         margin: 0;
-        transition: color $quick-ease;
+        transition: color $ease-fast;
 
         &:hover {
           color: $action-color;
@@ -145,7 +145,7 @@
     .social-list {
 
       .social-item {
-        transition: background-color $quick-ease;
+        transition: background-color $ease-fast;
         background-color: rgba($tmp-gray, 0.5);
         border-radius: 100%;
         display: inline-block;

@@ -16,7 +16,7 @@
     {# {% set posts = craft.entries.section('posts') %} #}
     {% cache %}
       {% for post in posts %}
-        <article class="post-summary js-scrolls animate -fade{% if loop.first %}-in{% else %}-up{% endif %}" data-offset="0.75">
+        <article class="post-summary js-scrolls animate -fade{% if loop.first %}-in{% else %}-up{% endif %}" data-offset="0.8">
           <div class="post-image-wrapper">
             <a href="{{ post.url }}">
               <img class="post-image js-lazy-img" data-img-src="{{ post.featuredImage.first.url('homeFeature') }}" alt="{{ post.title }}">
