@@ -11,7 +11,7 @@
     transform: translateY(-50%);
     padding: 0;
     overflow: hidden;
-    transition: width $med-ease;
+    transition: width $ease-med;
 
     @include breakpoint($vp3) {
       display: none;
@@ -56,7 +56,7 @@
     left: 55px;
     right: 100%;
     overflow: hidden;
-    transition: right $med-ease;
+    transition: right $ease-med;
     visibility: hidden;
 
     @include breakpoint($vp3) {
@@ -124,7 +124,7 @@
   background-position: 50% 50%;
   background-color: rgba($white, 0);
   opacity: 0.8;
-  transition: opacity $quick-ease;
+  transition: opacity $ease-fast;
 
   @include breakpoint($vp2) {
     left: 0;

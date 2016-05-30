@@ -1,4 +1,6 @@
 .aside-column {
+  z-index: $z-aside;
+  position: relative;
 
   .aside-title,
   .newsletter-title {
@@ -56,7 +58,7 @@
   }
 
   .about-tmp {
-    margin-bottom: $base-spacing;
+    margin-bottom: $large-spacing;
 
     .logo-wrapper {
       width: 100%;
@@ -80,34 +82,9 @@
   }
 
   .newsletter {
-    margin: $large-spacing auto 0;
-    border-top: 1px solid rgba($tmp-gray, 0.7);
+    z-index: $z-aside;
     padding: $large-spacing 0;
-
-    .email-input {
-      background-color: darken($tmp-light, 5%);
-      width: 100%;
-      margin-bottom: $small-spacing / 2;
-      padding: $small-spacing / 2;
-      transition: background-color $med-ease;
-      color: darken($tmp-gray, 10%);
-      border-bottom: 2px solid darken($tmp-light, 5%);
-
-      @include breakpoint($vp2) {
-        font-size: rem(18);
-        line-height: rem(24);
-      }
-
-      &:focus {
-        background-color: $white;
-        color: darken($tmp-gray, 10%);
-        border-bottom: 2px solid rgba($tmp-gray, 0.5);
-      }
-    }
-
-    .response {
-      margin: $small-spacing 0;
-    }
+    border-top: 1px solid rgba($tmp-gray, 0.7);
   }
 
   .featured {
@@ -153,7 +130,7 @@
         padding: $small-spacing;
         font-size: rem(14);
         line-height: rem(18);
-        transition: background-color $quick-ease;
+        transition: background-color $ease-fast;
 
         @include breakpoint($vp4) {
           font-size: rem(12);

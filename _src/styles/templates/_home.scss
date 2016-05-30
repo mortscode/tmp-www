@@ -30,7 +30,7 @@
     }
 
     .post-title {
-      transition: color $quick-ease;
+      transition: color $ease-fast;
       color: darken($tmp-gray, 20%);
 
       &:hover {

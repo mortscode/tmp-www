@@ -31,7 +31,7 @@
     max-width: 100%;
     max-height: 100%;
     overflow-y: hidden;
-    transition: height $med-ease, min-height $med-ease;
+    transition: height $ease-med, min-height $ease-med;
 
     &.is-open {
       height: 100vh;
@@ -50,7 +50,7 @@
       max-width: 400px;
       margin: 0 auto;
       padding: em(80) $large-spacing;
-      transition: transform $med-ease, opacity $quick-ease;
+      transition: transform $ease-med, opacity $ease-fast;
 
       @include breakpoint($vp-short) {
         padding: em(40) $large-spacing;
@@ -85,7 +85,7 @@
       text-align: center;
 
       .social-item {
-        transition: background-color $quick-ease;
+        transition: background-color $ease-fast;
         background-color: rgba($tmp-gray, 0.5);
         border-radius: 100%;
         display: inline-block;
