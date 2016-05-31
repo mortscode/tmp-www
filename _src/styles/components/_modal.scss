@@ -16,7 +16,6 @@
     pointer-events: auto;
 
     .modal__content {
-      height: auto;
       transform: translate(-50%, -50%);
     }
   }
@@ -101,6 +100,7 @@
     transition: height $ease-med, transform $ease-med;
 
     @include breakpoint($vp2) {
+      transform: translate(-50%, -50%);
       height: 60vh;
     }
   }

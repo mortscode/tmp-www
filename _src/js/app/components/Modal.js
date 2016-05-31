@@ -40,19 +40,16 @@ export default class Modal {
       method: 'GET'
 
     }).then((response) => {
-      this._fillContainer(response);
-      // >>>>> how do I handle this?
-      setTimeout(() => {
-        this._showModal();
-      }, 250);
+      this._fillContainer(response, this._showModal.bind(this));
     }).catch((error) => {
       this._fillContainer(error);
     });
   }
 
-  _fillContainer(data) {
+  _fillContainer(data, callback) {
     const $data = $(data);
     this.$modalContent[0].appendChild($data[0]);
+    callback();
   }
 
   _emptyContainer() {
