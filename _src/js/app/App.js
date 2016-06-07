@@ -12,8 +12,10 @@ import Modal from './components/Modal';
 export default class App {
   constructor() {
     this.$lazyImgs = $('.js-lazy-img');
+    this.$loadMore = $('.js-load-posts');
     this.$scrolls = $('.js-scrolls');
     this.$modals = $('.js-modal-init');
+    this.$loadPosts = $('.js-load-posts');
     this.$orphans = $('.js-avoid-orphan');
     this.orphanArray = [];
     this.initialize();
@@ -27,6 +29,7 @@ export default class App {
     this._mapModals();
     this._mapOrphans();
     this._mapScrolls();
+    this._mapLoadPosts();
     this._printRecipe();
   }
 

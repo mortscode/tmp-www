@@ -1,9 +1,29 @@
 <IfModule mod_rewrite.c>
-	RewriteEngine On
+  RewriteEngine On
 
-	# Send would-be 404 requests to Craft
-	RewriteCond %{REQUEST_FILENAME} !-f
-	RewriteCond %{REQUEST_FILENAME} !-d
-	RewriteCond %{REQUEST_URI} !^/(favicon\.ico|apple-touch-icon.*\.png)$ [NC]
-	RewriteRule (.+) index.php?p=$1 [QSA,L]
+  #301 Specific Posts
+  RewriteRule ^post\/130835012447\/(.*)$ http://themodernproper.com/posts/grilled-ham-and-cheese-sandwich-with-red-pepper-jelly [L,R=301]
+  RewriteRule ^post\/128113497737\/(.*)$ http://themodernproper.com/posts/grilled-peaches-with-vanilla-sour-cream-orange-whisky-caramel [L,R=301]
+  RewriteRule ^post\/126808892197\/(.*)$ http://themodernproper.com/posts/marx-foods-breakfast-challenge-featuring-wild-boar-bacon [L,R=301]
+  RewriteRule ^post\/124246413052\/(.*)$ http://themodernproper.com/posts/lamb-burger-with-harissa-mayo-and-pickled-red-cabbage [L,R=301]
+  RewriteRule ^post\/123579354977\/(.*)$ http://themodernproper.com/posts/mediterranean-style-zucchini-fritters-with-tzatziki-dipping-sauce [L,R=301]
+  RewriteRule ^post\/121223122072\/(.*)$ http://themodernproper.com/posts/coconut-cream-popsicles-with-vanilla-bean-and-malibu-rum [L,R=301]
+  RewriteRule ^post\/120775311486\/(.*)$ http://themodernproper.com/posts/malasada-style-doughnut-holes-with-three-dipping-sauces [L,R=301]
+  RewriteRule ^post\/120119396422\/(.*)$ http://themodernproper.com/posts/beer-battered-cod-lettuce-wraps-with-toasted-sesame-slaw [L,R=301]
+  RewriteRule ^post\/118446589887\/(.*)$ http://themodernproper.com/posts/bruleed-grapefruit-with-yogurt-olive-oil-pistachios-a-mothers-day-survey-to-ask-your-kids [L,R=301]
+  RewriteRule ^post\/116467144018\/(.*)$ http://themodernproper.com/posts/almond-butter-toast-with-bananas-and-toasted-coconut [L,R=301]
+  RewriteRule ^post\/116034406967\/(.*)$ http://themodernproper.com/posts/yogurt-and-olive-oil-pistachio-cake-with-lemon-buttercream-frosting [L,R=301]
+  RewriteRule ^post\/115422693227\/(.*)$ http://themodernproper.com/posts/roasted-artichoke-stuffed-with-garlic-lemon-and-honey-chevre [L,R=301]
+  RewriteRule ^post\/114668933189\/(.*)$ http://themodernproper.com/posts/spring-salad-with-barley-and-lemon-chive-vinaigrette [L,R=301]
+
+  #301 Redirects
+  RewriteRule ^post\/(\d+)\/(.*)$ http://themodernproper.com/posts/$2 [L,R=301]
+  RewriteRule ^page\/(.*)$ http://themodernproper.com/ [L,R=301]
+  RewriteRule ^tagged\/(.*)$ http://themodernproper.com/posts [L,R=301]
+
+  # Send would-be 404 requests to Craft
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_URI} !^/(favicon\.ico|apple-touch-icon.*\.png)$ [NC]
+  RewriteRule (.+) index.php?p=$1 [QSA,L]
 </IfModule>

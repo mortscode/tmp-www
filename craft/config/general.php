@@ -20,11 +20,11 @@ return array(
     ),
   ),
 
-  // 'themodernproper.com' => array(
-  //   'siteUrl' => 'http://themodernproper.com',
-  //   'devMode' => false,
-  //   'environmentVariables' => array(
-  //     'baseUrl'  => 'http://themodernproper.com',
-  //   ),
-  // ),
+  'themodernproper.com' => array(
+    'siteUrl' => 'https://themodernproper.com',
+    'devMode' => false,
+    'environmentVariables' => array(
+      'baseUrl'  => 'https://themodernproper.com',
+    ),
+  ),
 );

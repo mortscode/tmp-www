@@ -4,6 +4,10 @@
   &.active {
     height: em(80);
 
+    @include breakpoint($vp3) {
+      height: em(40);
+    }
+
     .sticky-header {
       position: fixed;
       top: 0;
