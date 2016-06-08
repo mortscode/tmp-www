@@ -1,4 +1,5 @@
 import $ from 'properjs-hobo';
+import emitter from '../utils/emitter';
 
 export default class LoadPosts {
   constructor(elem) {
@@ -15,11 +16,11 @@ export default class LoadPosts {
   _clickEvents() {
     this.$elem.on('click', (e) => {
       e.preventDefault();
-      this._getXhr();
+      this._getXhr(this._reloadPosts.bind(this));
     });
   }
 
-  _getXhr() {
+  _getXhr(callback) {
     $.ajax({
 
       url: '/posts/ajax',
@@ -29,16 +30,20 @@ export default class LoadPosts {
     }).then((response) => {
       const $response = $(response);
       const cutScript = $response.length - 2;
-      for(var i = 0; i < cutScript; i++) {
-        console.log($response[i]);
+      for (let i = 0; i < cutScript; i++) {
         this._appendPosts($response[i]);
       }
+      callback();
     }).catch((error) => {
-      console.log('error');
+      console.log(`error: ${error}`);
     });
   }
 
   _appendPosts(data) {
     this.$feed.appendChild(data);
+  }
+
+  _reloadPosts() {
+    emitter.fire('app--reload-posts');
   }
 }

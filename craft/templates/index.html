@@ -12,6 +12,7 @@
   {% include 'partials/_aside' with vars %}
 
   <div id="home-posts" class="home-posts">
+    {# {% include 'posts/ajax' %} #}
     {% paginate craft.entries.section('postEntries').limit(10) as posts %}
     {% cache %}
       {% for post in posts %}
