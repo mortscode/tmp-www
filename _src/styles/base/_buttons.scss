@@ -70,6 +70,10 @@
     font-size: rem(12);
   }
 
+  &.remove {
+    display: none;
+  }
+
   &:disabled {
     cursor: not-allowed;
     opacity: 0.5;

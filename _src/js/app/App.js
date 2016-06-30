@@ -5,6 +5,7 @@ import emitter from './utils/emitter';
 import scroller from './utils/scroller';
 import resizer from './utils/resizer';
 import SearchButton from './components/SearchButton';
+import LoadPosts from './components/LoadPosts';
 import MobileNav from './components/MobileNav';
 import ScrollElems from './components/ScrollElems';
 import Modal from './components/Modal';
@@ -12,8 +13,10 @@ import Modal from './components/Modal';
 export default class App {
   constructor() {
     this.$lazyImgs = $('.js-lazy-img');
+    this.$loadMore = $('.js-load-posts');
     this.$scrolls = $('.js-scrolls');
     this.$modals = $('.js-modal-init');
+    this.$loadPosts = $('.js-load-posts');
     this.$orphans = $('.js-avoid-orphan');
     this.orphanArray = [];
     this.initialize();
@@ -24,6 +27,7 @@ export default class App {
     this.mobileNav = new MobileNav('.js-nav-button');
     loadImages(this.$lazyImgs);
     this._bindEvents();
+    this._mapLoadPosts();
     this._mapModals();
     this._mapOrphans();
     this._mapScrolls();
@@ -37,6 +41,20 @@ export default class App {
 
     resizer.on('resize', () => {
       emitter.fire('app--resizer');
+    });
+
+    emitter.on('app--reload-posts', () => {
+      this.$scrolls = $('.js-scrolls');
+      this.$lazyImgs = $('.js-lazy-img');
+      this._mapScrolls();
+      loadImages(this.$lazyImgs);
+    });
+  }
+
+  _mapLoadPosts() {
+    this.$loadPosts.each((elem, i) => {
+      const $elem = $(this.$loadPosts[i]);
+      $elem.data('loadPosts', new LoadPosts($elem));
     });
   }
 

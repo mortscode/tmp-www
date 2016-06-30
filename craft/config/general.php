@@ -16,15 +16,15 @@ return array(
     'siteUrl' => 'http://staging.themodernproper.com',
     'devMode' => true,
     'environmentVariables' => array(
-      'baseUrl'  => 'http://staging.themodernproper.com',
+      'baseUrl'  => 'http://staging.themodernproper.com'
     ),
   ),
 
-  // 'themodernproper.com' => array(
-  //   'siteUrl' => 'http://themodernproper.com',
-  //   'devMode' => false,
-  //   'environmentVariables' => array(
-  //     'baseUrl'  => 'http://themodernproper.com',
-  //   ),
-  // ),
+  'themodernproper.com' => array(
+    'siteUrl' => 'https://themodernproper.com',
+    'devMode' => false,
+    'environmentVariables' => array(
+      'baseUrl'  => 'https://themodernproper.com'
+    ),
+  ),
 );
