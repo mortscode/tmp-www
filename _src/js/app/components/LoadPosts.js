@@ -4,7 +4,8 @@ import emitter from '../utils/emitter';
 export default class LoadPosts {
   constructor(elem) {
     this.$elem = $(elem);
-    this.$feed = document.getElementById('home-posts');
+    this.$feed = $('.post-wrapper')[0];
+    this.pageNum = 2;
 
     this.initialize();
   }
@@ -16,34 +17,27 @@ export default class LoadPosts {
   _clickEvents() {
     this.$elem.on('click', (e) => {
       e.preventDefault();
-      this._getXhr(this._reloadPosts.bind(this));
+      this._getXhr();
+      this.pageNum++;
     });
   }
 
-  _getXhr(callback) {
+  _getXhr() {
     $.ajax({
-
-      url: '/posts/ajax',
+      url: `/posts/ajax/p${this.pageNum}`,
       dataType: 'html',
-      method: 'GET'
-
+      method: 'POST'
     }).then((response) => {
-      const $response = $(response);
-      const cutScript = $response.length - 2;
-      for (let i = 0; i < cutScript; i++) {
-        this._appendPosts($response[i]);
-      }
-      callback();
+      const frag = document.createDocumentFragment();
+      $(response).forEach((el) => {
+        if (el.tagName === 'ARTICLE' || el.tagName === 'DIV') {
+          frag.appendChild(el);
+        }
+      });
+      this.$feed.appendChild(frag);
+      emitter.fire('app--reload-posts');
     }).catch((error) => {
       console.log(`error: ${error}`);
     });
-  }
-
-  _appendPosts(data) {
-    this.$feed.appendChild(data);
-  }
-
-  _reloadPosts() {
-    emitter.fire('app--reload-posts');
   }
 }

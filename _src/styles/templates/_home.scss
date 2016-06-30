@@ -31,11 +31,11 @@
 
     .post-title {
       transition: color $ease-fast;
-      color: darken($tmp-gray, 20%);
+      text-decoration: none;
+      color: $tmp-dark;
 
       &:hover {
-        color: $tmp-gray;
-        text-decoration: none;
+        color: darken($tmp-gray, 10%);
       }
     }
 
@@ -121,6 +121,25 @@
           text-align: center;
         }
       }
+    }
+  }
+
+  .load-more {
+    text-align: center;
+    padding: $large-spacing 0;
+
+    @include breakpoint($vp2) {
+      width: 100%;
+      padding: 0;
+
+      .btn {
+        width: 100%;
+        padding: $base-spacing;
+      }
+    }
+
+    @include breakpoint($vp1) {
+      padding: $base-spacing 0 0;
     }
   }
 }

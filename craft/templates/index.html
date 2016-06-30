@@ -3,7 +3,13 @@
  # ---------------
  #}
 
-{% extends "_layout" %}
+{% if craft.request.isAjax %}
+  {% set layout = "posts/_post-loop" %}
+{% else %}
+  {% set layout = "_layout" %}
+{% endif %}
+
+{% extends layout %}
 
 {% block content %}
 <div class="grid">
@@ -11,41 +17,8 @@
   {% set vars = {'align' : 'left', 'featured' : 'true'} %}
   {% include 'partials/_aside' with vars %}
 
-  <div id="home-posts" class="home-posts">
-    {# {% include 'posts/ajax' %} #}
-    {% paginate craft.entries.section('postEntries').limit(10) as posts %}
-    {% cache %}
-      {% for post in posts %}
-        <article class="post-summary js-scrolls animate -fade{% if loop.first %}-in{% else %}-up{% endif %}" data-offset="0.85">
-          <div class="post-image-wrapper">
-            <a href="{{ post.url }}">
-              <img class="post-image js-lazy-img" data-img-src="{{ post.featuredImage.first.url('homeFeature') }}" alt="{{ post.title }}">
-            </a>
-          </div>
-          <div class="post-description">
-            <h3 class="post-date">{{ post.postDate|date("F j, Y") }}</h3>
-            <a href="{{ post.url }}"><h2 class="post-title">{{ post.title }}</h2></a>
-            <p class="post-blurb js-avoid-orphan">{{ post.postSummary }}</p>
-            <a href="{{ post.url }}" class="post-link btn gray">Read more</a>
-          </div>
-        </article>
-      {% endfor %}
-    {% endcache %}
-
-    <div class="paginate">
-
-      <div class="paginate__link prev">
-        {% if paginate.prevUrl %}
-            <a href="{{ paginate.prevUrl }}" class="paginate__link--text">Previous Page</a>
-        {% endif %}
-      </div>
-
-      <div class="paginate__link next">
-        {% if paginate.nextUrl %}
-            <a href="{{ paginate.nextUrl }}" class="paginate__link--text">Next Page</a>
-        {% endif %}
-      </div>
-    </div>
+  <div id="home-posts" class="home-posts js-home-posts">
+    {% include 'posts/_post-entries' %}
   </div>
 </div>
 {% endblock %}

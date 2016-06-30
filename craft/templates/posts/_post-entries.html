@@ -1,8 +1,8 @@
-{% paginate craft.entries.section('postEntries').limit(3) as posts %}
-{# {% set posts = craft.entries.section('posts') %} #}
+{% paginate craft.entries.section('postEntries').limit(8) as posts %}
 {# {% cache %} #}
+<div class="post-wrapper">
   {% for post in posts %}
-    <article class="post-summary js-scrolls animate -fade{% if loop.first %}-in{% else %}-up{% endif %}" data-offset="0.85">
+    <article class="post-summary js-scrolls animate -fade-up" data-offset="0.85">
       <div class="post-image-wrapper">
         <a href="{{ post.url }}">
           <img class="post-image js-lazy-img" data-img-src="{{ post.featuredImage.first.url('homeFeature') }}" alt="{{ post.title }}">
@@ -16,13 +16,10 @@
       </div>
     </article>
   {% endfor %}
-{# {% endcache %} #}
+</div>
 
 {% if paginate.nextUrl %}
-  {% if craft.request.isAjax %}
-    <a href="{{ paginate.nextUrl }}" class="btn gray js-load-posts">Load More Ajax</a>
-  {% else %}
-    <a href="{{ paginate.nextUrl }}" class="btn gray js-load-posts">Load More</a>
-  {% endif %}
-    {# <div class="loading hidden"><img src="/assets/img/theme/kgo-loader.gif" alt="Please wait.." /></div> #}
+  <div class="load-more">
+    <a href="posts/ajax/p2" class="btn pop js-load-posts">Load More Posts</a>
+  </div>
 {% endif %}
