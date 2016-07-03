@@ -1,6 +1,7 @@
 # Craft runtime and backups folders
 # ----------------------------------------------------------------------
 craft/config/db.php
+craft/config/license.key
 craft/storage/runtime/*
 craft/storage/backups/*
 craft/app/
