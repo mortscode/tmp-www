@@ -6,17 +6,20 @@ return array(
     'limitAutoSlugsToAscii' => true,
   ),
 
-  'craft.dev' => array(
+  '.dev' => array(
     'devMode' => true,
-    'environment' => 'local',
-    'siteUrl' => 'http://tmp-www.craft.dev'
+    'siteUrl' => 'http://tmp-www.craft.dev',
+    'environmentVariables' => array(
+      'baseUrl'  => 'http://tmp-www.craft.dev'
+    ),
   ),
 
   'staging.themodernproper.com' => array(
-    'siteUrl' => 'http://staging.themodernproper.com',
+    'siteUrl' => 'https://staging.themodernproper.com',
     'devMode' => true,
     'environmentVariables' => array(
-      'baseUrl'  => 'http://staging.themodernproper.com'
+      'basePath' => $_SERVER['DOCUMENT_ROOT'] . '/',
+      'baseUrl'  => 'https://staging.themodernproper.com'
     ),
   ),
 
@@ -24,6 +27,7 @@ return array(
     'siteUrl' => 'https://themodernproper.com',
     'devMode' => false,
     'environmentVariables' => array(
+      'basePath' => $_SERVER['DOCUMENT_ROOT'] . '/',
       'baseUrl'  => 'https://themodernproper.com'
     ),
   ),

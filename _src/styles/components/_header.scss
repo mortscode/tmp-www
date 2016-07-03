@@ -99,7 +99,7 @@
         margin-right: em(3);
         transform: translateY(3px);
 
-        &:after {
+        &::after {
           content: "";
           display: block;
           padding-bottom: 100%;

@@ -42,7 +42,7 @@
       margin-bottom: gutter(4);
     }
 
-    &:after {
+    &::after {
       content: "";
       display: block;
       padding-bottom: 70%;

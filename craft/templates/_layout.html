@@ -18,7 +18,7 @@
 {% endif %}
 
 <body class="tk-fade{% if recipe is defined and true %} print-styles{% endif %}">
-  
+
   {# DESKTOP NAVIGATION #}
   {% include 'partials/_header' %}
 
@@ -51,6 +51,6 @@
   <script src="/assets/js/main.js"></script>
   {% block newsletterJs %}{% endblock %}
   {% block footerJs %}{% endblock %}
-  {% include 'scripts/_analytics' %}
+  <!-- {# include 'scripts/_analytics' #} -->
 </body>
 </html>

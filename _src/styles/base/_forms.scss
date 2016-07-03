@@ -39,7 +39,6 @@ textarea {
   font-style: italic;
   font-weight: 600;
   margin-bottom: 0;
-  transition: border-color;
   box-sizing: border-box;
   transition: background-color $ease-fast, border-bottom $ease-fast;
 
@@ -48,8 +47,8 @@ textarea {
   }
 
   &:focus {
-    background-color: $white;
-    border-bottom: 2px solid $tmp-dark;
+    background-color: lighten($tmp-light, 2%);
+    border-bottom: 2px solid $tmp-gray;
     outline: none;
   }
 }

@@ -55,7 +55,7 @@
         @include span(12);
       }
 
-      &:after {
+      &::after {
         content: "";
         display: block;
         padding-bottom: 150%;
@@ -98,7 +98,7 @@
           margin-top: $base-spacing;
         }
 
-        &:before {
+        &::before {
           content: "";
           display: inline-block;
           height: 1px;

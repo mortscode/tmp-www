@@ -32,7 +32,7 @@
     border-radius: 100%;
     transition: background-color $ease-fast;
 
-    &:after {
+    &::after {
       content: "";
       display: block;
       padding-bottom: 100%;

@@ -79,7 +79,7 @@
         @include gallery(3 of 6);
       }
 
-      &:after {
+      &::after {
         content: "";
         display: block;
         padding-bottom: 60%;

@@ -73,7 +73,7 @@
       width: 100%;
       margin-bottom: $base-spacing;
 
-      &:after {
+      &::after {
         content: "";
         display: block;
         padding-bottom: 100%;
@@ -96,7 +96,7 @@
       width: 100%;
       margin-top: $small-spacing;
 
-      &:after {
+      &::after {
         content: "";
         display: block;
         padding-top: 140%;

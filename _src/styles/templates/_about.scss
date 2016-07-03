@@ -21,7 +21,7 @@
       @include push(0);
     }
 
-    &:after {
+    &::after {
       content: "";
       display: block;
       padding-bottom: 56%;

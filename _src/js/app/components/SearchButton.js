@@ -5,6 +5,7 @@ export default class SearchButton {
     this.$elem = $(elem);
     this.$searchForm = $('.js-search-form');
     this.$searchField = $('.js-search');
+    this.search = document.getElementById('js-search');
     this.$headerlogo = $('.js-header-logo');
     this.isOpen = false;
 
@@ -27,6 +28,7 @@ export default class SearchButton {
 
   showSearch() {
     this.$searchForm.addClass('is-open');
+    this.search.focus();
     this.$headerlogo.addClass('hide');
     this.$elem.addClass('close');
     this.isOpen = true;

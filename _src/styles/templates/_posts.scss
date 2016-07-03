@@ -78,7 +78,7 @@
         margin-bottom: gutter(6);
       }
 
-      &:after {
+      &::after {
         content: "";
         display: block;
         padding-bottom: 60%;
@@ -146,4 +146,3 @@
     }
   }
 }
-

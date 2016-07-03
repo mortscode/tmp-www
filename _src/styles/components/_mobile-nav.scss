@@ -93,7 +93,7 @@
         margin: 0 2%;
         position: relative;
 
-        &:after {
+        &::after {
           content: "";
           display: block;
           padding-bottom: 100%;
@@ -177,8 +177,8 @@
       position: relative;
 
       /*create the upper and lower lines as pseudo-elements of the middle line*/
-      &:before,
-      &:after {
+      &::before,
+      &::after {
 
         @include line;
         position: absolute;
@@ -187,8 +187,8 @@
         transform-origin: $navi-size / 14 center;
       }
 
-      &:before { top: $navi-size / 3; }
-      &:after { top: -$navi-size / 3; }
+      &::before { top: $navi-size / 3; }
+      &::after { top: -$navi-size / 3; }
 
       &.close {
 
@@ -196,19 +196,19 @@
         background: transparent;
 
         /*overlay the lines by setting both their top values to 0*/
-        &:before,
-        &:after {
+        &::before,
+        &::after {
           transform-origin: 50% 50%;
           top: 0;
           width: $navi-size;
         }
 
         // rotate the lines to form the x shape
-        &:before {
+        &::before {
           transform: rotate3d(0, 0, 1, 45deg);
         }
 
-        &:after {
+        &::after {
           transform: rotate3d(0, 0, 1, -45deg);
         }
       }
