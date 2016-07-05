@@ -6,25 +6,29 @@ return array(
     'limitAutoSlugsToAscii' => true,
   ),
 
-  'craft.dev' => array(
+  '.dev' => array(
     'devMode' => true,
-    'environment' => 'local',
-    'siteUrl' => 'http://tmp-www.craft.dev'
-  ),
-
-  'staging.themodernproper.com' => array(
-    'siteUrl' => 'http://staging.themodernproper.com',
-    'devMode' => true,
+    'siteUrl' => 'http://tmp-www.craft.dev',
     'environmentVariables' => array(
-      'baseUrl'  => 'http://staging.themodernproper.com',
+      'baseUrl'  => 'http://tmp-www.craft.dev'
     ),
   ),
 
-  // 'themodernproper.com' => array(
-  //   'siteUrl' => 'http://themodernproper.com',
-  //   'devMode' => false,
-  //   'environmentVariables' => array(
-  //     'baseUrl'  => 'http://themodernproper.com',
-  //   ),
-  // ),
+  'staging.themodernproper.com' => array(
+    'siteUrl' => 'https://staging.themodernproper.com',
+    'devMode' => true,
+    'environmentVariables' => array(
+      'basePath' => $_SERVER['DOCUMENT_ROOT'] . '/',
+      'baseUrl'  => 'https://staging.themodernproper.com'
+    ),
+  ),
+
+  'themodernproper.com' => array(
+    'siteUrl' => 'https://themodernproper.com',
+    'devMode' => false,
+    'environmentVariables' => array(
+      'basePath' => $_SERVER['DOCUMENT_ROOT'] . '/',
+      'baseUrl'  => 'https://themodernproper.com'
+    ),
+  ),
 );

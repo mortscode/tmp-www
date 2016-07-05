@@ -31,7 +31,7 @@
     max-width: 100%;
     max-height: 100%;
     overflow-y: hidden;
-    transition: height $med-ease, min-height $med-ease;
+    transition: height $ease-med, min-height $ease-med;
 
     &.is-open {
       height: 100vh;
@@ -50,7 +50,7 @@
       max-width: 400px;
       margin: 0 auto;
       padding: em(80) $large-spacing;
-      transition: transform $med-ease, opacity $quick-ease;
+      transition: transform $ease-med, opacity $ease-fast;
 
       @include breakpoint($vp-short) {
         padding: em(40) $large-spacing;
@@ -85,7 +85,7 @@
       text-align: center;
 
       .social-item {
-        transition: background-color $quick-ease;
+        transition: background-color $ease-fast;
         background-color: rgba($tmp-gray, 0.5);
         border-radius: 100%;
         display: inline-block;
@@ -93,7 +93,7 @@
         margin: 0 2%;
         position: relative;
 
-        &:after {
+        &::after {
           content: "";
           display: block;
           padding-bottom: 100%;
@@ -177,8 +177,8 @@
       position: relative;
 
       /*create the upper and lower lines as pseudo-elements of the middle line*/
-      &:before,
-      &:after {
+      &::before,
+      &::after {
 
         @include line;
         position: absolute;
@@ -187,8 +187,8 @@
         transform-origin: $navi-size / 14 center;
       }
 
-      &:before { top: $navi-size / 3; }
-      &:after { top: -$navi-size / 3; }
+      &::before { top: $navi-size / 3; }
+      &::after { top: -$navi-size / 3; }
 
       &.close {
 
@@ -196,19 +196,19 @@
         background: transparent;
 
         /*overlay the lines by setting both their top values to 0*/
-        &:before,
-        &:after {
+        &::before,
+        &::after {
           transform-origin: 50% 50%;
           top: 0;
           width: $navi-size;
         }
 
         // rotate the lines to form the x shape
-        &:before {
+        &::before {
           transform: rotate3d(0, 0, 1, 45deg);
         }
 
-        &:after {
+        &::after {
           transform: rotate3d(0, 0, 1, -45deg);
         }
       }

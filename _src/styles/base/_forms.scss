@@ -29,8 +29,9 @@ label {
 #{$all-text-inputs},
 select[multiple=multiple],
 textarea {
-  background-color: $tmp-light;
+  background-color: darken($tmp-light, 5%);
   border: none;
+  border-bottom: 2px solid $tmp-light;
   border-radius: $base-border-radius;
   box-shadow: none;
   font-family: $base-font-family;
@@ -38,15 +39,16 @@ textarea {
   font-style: italic;
   font-weight: 600;
   margin-bottom: 0;
-  transition: border-color;
   box-sizing: border-box;
+  transition: background-color $ease-fast, border-bottom $ease-fast;
 
   &:hover {
     // border-color: darken($base-border-color, 10%);
   }
 
   &:focus {
-    background-color: $tmp-light;
+    background-color: lighten($tmp-light, 2%);
+    border-bottom: 2px solid $tmp-gray;
     outline: none;
   }
 }

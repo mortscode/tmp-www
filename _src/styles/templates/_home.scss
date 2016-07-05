@@ -30,12 +30,12 @@
     }
 
     .post-title {
-      transition: color $quick-ease;
-      color: darken($tmp-gray, 20%);
+      transition: color $ease-fast;
+      text-decoration: none;
+      color: $tmp-dark;
 
       &:hover {
-        color: $tmp-gray;
-        text-decoration: none;
+        color: darken($tmp-gray, 10%);
       }
     }
 
@@ -55,7 +55,7 @@
         @include span(12);
       }
 
-      &:after {
+      &::after {
         content: "";
         display: block;
         padding-bottom: 150%;
@@ -98,7 +98,7 @@
           margin-top: $base-spacing;
         }
 
-        &:before {
+        &::before {
           content: "";
           display: inline-block;
           height: 1px;
@@ -121,6 +121,25 @@
           text-align: center;
         }
       }
+    }
+  }
+
+  .load-more {
+    text-align: center;
+    padding: $large-spacing 0;
+
+    @include breakpoint($vp2) {
+      width: 100%;
+      padding: 0;
+
+      .btn {
+        width: 100%;
+        padding: $base-spacing;
+      }
+    }
+
+    @include breakpoint($vp1) {
+      padding: $base-spacing 0 0;
     }
   }
 }

@@ -30,9 +30,9 @@
     max-width: $large-spacing;
     margin: $base-spacing 4%;
     border-radius: 100%;
-    transition: background-color $quick-ease;
+    transition: background-color $ease-fast;
 
-    &:after {
+    &::after {
       content: "";
       display: block;
       padding-bottom: 100%;

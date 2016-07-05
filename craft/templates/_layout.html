@@ -18,7 +18,7 @@
 {% endif %}
 
 <body class="tk-fade{% if recipe is defined and true %} print-styles{% endif %}">
-  
+
   {# DESKTOP NAVIGATION #}
   {% include 'partials/_header' %}
 
@@ -32,9 +32,12 @@
    {% endblock %}
   </main>
 
-  <div class="modal js-modal">
-    <div class="modal__content js-modal-content">
-      
+  <div class="modal js-modal" alt="modal-window">
+    <div class="modal__content">
+      <div class="modal__close js-modal-close">
+        <div class="modal__close--line" alt="close"></div>
+      </div>
+      <div class="js-modal-content"></div>
     </div>
   </div>
 
@@ -48,6 +51,6 @@
   <script src="/assets/js/main.js"></script>
   {% block newsletterJs %}{% endblock %}
   {% block footerJs %}{% endblock %}
-  {% include 'scripts/_analytics' %}
+  <!-- {# include 'scripts/_analytics' #} -->
 </body>
 </html>

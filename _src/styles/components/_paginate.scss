@@ -17,7 +17,7 @@
       @include span(6);
 
       .paginate__link--text {
-        &:before {
+        &::before {
           content: "<<";
           margin-right: $small-spacing;
         }
@@ -29,7 +29,7 @@
       text-align: right;
 
       .paginate__link--text {
-        &:after {
+        &::after {
           content: ">>";
           margin-left: $small-spacing;
         }

@@ -21,8 +21,8 @@
 @mixin line {
   display: inline-block;
   width: $navi-size;
-  height: $navi-size/9;
+  height: $navi-size / 9;
   background: $tmp-gray;
-  border-radius: $navi-size/14;
+  border-radius: $navi-size / 14;
   transition: $navi-transition;
 }

@@ -1,0 +1,46 @@
+{% block content %}
+  <div>
+    {% set seoImg = seo.siteImages.order('RAND()') %}
+    <div class="modal__image" style="background-image:url('{{ seoImg.first.url }}');"></div>
+    <div class="contact modal__form">
+      {% macro errorList(errors) %}
+        {% if errors %}
+          <ul class="errors">
+            {% for error in errors %}
+              <li>{{ error }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      {% endmacro %}
+
+      {% from _self import errorList %}
+
+      <h3 class="newsletter-title">Send a Note</h3>
+      <p class="newsletter-text">Ask us a question or let us know how we're doing. We'll personally get back to you as quickly as possible.</p>
+
+      <form method="post" action="" accept-charset="UTF-8">
+        {{ getCsrfInput() }}
+        <input type="hidden" name="action" value="contactForm/sendMessage">
+        <input type="hidden" name="redirect" value="contact/thanks">
+
+        {{ message is defined and message ? errorList(message.getErrors('fromName')) }}
+        <input id="fromName" class="modal__form--field" type="text" name="fromName" value="{% if message is defined %}{{ message.fromName }}{% endif %}" autofocus="autofocus" placeholder="Your name">
+
+        {{ message is defined and message ? errorList(message.getErrors('fromEmail')) }}
+        <input id="fromEmail" class="modal__form--field" type="text" name="fromEmail" value="{% if message is defined %}{{ message.fromEmail }}{% endif %}" placeholder="Your email">
+
+        {{ message is defined and message ? errorList(message.getErrors('subject')) }}
+        <input id="subject" class="modal__form--field" type="text" name="subject" value="{% if message is defined %}{{ message.subject }}{% endif %}" placeholder="Message subject">
+
+        {{ message is defined and message ? errorList(message.getErrors('message')) }}
+        <textarea rows="10" cols="40" id="message" name="message[body]" placeholder="Your message">{% if message is defined %}{{ message.message }}{% endif %}</textarea>
+
+        <input id="recipes" name="recipes" type="text">
+
+        <input type="submit" value="Send">
+      </form>
+
+      {# <p class="contact__blurb">You can also email us at <a href="mailto:hello@themodernproper.com?subject=Hey ladies from TMP!">hello@themodernproper.com</a></p> #}
+    </div>
+  </div>
+{% endblock %}

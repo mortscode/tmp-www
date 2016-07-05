@@ -26,7 +26,7 @@
     background-position: 0 50%;
     background-repeat: no-repeat;
     filter: grayscale(0.3);
-    transition: filter $quick-ease;
+    transition: filter $ease-fast;
 
     @include breakpoint($vp2) {
       background-size: cover;
@@ -79,7 +79,7 @@
         @include gallery(3 of 6);
       }
 
-      &:after {
+      &::after {
         content: "";
         display: block;
         padding-bottom: 60%;
@@ -103,7 +103,7 @@
       padding: 0 span(1);
       transform: translateY(-50%);
       color: $tmp-gray;
-      transition: color $quick-ease;
+      transition: color $ease-fast;
 
       @include breakpoint($vp2) {
         padding: span(1.5) span(1);
@@ -134,7 +134,7 @@
       font-style: italic;
       text-align: center;
       color: $white;
-      transition: background-color $quick-ease;
+      transition: background-color $ease-fast;
 
       @include breakpoint($vp2) {
         @include full;

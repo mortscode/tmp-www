@@ -1,5 +1,6 @@
 .post {
   @include span(10 wide);
+  z-index: $z-post-content;
   padding: $large-spacing $base-spacing;
   margin-top: $large-spacing;
   position: relative;
@@ -35,7 +36,7 @@
         @include push(0);
       }
 
-      &:before {
+      &::before {
         content: "";
         display: inline-block;
         height: 1px;
@@ -131,7 +132,7 @@
         margin-top: $base-spacing;
       }
 
-      &:after {
+      &::after {
         content: "";
         display: block;
         padding-bottom: 150%;

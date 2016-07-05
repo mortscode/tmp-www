@@ -1,4 +1,8 @@
 .footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
   background-color: $white;
   padding: $base-spacing span(1 of 24);
   font-size: rem(12);

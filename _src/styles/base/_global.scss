@@ -2,9 +2,18 @@ html {
   box-sizing: border-box;
 }
 
+body {
+  position: relative;
+  padding-bottom: $large-spacing + $base-spacing;
+
+  @include breakpoint($vp2) {
+    padding-bottom: $large-spacing;
+  }
+}
+
 *,
-*:before,
-*:after {
+*::before,
+*::after {
   box-sizing: inherit;
 }
 

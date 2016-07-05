@@ -1,0 +1,25 @@
+{% paginate craft.entries.section('postEntries').limit(8) as posts %}
+{# {% cache %} #}
+<div class="post-wrapper">
+  {% for post in posts %}
+    <article class="post-summary js-scrolls animate -fade-up" data-offset="0.85">
+      <div class="post-image-wrapper">
+        <a href="{{ post.url }}">
+          <img class="post-image js-lazy-img" data-img-src="{{ post.featuredImage.first.url('homeFeature') }}" alt="{{ post.title }}">
+        </a>
+      </div>
+      <div class="post-description">
+        <h3 class="post-date">{{ post.postDate|date("F j, Y") }}</h3>
+        <a href="{{ post.url }}"><h2 class="post-title">{{ post.title }}</h2></a>
+        <p class="post-blurb js-avoid-orphan">{{ post.postSummary }}</p>
+        <a href="{{ post.url }}" class="post-link btn gray">Read more</a>
+      </div>
+    </article>
+  {% endfor %}
+</div>
+
+{% if paginate.nextUrl %}
+  <div class="load-more">
+    <a href="posts/ajax/p2" class="btn pop js-load-posts">Load More Posts</a>
+  </div>
+{% endif %}

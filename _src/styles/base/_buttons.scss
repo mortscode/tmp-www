@@ -19,7 +19,7 @@
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
-  transition: background-color $quick-ease;
+  transition: background-color $ease-fast;
 
   @include breakpoint($vp2) {
     font-size: rem(13);
@@ -68,6 +68,10 @@
 
   &.small {
     font-size: rem(12);
+  }
+
+  &.remove {
+    display: none;
   }
 
   &:disabled {
