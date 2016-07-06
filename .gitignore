@@ -1,6 +1,7 @@
 # Craft runtime and backups folders
 # ----------------------------------------------------------------------
 craft/config/db.php
+craft/config/general.php
 craft/config/license.key
 craft/storage/runtime/*
 craft/storage/backups/*
@@ -10,12 +11,11 @@ craft/storage/
 
 # Uploaded files
 # ----------------------------------------------------------------------
-html/assets/uploads/*
+public/assets/uploads/*
 public/assets/
 public/icons/
 node_modules/
 data/
-zz-archive/
 
 # Misc files
 # ----------------------------------------------------------------------
@@ -26,6 +26,9 @@ Thumbs.db
 .settings
 .tmproj
 *.esproj
+.babelrc
+.eslintrc
+.scss-lint.yml
 nbproject
 *.sublime-workspace
 *.sublime-project
