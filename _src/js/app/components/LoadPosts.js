@@ -5,7 +5,7 @@ export default class LoadPosts {
   constructor(elem) {
     this.$elem = $(elem);
     this.$feed = $('.post-wrapper')[0];
-    this.nextPageUrl = this.$elem.data('next-page');
+    this.pageNum = 2;
 
     this.initialize();
   }
@@ -18,12 +18,13 @@ export default class LoadPosts {
     this.$elem.on('click', (e) => {
       e.preventDefault();
       this._getXhr();
+      this.pageNum++;
     });
   }
 
   _getXhr() {
     $.ajax({
-      url: `/posts/ajax/${this.nextPageUrl}`,
+      url: `/posts/ajax/p${this.pageNum}`,
       dataType: 'html',
       method: 'POST'
     }).then((response) => {
