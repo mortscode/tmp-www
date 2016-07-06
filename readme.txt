@@ -1,21 +1,9 @@
-Welcome to Craft CMS!
-
-Here are some online resources you might find useful:
+[![Deployment status from DeployBot](https://the-modern-proper.deploybot.com/badge/45290642029169/48785.svg)](http://deploybot.com)
 
 
-Documentation
------------------------------------------------------------------
-Installation instructions and much more.
-https://craftcms.com/docs
+##TMP
 
-
-Changelog
------------------------------------------------------------------
-Release notes with bug fixes, improvements and additions.
-https://craftcms.com/changelog
-
-
-Stack Exchange
------------------------------------------------------------------
-A great place to ask your Craft questions, meet the awesome Craft community and earn mad reputation.
-https://craftcms.stackexchange.com/
+1. [Craft](http://craftcms.com)
+2. ES6 / [Babel](http://babeljs.io)
+3. [Gulp](http://gulpjs.com)
+4. [DeployBot](http://deploybot.com)
