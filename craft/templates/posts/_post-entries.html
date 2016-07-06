@@ -19,7 +19,10 @@
 </div>
 
 {% if paginate.nextUrl %}
+{% set nextPage = paginate.nextUrl %}
+{% set url = siteUrl %}
+
   <div class="load-more">
-    <a href="posts/ajax/p2" class="btn pop js-load-posts">Load More Posts</a>
+    <a href="posts/ajax/p2" class="btn pop js-load-posts" data-next-page="{{ nextPage|replace(url, "") }}">Load More Posts</a>
   </div>
 {% endif %}
