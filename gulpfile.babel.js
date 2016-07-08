@@ -55,16 +55,17 @@ gulp.task('styles', () => {
 
 // Watch Files For Changes & Reload
 // Uncomment proxy and change to dev site local url
-gulp.task('default', ['html', 'scripts', 'styles'], () => {
+gulp.task('reload', ['html', 'scripts', 'styles'], () => {
   livereload.listen();
   gulp.watch(['craft/templates/**/*.html'], ['html']);
   gulp.watch(['_src/js/**/*.js'], ['scripts']);
   gulp.watch(['_src/styles/**/*.scss'], ['styles']);
 });
 
-gulp.task('sync', ['scripts', 'styles'], () => {
+gulp.task('default', ['scripts', 'styles'], () => {
   browserSync.init({
-    proxy: 'http://tmp-www.craft.dev'
+    proxy: 'http://tmp-www.craft.dev',
+    port: 8080
   });
   gulp.watch(['craft/templates/**/*.html'], browserSync.reload);
   gulp.watch(['_src/js/**/*.js'], ['scripts'], browserSync.reload);

@@ -19,7 +19,10 @@
 </div>
 
 {% if paginate.nextUrl %}
-  <div class="load-more">
+  {# <div class="load-more">
     <a href="posts/ajax/p2" class="btn pop js-load-posts">Load More Posts</a>
+  </div> #}
+  <div class="load-more">
+    <a href="{{ paginate.nextUrl }}" class="btn pop">More Posts</a>
   </div>
 {% endif %}
