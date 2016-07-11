@@ -12,7 +12,7 @@ craft/storage/
 # Uploaded files
 # ----------------------------------------------------------------------
 public/assets/uploads/*
-public/assets/
+public/assets/img/
 public/icons/
 node_modules/
 data/
