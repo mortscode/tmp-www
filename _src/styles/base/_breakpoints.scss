@@ -1,18 +1,4 @@
-//Breakpoints
-// $break-small: em(500);
-// $break-medium: em(800);
-// $break-large: em(1024);
-// $break-xlarge: $max-width;
-
-// $sm: new-breakpoint(max-width $break-small 12);
-// $md: new-breakpoint(max-width $break-medium 12);
-// $lg: new-breakpoint(max-width $break-large 12);
-// $xl: new-breakpoint(max-width $break-xlarge 12);
-
-// $lg-up: new-breakpoint(min-width $break-large 12);
-
-// $short: new-breakpoint(max-height em(800) 12);
-
+// Breakpoints
 $vp1: max-width 400px;
 $vp2: max-width 600px;
 $vp3: max-width 960px;
