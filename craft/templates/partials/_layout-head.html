@@ -8,11 +8,11 @@
   <title>{% if entry is defined %}{% if entry.pageTitle|length %}{{ entry.pageTitle }}{% else %}{% if entry.title|length %}{{ entry.title }} / {% endif %}{{ siteName }}{% endif %}{% else %}{{ siteName }}{% endif %}</title>
 
   {% if entry is defined %}
-   {% include 'partials/_meta-tags'%}  
+   {# {% include 'partials/_meta-tags'%} #}
   {% else %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="{{ seo.siteDescription }}" />
-    <meta name="keywords" content="{% if seo.siteKeywords|length %}{{ seo.siteKeywords }}{% endif %}">  
+    <meta name="keywords" content="{% if seo.siteKeywords|length %}{{ seo.siteKeywords }}{% endif %}">
   {% endif %}
 
   <script src="https://use.typekit.net/hqj3djf.js"></script>
@@ -35,7 +35,9 @@
   <meta name="msapplication-TileColor" content="#f2f2f2">
   <meta name="msapplication-TileImage" content="/icons/ms-icon-144x144.png">
   <meta name="theme-color" content="#f2f2f2">
+  {% cache for 4 hours %}
   <link rel="stylesheet" href="/assets/styles/main.css">
-  <link rel="alternate" type="application/rss+xml" 
+  {% endcache %}
+  <link rel="alternate" type="application/rss+xml"
    href="{{ siteUrl }}feed.rss" title="RSS feed for The Modern Proper">
  </head>

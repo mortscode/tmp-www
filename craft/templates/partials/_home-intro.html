@@ -1,8 +1,10 @@
 <section class="home-intro">
   <div class="home-intro__top">
+    {% cache for 4 hours %}
     <div class="logo-wrapper js-scrolls animate -fade-in">
       <a href="/"><img class="logotype" src="/assets/img/brand/tmp-logotype.svg" onerror="this.onerror=null; this.src='/assets/img/brand/tmp-logotype@2x.png'"></a>
     </div>
+    {% endcache %}
   </div>
   <div class="home-intro__tagline">
     <div class="grid">
