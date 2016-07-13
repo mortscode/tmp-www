@@ -7,7 +7,7 @@
 
 {% block content %}
 	<div class="grid">
-    {% cache %}
+    {% cache for 2 weeks %}
     <article class="post">
       <div class="post__title">
         <h3 class="post__title--date">{{ entry.postDate.format('F d, Y') }}</h3>
@@ -37,15 +37,15 @@
         {% include 'partials/_recipe-builder' %}
       {% endif %}
     </article>
+    {% endcache %}
 
     {% set vars = {'align' : 'right', 'featured' : 'false'} %}
     {% include 'partials/_aside' with vars %}
-    {% endcache %}
   </div>
-
+	
   {% include 'partials/_instructions' %}
   {% include 'partials/_more-posts' %}
-  
+
 {% endblock %}
 
 {% block footerJs %}

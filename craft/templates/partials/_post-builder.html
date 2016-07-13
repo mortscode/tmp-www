@@ -23,7 +23,6 @@
     {% endif %}
 
     {% if block.type == "photos" %}
-      {% cache for 2 weeks %}
       <div class="builder__section builder--photos top-{{ block.paddingTop}} bot-{{ block.paddingBottom}}">
         <div class="builder__section--photos {{ block.photoWidth }}">
           {% for photo in block.imageFiles %}
@@ -33,7 +32,6 @@
           {% endfor %}
         </div>
       </div>
-      {% endcache %}
     {% endif %}
 
     {% if block.type == "button" %}
