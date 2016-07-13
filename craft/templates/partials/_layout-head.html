@@ -5,14 +5,27 @@
   <meta content="IE=edge" http-equiv="X-UA-Compatible">
   <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
 
-  <title>{% if entry is defined %}{% if entry.pageTitle|length %}{{ entry.pageTitle }}{% else %}{% if entry.title|length %}{{ entry.title }} | {% endif %}{{ siteName }}{% endif %}{% else %}{{ siteName }}{% endif %}</title>
+  <title>
+    {% if entry is defined %}
+      {% if entry.pageTitle|length %}
+        {{ entry.pageTitle }}
+      {% else %}
+        {% if entry.title|length %}
+          {{ entry.title }} |
+        {% endif %}
+          {{ siteName }}
+      {% endif %}
+      {% else %}
+        {{ siteName }}
+    {% endif %}
+  </title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="{% if entry.pageDescription|length %}{{ entry.pageDescription }}{% else %}{{ seo.siteDescription }}{% endif %}" />
   <meta name="keywords" content="{% if seo.siteKeywords|length %}{{ seo.siteKeywords }}{% endif %}">
 
-  {# {% include 'partials/_meta-tags'%} #}
-  {% hook 'seomaticRender' %}
+  {% include 'partials/_meta-tags'%}
+  {# {% hook 'seomaticRender' %} #}
 
   <script src="https://use.typekit.net/hqj3djf.js"></script>
   <script>try{Typekit.load({ async: true });}catch(e){}</script>
