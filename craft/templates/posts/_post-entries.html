@@ -1,5 +1,5 @@
 {% paginate craft.entries.section('postEntries').limit(8) as posts %}
-{# {% cache %} #}
+
 <div class="post-wrapper">
   {% for post in posts %}
     <article class="post-summary js-scrolls animate -fade-up" data-offset="0.85">
