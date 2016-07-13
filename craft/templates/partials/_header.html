@@ -9,7 +9,9 @@
     {% include 'partials/_navigation' with {'navView': 'desktop'} %}
     <a href="/">
      <div class="tmp-logo-wrapper js-header-logo">
-      <img class="tmp-logo" src="/assets/img/brand/tmp-logo.svg" onerror="this.onerror=null; this.src='/assets/img/brand/tmp-logo.png'">
+       {% cache for 4 hours %}
+       <img class="tmp-logo" src="/assets/img/brand/tmp-logo.svg" onerror="this.onerror=null; this.src='/assets/img/brand/tmp-logo.png'">
+       {% endcache %}
      </div>
     </a>
     {% include 'partials/_social-links' %}

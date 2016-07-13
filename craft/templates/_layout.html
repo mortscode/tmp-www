@@ -47,8 +47,9 @@
       <div class="right-side"><a href="/contact">send us a message :)</a></div>
     </div>
   </footer>
-
+  {% cache for 4 hours %}
   <script src="/assets/js/main.js"></script>
+  {% endcache %}
   {% block newsletterJs %}{% endblock %}
   {% block footerJs %}{% endblock %}
   {% include 'scripts/_analytics' %}
