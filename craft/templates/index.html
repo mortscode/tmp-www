@@ -12,13 +12,16 @@
 {% extends layout %}
 
 {% block content %}
-<div class="grid">
 
-  {% set vars = {'align' : 'left', 'featured' : 'true'} %}
-  {% include 'partials/_aside' with vars %}
+  {% cache for 2 weeks %}
+    <div class="grid">
 
-  <div id="home-posts" class="home-posts js-home-posts">
-    {% include 'posts/_post-entries' %}
-  </div>
-</div>
+      {% set vars = {'align' : 'left', 'featured' : 'true'} %}
+      {% include 'partials/_aside' with vars %}
+
+      <div id="home-posts" class="home-posts js-home-posts">
+        {% include 'posts/_post-entries' %}
+      </div>
+    </div>
+  {% endcache %}
 {% endblock %}

@@ -23,6 +23,7 @@
     {% endif %}
 
     {% if block.type == "photos" %}
+      {% cache for 2 weeks %}
       <div class="builder__section builder--photos top-{{ block.paddingTop}} bot-{{ block.paddingBottom}}">
         <div class="builder__section--photos {{ block.photoWidth }}">
           {% for photo in block.imageFiles %}
@@ -32,6 +33,7 @@
           {% endfor %}
         </div>
       </div>
+      {% endcache %}
     {% endif %}
 
     {% if block.type == "button" %}
@@ -46,7 +48,7 @@
 
               {% case "asset" %}
 
-                  <a href="{{ linkit.asset.url }}" {{ linkit.target ? ' target="_blank"' }} class="btn {{ block.color }}" title="{{ linkit.asset.title }}" download>{{ linkit.linkText }}</a>        
+                  <a href="{{ linkit.asset.url }}" {{ linkit.target ? ' target="_blank"' }} class="btn {{ block.color }}" title="{{ linkit.asset.title }}" download>{{ linkit.linkText }}</a>
 
               {% case "custom" %}
 
@@ -68,7 +70,7 @@
           {% else %}
             <h3 class="ingredients-title">Ingredients</h3>
           {% endif %}
-          
+
           <table class="ingredients-list" style="width:100%">
           {% for ingredient in block.mainIngredientsList %}
               <tr class="row">
@@ -81,11 +83,11 @@
               </tr>
           {% endfor %}
           </table>
-          
+
           {% if block.secondListTitle|length %}
             <h3 class="ingredients-title">{{ block.secondListTitle }}</h3>
           {% endif %}
-          
+
           {% if block.secondIngredientsList|length %}
             <table class="ingredients-list" style="width:100%">
             {% for ingredient in block.secondIngredientsList %}
@@ -104,7 +106,7 @@
           {% if block.thirdListTitle|length %}
             <h3 class="ingredients-title">{{ block.thirdListTitle }}</h3>
           {% endif %}
-          
+
           {% if block.thirdIngredientsList|length %}
             <table class="ingredients-list" style="width:100%">
             {% for ingredient in block.thirdIngredientsList %}
