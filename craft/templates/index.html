@@ -12,8 +12,6 @@
 {% extends layout %}
 
 {% block content %}
-
-  {% cache for 2 weeks %}
     <div class="grid">
 
       {% set vars = {'align' : 'left', 'featured' : 'true'} %}
@@ -23,5 +21,4 @@
         {% include 'posts/_post-entries' %}
       </div>
     </div>
-  {% endcache %}
 {% endblock %}

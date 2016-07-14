@@ -1,6 +1,7 @@
 {% paginate craft.entries.section('postEntries').limit(8) as posts %}
 
 <div class="post-wrapper">
+  {% cache for 2 weeks unless craft.config.devMode %}
   {% for post in posts %}
     <article class="post-summary js-scrolls animate -fade-up" data-offset="0.85">
       <div class="post-image-wrapper">
@@ -16,6 +17,7 @@
       </div>
     </article>
   {% endfor %}
+  {% endcache %}
 </div>
 
 {% if paginate.nextUrl %}

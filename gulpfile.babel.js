@@ -12,7 +12,8 @@ import browserSync from 'browser-sync';
 // HTML
 gulp.task('html', () => {
   return gulp.src('craft/templates/**/*.html')
-    .pipe(browserSync.stream());
+    .pipe(browserSync.stream())
+    .pipe(livereload());
 });
 
 // SCRIPTS
@@ -24,7 +25,8 @@ gulp.task('scripts', () => {
     }))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('public/assets/js'))
-    .pipe(browserSync.stream());
+    .pipe(browserSync.stream())
+    .pipe(livereload());
 });
 
 // SCRIPTS-MINIFIED
@@ -50,7 +52,8 @@ gulp.task('styles', () => {
     }))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('public/assets/styles'))
-    .pipe(browserSync.stream());
+    .pipe(browserSync.stream())
+    .pipe(livereload());
 });
 
 // Watch Files For Changes & Reload
@@ -65,7 +68,7 @@ gulp.task('reload', ['html', 'scripts', 'styles'], () => {
 gulp.task('default', ['scripts', 'styles'], () => {
   browserSync.init({
     proxy: 'http://tmp-www.craft.dev',
-    port: 8080
+    port: 3000
   });
   gulp.watch(['craft/templates/**/*.html'], browserSync.reload);
   gulp.watch(['_src/js/**/*.js'], ['scripts'], browserSync.reload);

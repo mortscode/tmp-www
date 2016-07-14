@@ -1,3 +1,4 @@
+{% cache for 2 weeks unless craft.config.devMode %}
 <aside class="aside-column {{ align }}">
   <section class="about-tmp js-scrolls animate -fade-in" data-offset="0.75">
     {% set pageUrl = url(craft.request.path) %}
@@ -18,3 +19,4 @@
     {% include 'partials/_featured' %}
   {% endif %}
 </aside>
+{% endcache %}
