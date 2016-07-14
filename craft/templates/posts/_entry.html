@@ -7,7 +7,7 @@
 
 {% block content %}
 	<div class="grid">
-    {% cache for 2 weeks %}
+    {% cache for 2 weeks unless craft.config.devMode %}
     <article class="post">
       <div class="post__title">
         <h3 class="post__title--date">{{ entry.postDate.format('F d, Y') }}</h3>
@@ -42,7 +42,7 @@
     {% set vars = {'align' : 'right', 'featured' : 'false'} %}
     {% include 'partials/_aside' with vars %}
   </div>
-	
+
   {% include 'partials/_instructions' %}
   {% include 'partials/_more-posts' %}
 
