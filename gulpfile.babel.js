@@ -58,13 +58,6 @@ gulp.task('styles', () => {
 
 // Watch Files For Changes & Reload
 // Uncomment proxy and change to dev site local url
-// gulp.task('default', ['html', 'scripts', 'styles'], () => {
-//   livereload.listen();
-//   gulp.watch(['craft/templates/**/*.html'], ['html']);
-//   gulp.watch(['_src/js/**/*.js'], ['scripts']);
-//   gulp.watch(['_src/styles/**/*.scss'], ['styles']);
-// });
-
 gulp.task('default', ['html', 'scripts', 'styles'], () => {
   livereload.listen({
     start: true
