@@ -7,7 +7,7 @@
 
 {% block content %}
 	<div class="grid">
-    {% cache for 2 weeks unless craft.config.devMode %}
+    {% cache for 8 hours unless craft.config.devMode %}
     <article class="post">
       <div class="post__title">
         <h3 class="post__title--date">{{ entry.postDate.format('F d, Y') }}</h3>
