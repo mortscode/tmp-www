@@ -9,6 +9,17 @@
       </div>
     {% endif %}
 
+    {% if block.type == "sponsor" %}
+      <div class="builder__section builder--text top-double bot-double">
+        {% if block.sponsorDisclaimer | length %}
+          <div class="builder__section--sponsor {{ block.position }}">
+            <p>{{ block.sponsorDisclaimer }}</p>
+          </div>
+        {% endif %}
+      </div>
+      {{ block.sponsorCode|raw }}
+    {% endif %}
+
     {% if block.type == "callout" %}
       <div class="builder__section builder--callout top-{{ block.paddingTop }} bot-{{ block.paddingBottom }}">
         <div class="builder__section--callout">

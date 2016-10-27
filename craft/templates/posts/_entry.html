@@ -43,16 +43,6 @@
     {% include 'partials/_aside' with vars %}
   </div>
 
-  {% if entry.addSponsorCode %}
-  <div class="sponsor">
-    {% if entry.disclaimer | length %}
-      <p class="sponsor-text">{{ entry.disclaimer }}</p>
-    {% endif %}
-
-    {{ entry.sponsorCode|raw }}
-  </div>
-  {% endif %}
-
   {% include 'partials/_instructions' %}
   {% include 'partials/_more-posts' %}
 

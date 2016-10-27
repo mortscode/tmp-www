@@ -107,6 +107,13 @@
       }
     }
 
+    &--sponsor p {
+      text-align: center;
+      font-style: italic;
+      margin-bottom: 0;
+      color: $tmp-gray;
+    }
+
     &--callout {
       @include span(8 wide);
       @include push(3);
