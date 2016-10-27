@@ -39,12 +39,9 @@
 
     &:hover {
 
-      .posts__result--title {
-        color: darken($tmp-brand, 15%);
-      }
-
+      .posts__result--title,
       .posts__result--date {
-        background-color: rgba($tmp-gray, 0.9);
+        color: darken($tmp-brand, 15%);
       }
     }
 
@@ -95,7 +92,7 @@
 
     &--title {
       position: absolute;
-      top: 50%;
+      top: 42%;
       right: 0;
       width: 50%;
       margin: 0;
@@ -123,18 +120,18 @@
     &--date {
       @include span(5);
       position: absolute;
-      background-color: rgba($tmp-gray, 0.8);
-      top: 0;
-      left: 0;
-      padding: 3px span(1);
+      bottom: 0;
+      left: 55%;
+      padding: 3px 1%;
       margin: 0;
-      width: 50%;
-      font-size: 98%;
+      width: 40%;
+      font-size: 80%;
       font-weight: 600;
       font-style: italic;
-      text-align: center;
-      color: $white;
-      transition: background-color $ease-fast;
+      text-align: left;
+      color: $tmp-gray;
+      border-top: 1px solid rgba($tmp-gray, 0.5);
+      transition: color $ease-fast;
 
       @include breakpoint($vp2) {
         @include full;

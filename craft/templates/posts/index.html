@@ -18,7 +18,7 @@
     {% endif %}
 
     {% set firstEntryEver = craft.entries.section('postEntries').order('postDate asc').first() %}
-    
+
     <div class="posts-filter">
       <div class="filter__wrapper">
         <div class="filter__arrow"></div>
@@ -34,17 +34,16 @@
     {% include 'posts/_categories' %}
 
     <div class="posts">
-      {# <h1 class="posts__title">{{ year }} Post Archive</h1> #}
       <div class="posts__results">
       {% set entriesInYear = craft.entries.section('postEntries').limit(null).after(year).before(year+1) %}
       {% for month, entries in entriesInYear | group("postDate|date('F')") %}
-        <div class="posts__result--item js-scrolls animate -fade-up" data-offset="0.8">
+        <div class="posts__result--item js-scrolls animate -fade-up" data-offset="0.9">
           <div class="posts__result month">
             <h3 class="month__title">{{ month }} {{ year }}</h3>
           </div>
         </div>
         {% for entry in entries %}
-        <a class="posts__result--item js-scrolls animate -fade-up" href="{{ entry.url }}" data-offset="0.8">
+        <a class="posts__result--item js-scrolls animate -fade-up" href="{{ entry.url }}" data-offset="0.9">
           <div class="posts__result" style="background-image:url('{{ entry.featuredImage.first.url('postImage') }}');">
               <p class="posts__result--date">{{ entry.postDate|date("M j, Y") }}</p>
               <h3 class="posts__result--title">{{ entry.title }}</h3>
