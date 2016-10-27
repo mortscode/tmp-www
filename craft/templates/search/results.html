@@ -12,14 +12,13 @@
       {% set entries = craft.entries.section('postEntries').search(query).order('score') %}
 
       <h2 class="search__title">Posts matching "{{ query }}"</h2>
-      
+
       {% if entries|length %}
         {# <p>{{ entries|length }} results:</p> #}
         <div class="search__results">
           {% for entry in entries %}
             <a class="search__result--item" href="{{ entry.url }}">
             <div class="search__result" style="background-image:url('{{ entry.featuredImage.first.url }}');">
-                <p class="search__result--date">{{ entry.postDate|date("M j, Y") }}</p>
                 <h3 class="search__result--title js-avoid-orphan">{{ entry.title }}</h3>
             </div>
             </a>
