@@ -10,8 +10,8 @@
     {% cache for 8 hours unless craft.config.devMode %}
     <article class="post">
       <div class="post__title">
-        <h3 class="post__title--date">{{ entry.postDate.format('F d, Y') }}</h3>
-        <h1 class="post__title--text">{{ entry.title }}</h1>
+        <h3 class="post__title--date">{{entry.postDate.format('F d, Y')}}</h3>
+        <h1 class="post__title--text">{{entry.title}}</h1>
       </div>
 
         <div class="post__share">
@@ -22,12 +22,12 @@
           {% include 'partials/_share' %}
         </div>
       <div class="post__image--wrapper">
-        <img src="{{ entry.featuredImage.first.url('homeFeature') }}" alt="{{ entry.title }}" class="post__image">
+        <img src="{{entry.featuredImage.first.url}}" alt="{{entry.title}}" class="post__image">
       </div>
 
       {% if entry.postAuthor|length %}
         <div class="post__author--wrapper">
-          <h5 class="post__author--text">Story by {{ entry.postAuthor }}</h5>
+          <h5 class="post__author--text">Story by {{entry.postAuthor}}</h5>
         </div>
       {% endif %}
 
