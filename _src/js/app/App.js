@@ -7,6 +7,7 @@ import resizer from './utils/resizer';
 import SearchButton from './components/SearchButton';
 import LoadPosts from './components/LoadPosts';
 import MobileNav from './components/MobileNav';
+import Navigation from './components/Navigation';
 import ScrollElems from './components/ScrollElems';
 import Modal from './components/Modal';
 
@@ -25,6 +26,7 @@ export default class App {
   initialize() {
     this.searchButton = new SearchButton('.js-search-icon');
     this.mobileNav = new MobileNav('.js-nav-button');
+    this.navigation = new Navigation('.js-navigation');
     loadImages(this.$lazyImgs);
     this._bindEvents();
     this._mapLoadPosts();

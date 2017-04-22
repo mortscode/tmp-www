@@ -1,0 +1,14 @@
+<section class="featured">
+  <div class="featured__bg"></div>
+  <div class="featured__text">
+    <h3 class="featured__text--title">{{ featuredPosts.sectionTitle }}</h3>
+    {% if featuredPosts.sectionSubtitle|length %}
+      <p class="featured__text--subtitle">{{ featuredPosts.sectionSubtitle }}</p>
+    {% endif %}
+  </div>
+  {% for post in featuredPosts.featuredPosts %}
+  <a href="{{ post.url }}" class="featured__post">
+    <div class="featured__image js-lazy-img" data-img-src="{{post.featuredImage.first.url}}" title="{{ post.title }}"></div>
+  </a>
+  {% endfor %}
+</section>

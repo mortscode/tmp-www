@@ -6,7 +6,7 @@ export default function avoidOrphan(elem) {
   let wordCount;
 
   // On mobile, do not apply ophan rule to paragraph tags. It looks funny.
-  if (windowWidth < 640 && elem.nodeName === 'P') {
+  if (windowWidth < 900) {
     return;
   }
 

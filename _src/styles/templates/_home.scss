@@ -1,20 +1,18 @@
 .home-posts {
-  @include span(8 wide);
-  @include push(1);
-  padding-right: span(1 of 24);
-
-  @include breakpoint($vp4) {
-    @include push(1 of 24);
-  }
-
-  @include breakpoint($vp3) {
-    @include span(last 16 of 24);
-    @include push(0);
-  }
+  padding: 0 rem(120);
+  overflow-x: hidden;
 
   @include breakpoint($vp2) {
-    @include span(12);
-    padding-right: 0;
+    padding: 0;
+  }
+
+  .post-wrapper {
+    max-width: rem(1280);
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: space-between;
   }
 
   .post-summary {

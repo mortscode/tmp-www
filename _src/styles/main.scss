@@ -8,18 +8,23 @@
 @import "base/base";
 
 // COMPONENTS ============================================
-@import "components/header";
-@import "components/footer";
+@import "components/about-card";
 @import "components/aside";
 @import "components/categories";
 @import "components/contact-form";
+@import "components/featured";
 @import "components/filter";
+@import "components/footer";
+@import "components/header";
+@import "components/home-feature";
 @import "components/home-intro";
 @import "components/instructions";
 @import "components/mobile-nav";
 @import "components/modal";
 @import "components/more-posts";
+@import "components/navigation";
 @import "components/paginate";
+@import "components/post-card";
 @import "components/post-intro";
 @import "components/post-builder";
 @import "components/site-search";

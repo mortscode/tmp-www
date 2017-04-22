@@ -1,0 +1,21 @@
+<nav class="navigation js-navigation">
+  <div class="navigation__click-area js-nav-close"></div>
+  <div class="navigation__wrapper">
+    <div class="navigation__left">
+      {% include 'partials/navigation/_social' %}
+      {% include 'partials/navigation/_menu' %}
+      <div class="navigation__brand">
+        {% include 'partials/utils/icon' with {'icon':'logotype', 'classes':'navigation__brand--logo'} %}
+        <div class="navigation__brand--copyright">&copy;{{ now.year }}</div>
+      </div>
+      <div class="navigation__close--wrapper js-nav-close">
+        <div class="navigation__close">
+          {% include 'partials/utils/icon' with {'icon':'close', 'classes':'navigation__close--icon'} %}
+        </div>
+      </div>
+    </div>
+    <div class="navigation__right">
+
+    </div>
+  </div>
+</nav>

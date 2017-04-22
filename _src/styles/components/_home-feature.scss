@@ -1,0 +1,89 @@
+.home-feature {
+  display: flex;
+  flex: 0 0 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: rem(80);
+  order: -1;
+  transition: flex $ease-fast;
+
+  @include breakpoint($vp3) {
+    margin-bottom: rem(60);
+  }
+
+  &__image {
+    background: $light-gray center center no-repeat;
+    background-size: cover;
+    flex: 0 0 50%;
+    max-height: 97vh;
+    min-height: rem(750);
+    transition: flex $ease-fast;
+
+    @include breakpoint($vp4) {
+      min-height: 0;
+    }
+
+    @include breakpoint($vp3) {
+      flex: 0 1 100%;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      padding-bottom: (1000 / 667) * 100%;
+    }
+  }
+
+  &__text {
+    flex: 0 0 50%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    padding-left: rem(60);
+    transition: padding $ease-fast, flex $ease-fast;
+
+    @include breakpoint($vp4) {
+      padding-left: rem(30);
+    }
+
+    @include breakpoint($vp3) {
+      flex: 0 1 100%;
+      padding: rem(30) 0 0;
+    }
+
+    @include breakpoint($vp2) {
+      padding: rem(30) rem(24) 0;
+    }
+
+    &--date {
+      flex: 0 0 100%;
+      font-style: italic;
+      font-weight: bold;
+      color: $tmp-gray;
+      margin-bottom: rem(12);
+    }
+
+    &--title {
+      @extend %title-lg;
+      margin-bottom: rem(24);
+    }
+
+    &--summary {
+      @extend %text-lg;
+    }
+
+    &--cta {
+      margin-top: rem(40);
+
+      @include breakpoint($vp3) {
+        margin-top: rem(20);
+        flex: 0 0 47%;
+      }
+
+      @include breakpoint($vp2) {
+        flex: 0 0 100%;
+      }
+    }
+  }
+}

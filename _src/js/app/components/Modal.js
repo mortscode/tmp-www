@@ -13,10 +13,6 @@ export default class Modal {
 
   initialize() {
     this._clickEvents();
-
-    // setTimeout(() => {
-    //   this._callXhr('newsletter');
-    // }, 1000);
   }
 
   _clickEvents() {

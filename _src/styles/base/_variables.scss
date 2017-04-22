@@ -1,6 +1,8 @@
 // Typography
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i');
+
 $serif: 'minion-pro', georgia, serif;
-$sans: 'adelle-sans', -apple-system, sans-serif;
+$sans: 'Montserrat', sans-serif;
 
 $base-font-family: $serif;
 $heading-font-family: $serif;
@@ -28,18 +30,19 @@ $light-gray: #ddd;
 $white: #fff;
 
 $tmp-light: #f2f2f2;
-$tmp-gray: #8c928c;
-$tmp-brand: #f7c9b8;
-$tmp-dark: #212621;
+$tmp-gray: #969997;
+$tmp-brand: #bfaf7c;
+$tmp-dark: #2c332c;
 
 // Font Colors
 $base-background-color: $tmp-light;
 $base-font-color: $tmp-dark;
-$action-color: darken($tmp-brand, 15%);
+$action-color: $tmp-brand;
 
 // Transitions
-$ease-fast: 250ms ease-in-out;
-$ease-med: 500ms ease-in-out;
+$ease-fast: 200ms ease-in-out;
+$ease-med: 400ms ease-in-out;
+$ease-slow: 600ms ease-in-out;
 
 // Border
 $base-border-color: rgba($tmp-gray, 0.5);

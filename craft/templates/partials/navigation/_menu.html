@@ -1,0 +1,14 @@
+<ul class="navigation__menu">
+  {% for navLink in mainNavigation.navigationItems.type('navigationLink') %}
+    {% set link = navLink.linkInfo %}
+    <li class="navigation__item">
+      <a href="{{link.url}}" class="navigation__primary" {{ link.target ? ' target="_blank"' }} title="{{ link.linkText }}">{{ link.linkText }}</a>
+    </li>
+  {% endfor %}
+  {% for navLink in mainNavigation.navigationItems.type('secondaryLink') %}
+    {% set link = navLink.linkInfo %}
+    <li class="navigation__item">
+      <a href="{{link.url}}" class="navigation__secondary" {{ link.target ? ' target="_blank"' }} title="{{ link.linkText }}">{{ link.linkText }}</a>
+    </li>
+  {% endfor %}
+</ul>

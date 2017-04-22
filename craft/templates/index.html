@@ -3,22 +3,11 @@
  # ---------------
  #}
 
-{% if craft.request.isAjax %}
-  {% set layout = "posts/_post-loop" %}
-{% else %}
-  {% set layout = "_layout" %}
-{% endif %}
-
+{% set layout = "_layout" %}
 {% extends layout %}
 
 {% block content %}
-    <div class="grid">
-
-      {% set vars = {'align' : 'left', 'featured' : 'true'} %}
-      {% include 'partials/_aside' with vars %}
-
-      <div id="home-posts" class="home-posts js-home-posts">
-        {% include 'posts/_post-entries' %}
-      </div>
-    </div>
+  <div id="home-posts" class="home-posts js-home-posts">
+    {% include 'partials/home' %}
+  </div>
 {% endblock %}

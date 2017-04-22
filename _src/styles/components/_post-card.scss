@@ -1,0 +1,130 @@
+.post-card {
+  display: flex;
+  flex: 0 0 30%;
+  flex-direction: column;
+  margin-bottom: rem(60);
+  order: 1;
+
+  @include breakpoint($vp4) {
+    margin-bottom: rem(40);
+  }
+
+  @include breakpoint($vp3) {
+    flex: 0 0 47%;
+  }
+
+  @include breakpoint($vp2) {
+    flex: 0 0 50%;
+
+    &:nth-child(odd) {
+      padding: 0 rem(12) 0 rem(24);
+    }
+
+    &:nth-child(even) {
+      padding: 0 rem(24) 0 rem(12);
+    }
+
+    &.first-loop {
+      &:nth-child(even) {
+        padding: 0 rem(12) 0 rem(24);
+      }
+
+      &:nth-child(odd) {
+        padding: 0 rem(24) 0 rem(12);
+      }
+    }
+  }
+
+  @include breakpoint($vp1) {
+    flex: 0 0 100%;
+
+    &:nth-child(even),
+    &:nth-child(odd) {
+      padding: 0 rem(24);
+    }
+
+    &.first-loop {
+      &:nth-child(even),
+      &:nth-child(odd) {
+        padding: 0 rem(24);
+      }
+    }
+  }
+
+  &.after-featured {
+    order: 3;
+  }
+
+  &__image {
+    background: 50% 50% no-repeat;
+    background-size: cover;
+    flex: 0 0 auto;
+    max-height: 70vh;
+    overflow: hidden;
+    position: relative;
+
+    &::after {
+      content: "";
+      display: block;
+      padding-bottom: (1000 / 667) * 100%;
+    }
+
+    &--border {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: 0 solid $white;
+      transition: border $ease-fast;
+    }
+
+    &--cta {
+      color: $tmp-brand;
+      font-family: $sans;
+      font-size: rem(18);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: $white;
+      padding: rem(12) 0;
+      text-align: center;
+      transform: translateY(100%);
+      transition: transform $ease-fast;
+
+      @include breakpoint($vp3) {
+        font-size: rem(16);
+        padding: rem(8) 0;
+      }
+    }
+
+    &:hover,
+    &:focus {
+      .post-card__image--border {
+        border: 5px solid $white;
+
+        @include breakpoint($vp3) {
+          border: 3px solid white;
+        };
+      }
+
+      .post-card__image--cta {
+        transform: none;
+      }
+
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    padding-top: rem(24);
+  }
+
+  &__title {
+    @extend %title-md;
+    color: $tmp-dark;
+  }
+}

@@ -1,0 +1,12 @@
+<div class="post-card {% if homePage %}first-loop{% endif %} {% if index > 6 %}after-featured{% endif %} js-scrolls animate -fade-up" data-offset="0.85">
+  <a href="{{url}}" class="post-card__image js-lazy-img" data-img-src="{{image.first.url}}" title="{{title}}">
+    <div class="post-card__image--border"></div>
+    <span class="post-card__image--cta">Read post</span>
+  </a>
+  <div class="post-card__text">
+    <a href="{{url}}">
+      <h2 class="post-card__title js-avoid-orphan">{{title}}</h2>
+    </a>
+    <p class="post-card__summary js-avoid-orphan">{{summary}}</p>
+  </div>
+</div>

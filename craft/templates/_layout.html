@@ -17,36 +17,37 @@
   {% set section = 'no-section' %}
 {% endif %}
 
+{% set pageUrl = url(craft.request.path) %}
+{% if pageUrl == siteUrl %}
+  {% set homePage = true %}
+{% else %}
+  {% set homePage = false %}
+{% endif %}
+
 <body class="tk-fade{% if recipe is defined and true %} print-styles{% endif %}">
+  <div class="content">
 
-  {# DESKTOP NAVIGATION #}
-  {% include 'partials/_header' %}
+    {% include 'partials/header' %}
 
-  {# MOBILE NAVIGATION #}
-  {% include 'partials/_mobile-nav' %}
+    <main id="main" role="main" class="main js-main">
+      {% block content %}
+        <p>If you see me, you haven’t set your <code>{% verbatim %}{% block content %}…{% endblock %}{% endverbatim %}</code> yet.</p>
+        <p>See Twig’s <a href="http://twig.sensiolabs.org/doc/templates.html#template-inheritance">Template Inheritance</a> documentation for an explanation.</p>
+      {% endblock %}
+    </main>
 
-  <main id="content" role="main" class="js-main">
-   {% block content %}
-     <p>If you see me, you haven’t set your <code>{% verbatim %}{% block content %}…{% endblock %}{% endverbatim %}</code> yet.</p>
-     <p>See Twig’s <a href="http://twig.sensiolabs.org/doc/templates.html#template-inheritance">Template Inheritance</a> documentation for an explanation.</p>
-   {% endblock %}
-  </main>
+    {% include 'partials/navigation' %}
 
-  <div class="modal js-modal" alt="modal-window">
-    <div class="modal__content">
-      <div class="modal__close js-modal-close">
-        <div class="modal__close--line" alt="close"></div>
+    <div class="modal js-modal" alt="modal-window">
+      <div class="modal__content">
+        <div class="modal__close js-modal-close">
+          <div class="modal__close--line" alt="close"></div>
+        </div>
+        <div class="js-modal-content"></div>
       </div>
-      <div class="js-modal-content"></div>
     </div>
   </div>
-
-  <footer id="footer" class="footer">
-    <div class="grid">
-      <div class="left-side">&copy;{{ now.year }} / {{ craft.request.serverName }}</div>
-      <div class="right-side"><a href="/contact">send us a message :)</a></div>
-    </div>
-  </footer>
+  
   {% cache for 4 hours %}
   <script src="/assets/js/main.js"></script>
   {% endcache %}

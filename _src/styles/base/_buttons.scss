@@ -1,5 +1,4 @@
 #{$all-button-inputs},
-
 .btn {
   @include appearance(none);
   border: 0;
@@ -8,21 +7,32 @@
   cursor: pointer;
   display: inline-block;
   font-family: $sans;
-  font-size: $base-font-size;
+  font-size: rem(18);
   letter-spacing: em(0.5);
   -webkit-font-smoothing: antialiased;
   font-weight: 600;
   line-height: 1;
-  padding: $small-spacing $large-spacing;
+  padding: rem(21) rem(60);
+  text-align: center;
   text-decoration: none;
-  text-transform: uppercase;
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
-  transition: background-color $ease-fast;
+  transition: background-color $ease-fast, padding $ease-fast, width $ease-fast;
+
+  @include breakpoint($vp4) {
+    padding: rem(18) rem(50);
+  }
+
+  @include breakpoint($vp3) {
+    padding: rem(18) rem(40);
+    font-size: rem(16);
+  }
 
   @include breakpoint($vp2) {
+    padding: rem(18);
     font-size: rem(13);
+    width: 100%;
   }
 
   &.pop {

@@ -10,8 +10,10 @@
       <a href="/" title="Home"><li class="nav-item">Home</li></a>
     {% endif %}
     {% for navLink in mainNavigation.navigationItems %}
-      {% set link = navLink.linkInfo %}
-      <a href="{{ link.url }}" {{ link.target ? ' target="_blank"' }} title="{{ link.linkText }}"><li class="nav-item">{{ link.linkText }}</li></a>
+      {# {% if navLink.type == navigationLink %}
+        {% set link = navLink.navigationLink.linkInfo %}
+        <a href="{{ link.url }}" {{ link.target ? ' target="_blank"' }} title="{{ link.linkText }}"><li class="nav-item">{{ link.linkText }}</li></a>
+      {% endif %} #}
     {% endfor %}
     {% if navView == "mobile" %}
       {#<a href="/contact" title="Contact"><li class="nav-item">Contact</li></a>#}

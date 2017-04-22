@@ -1,0 +1,92 @@
+.about-card {
+  background-color: $white;
+  display: flex;
+  flex: 0 0 30%;
+  flex-direction: column;
+  margin-bottom: rem(60);
+  padding: rem(24);
+  order: 0;
+
+  @include breakpoint($vp4) {
+    margin-bottom: rem(40);
+  }
+
+  @include breakpoint($vp3) {
+    flex: 0 0 47%;
+  }
+
+  @include breakpoint($vp2) {
+    flex: 0 0 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  @include breakpoint($vp1) {
+    align-items: flex-start;
+    flex: 0 0 100%;
+  }
+
+  &__image {
+    background: 50% 50% no-repeat;
+    background-size: cover;
+    flex: 0 0 auto;
+    max-height: 70vh;
+    position: relative;
+
+    @include breakpoint($vp2) {
+      flex: 0 1 33%;
+      margin-bottom: rem(24);
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+
+      @include breakpoint($vp2) {
+        padding-bottom: 120%;
+      }
+    }
+  }
+
+  &__text {
+    flex: 1 0 auto;
+    margin-top: rem(24);
+
+    @include breakpoint($vp2) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      flex: 0 0 66%;
+      flex-wrap: wrap;
+      padding-left: rem(24);
+      margin: 0 0 rem(24);
+    }
+
+    @include breakpoint($vp1) {
+      margin: 0 0 rem(24);
+    }
+
+    &--title {
+      @extend %title-md;
+      font-family: $serif;
+    }
+
+    &--body {
+      @include breakpoint($vp1) {
+        font-size: rem(14);
+        line-height: 1.5;
+      }
+    }
+  }
+
+  &__cta {
+    margin: rem(24) 0 0;
+    width: 100%;
+
+    @include breakpoint($vp2) {
+      flex: 0 0 100%;
+      margin: 0;
+    }
+  }
+}
