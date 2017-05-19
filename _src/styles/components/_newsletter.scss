@@ -1,0 +1,44 @@
+.newsletter {
+  background-color: $white;
+  text-align: center;
+  flex: 0 0 rem(500);
+  padding: rem(30);
+  pointer-events: none;
+  position: relative;
+  z-index: $z-nav;
+
+  &__icon {
+    fill: $tmp-dark;
+    height: rem(80);
+    width: rem(80);
+    margin-bottom: rem(24);
+  }
+
+  &__title {
+    @extend %title-serif-md;
+    margin-bottom: rem(12);
+  }
+
+  &__form {
+    width: 100%;
+
+    &--field {
+      border: 0;
+      border-bottom: 2px solid $tmp-light;
+      outline: 0;
+      padding: rem(12) 0 rem(6);
+      text-align: center;
+      width: 100%;
+      transition: border $ease-fast;
+
+      &:focus {
+        border-bottom: 2px solid $tmp-gray;
+      }
+        
+    }
+
+    &--submit {
+      margin-top: rem(48);
+    }
+  }
+}

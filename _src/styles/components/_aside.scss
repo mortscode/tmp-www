@@ -2,8 +2,7 @@
   z-index: $z-aside;
   position: relative;
 
-  .aside-title,
-  .newsletter-title {
+  .aside-title {
     font-size: rem(24);
     line-height: rem(30);
     color: darken($tmp-gray, 20%);
@@ -104,9 +103,9 @@
   //   }
   // }
 
-  .newsletter {
-    z-index: $z-aside;
-    padding: $large-spacing 0;
-    border-top: 1px solid rgba($tmp-gray, 0.7);
-  }
+  // .newsletter {
+  //   z-index: $z-aside;
+  //   padding: $large-spacing 0;
+  //   border-top: 1px solid rgba($tmp-gray, 0.7);
+  // }
 }

@@ -422,6 +422,10 @@ var _properjsHobo = require('properjs-hobo');
 
 var _properjsHobo2 = _interopRequireDefault(_properjsHobo);
 
+var _emitter = require('../utils/emitter');
+
+var _emitter2 = _interopRequireDefault(_emitter);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -477,12 +481,14 @@ var Navigation = function () {
     value: function _openNav() {
       this.$navigation.addClass('-active');
       this._attachEvents();
+      _emitter2.default.fire('app--nav-open');
     }
   }, {
     key: '_closeNav',
     value: function _closeNav() {
       this.$navigation.removeClass('-active');
       this._detachEvents();
+      _emitter2.default.fire('app--nav-closed');
     }
   }]);
 
@@ -491,7 +497,7 @@ var Navigation = function () {
 
 exports.default = Navigation;
 
-},{"properjs-hobo":16}],6:[function(require,module,exports){
+},{"../utils/emitter":10,"properjs-hobo":16}],6:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -589,6 +595,10 @@ var _properjsHobo = require('properjs-hobo');
 
 var _properjsHobo2 = _interopRequireDefault(_properjsHobo);
 
+var _emitter = require('../utils/emitter');
+
+var _emitter2 = _interopRequireDefault(_emitter);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -602,6 +612,7 @@ var Search = function () {
     this.$searchClose = (0, _properjsHobo2.default)('.js-search-close');
     this.$searchInput = document.querySelector('.js-search-input');
     this.searchOpen = false;
+    this.navOpen = false;
 
     this.initialize();
   }
@@ -609,19 +620,29 @@ var Search = function () {
   _createClass(Search, [{
     key: 'initialize',
     value: function initialize() {
+      var _this = this;
+
       this._bindEvents();
+
+      _emitter2.default.on('app--nav-open', function () {
+        _this.navOpen = true;
+      });
+
+      _emitter2.default.on('app--nav-closed', function () {
+        _this.navOpen = false;
+      });
     }
   }, {
     key: '_bindEvents',
     value: function _bindEvents() {
-      var _this = this;
+      var _this2 = this;
 
       this.$searchOpen.on('click', function () {
-        _this._openSearch();
+        _this2._openSearch();
       });
 
       this.$searchClose.on('click', function () {
-        _this._closeSearch();
+        _this2._closeSearch();
       });
 
       window.addEventListener('keyup', this._inputHandler.bind(this));
@@ -639,6 +660,10 @@ var Search = function () {
   }, {
     key: '_inputHandler',
     value: function _inputHandler(event) {
+      if (this.navOpen) {
+        return;
+      }
+
       if (!this.searchOpen && event.keyCode >= 65 && event.keyCode <= 90) {
         this.$searchInput.value = event.key;
         this._openSearch();
@@ -673,7 +698,7 @@ var Search = function () {
 
 exports.default = Search;
 
-},{"properjs-hobo":16}],8:[function(require,module,exports){
+},{"../utils/emitter":10,"properjs-hobo":16}],8:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
