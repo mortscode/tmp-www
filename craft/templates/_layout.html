@@ -37,6 +37,7 @@
     </main>
 
     {% include 'partials/navigation' %}
+    {% include 'partials/search' %}
 
     <div class="modal js-modal" alt="modal-window">
       <div class="modal__content">
@@ -47,7 +48,7 @@
       </div>
     </div>
   </div>
-  
+
   {% cache for 4 hours %}
   <script src="/assets/js/main.js"></script>
   {% endcache %}

@@ -5,27 +5,29 @@
 
 {% extends "_layout" %}
 
+{% set query = craft.request.getParam('q') %}
+{% set entries = craft.entries.section('postEntries').search(query).order('score') %}
+
 {% block content %}
-  <div class="grid">
-    <div class="search">
-      {% set query = craft.request.getParam('q') %}
-      {% set entries = craft.entries.section('postEntries').search(query).order('score') %}
-
-      <h2 class="search__title">Posts matching "{{ query }}"</h2>
-
+  <div class="results">
+    <div class="results__wrapper">
+      <div class="results__header">
+        <h1 class="results__title">Posts matching "{{ query }}"</h1>
+      </div>
       {% if entries|length %}
-        {# <p>{{ entries|length }} results:</p> #}
-        <div class="search__results">
-          {% for entry in entries %}
-            <a class="search__result--item" href="{{ entry.url }}">
-            <div class="search__result" style="background-image:url('{{ entry.featuredImage.first.url }}');">
-                <h3 class="search__result--title js-avoid-orphan">{{ entry.title }}</h3>
-            </div>
-            </a>
-          {% endfor %}
-        </div>
+        {% for post in entries %}
+
+          {% set vars = {
+            image: post.featuredImage,
+            summary: post.postSummary,
+            title: post.title,
+            url: post.url,
+          } %}
+
+          {% include 'partials/search/_result-card' with vars %}
+        {% endfor %}
       {% else %}
-        <p>Sorry. Your search for “{{ query }}” didn’t return any results.</p>
+      <p>Sorry. Your search for “{{ query }}” didn’t return any results.</p>
       {% endif %}
     </div>
   </div>

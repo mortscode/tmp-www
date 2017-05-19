@@ -21,10 +21,12 @@
   </title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="{% if entry.pageDescription|length %}{{ entry.pageDescription }}{% else %}{{ seo.siteDescription }}{% endif %}" />
+  {% if entry is defined %}
+    <meta name="description" content="{% if entry.pageDescription|length %}{{ entry.pageDescription }}{% else %}{{ seo.siteDescription }}{% endif %}" />
+    {% include 'partials/_meta-tags'%}
+  {% endif %}
   <meta name="keywords" content="{% if seo.siteKeywords|length %}{{ seo.siteKeywords }}{% endif %}">
 
-  {% include 'partials/_meta-tags'%}
   {# {% hook 'seomaticRender' %} #}
 
   <script src="https://use.typekit.net/hqj3djf.js"></script>

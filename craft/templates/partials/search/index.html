@@ -1,0 +1,12 @@
+<div class="search js-search">
+  <div class="search__inner">
+    <h1 class="search__title">Search</h1>
+    <form class="search__form js-search-form" action="{{ url('search/results') }}">
+      <input id="js-search" class="search__form--input js-search-input" autocomplete="off" type="search" name="q" placeholder="What are you looking for?">
+      <input class="search__form--submit js-search-submit" type="submit" value="Click enter to search">
+    </form>
+  </div>
+  <div class="search__close js-search-close">
+    {% include 'partials/utils/icon' with {'icon':'close', 'classes':'search__close--icon'} %}
+  </div>
+</div>

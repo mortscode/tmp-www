@@ -1,34 +1,5 @@
-{% paginate craft.entries.section('postEntries').limit(18) as posts %}
-<div class="post-wrapper">
-  {% cache for 4 hours unless craft.config.devMode %}
-
-  {% if not paginate.prevUrl %}
-  {% set homePage = true %}
-  {% else %}
-  {% set homePage = false %}
-  {% endif %}
-
-  {% for post in posts %}
-    {% set vars = {
-      image: post.featuredImage,
-      summary: post.postSummary,
-      title: post.title,
-      url: post.url,
-      index: loop.index
-    } %}
-
-    {% if not paginate.prevUrl and loop.first %}
-      {% include 'partials/home/_home-feature' with vars %}
-      {% include 'partials/home/_about-card' %}
-      {% include 'partials/home/_featured' %}
-    {% else %}
-      {% include 'partials/home/_post-card' with vars %}
-    {% endif %}
-  {% endfor %}
-  {% endcache %}
+<div id="home-posts" class="home-posts js-home-posts">
+  {% paginate craft.entries.section('postEntries').limit(18) as posts %}
+  {% include 'partials/home/_posts' %}
 </div>
-{% if paginate.nextUrl %}
-  <div class="load-more">
-    <a href="{{ paginate.nextUrl }}" class="btn pop">More Posts</a>
-  </div>
-{% endif %}
+{% include 'partials/home/_paginate' %}

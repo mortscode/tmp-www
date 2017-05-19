@@ -1,47 +1,42 @@
-{#
- # News entry template
- # -------------------
- #}
+{% set recipe = entry.recipeStatus %}
 
 {% extends "_layout" %}
 
 {% block content %}
-	<div class="grid">
-    {% cache for 8 hours unless craft.config.devMode %}
-    <article class="post">
-      <div class="post__title">
-        <h3 class="post__title--date">{{entry.postDate.format('F d, Y')}}</h3>
-        <h1 class="post__title--text">{{entry.title}}</h1>
+  {#{% cache for 8 hours unless craft.config.devMode %}#}
+  <article class="post-entry">
+    <div class="post-intro">
+      <div class="post-intro__title">
+        <time class="post-intro__title--date">{{entry.postDate.format('F d, Y')}}</time>
+        <h1 class="post-intro__title--text">{{entry.title}}</h1>
+        {% if entry.postAuthor|length %}
+          <span class="post-intro__title--author author">Story by {{entry.postAuthor}}</span>
+        {% endif %}
+        {% include 'partials/_share' %}
+        {% if recipe|length %}
+          <a href="#recipe" class="post-intro__title--button btn pop small">Jump to recipe</a>
+        {% endif %}
+      </div>
+      <div class="post-intro__image">
+        <img src="{{entry.featuredImage.first.url}}" alt="{{entry.title}}" class="post-intro__image--asset">
+      </div>
+    </div>
+    
+    <div class="grid">
+      <div class="post">
+
+        {% include 'partials/_post-builder' %}
+
+        {% if entry.recipeStatus|length %}
+          {% include 'partials/_recipe-builder' %}
+        {% endif %}
       </div>
 
-        <div class="post__share">
-          {% set recipe = entry.recipeStatus %}
-          {% if recipe|length %}
-          <a href="#" class="js-print-recipe"><div class="post__share--download btn pop small">Print Recipe</div></a>
-          {% endif %}
-          {% include 'partials/_share' %}
-        </div>
-      <div class="post__image--wrapper">
-        <img src="{{entry.featuredImage.first.url}}" alt="{{entry.title}}" class="post__image">
-      </div>
-
-      {% if entry.postAuthor|length %}
-        <div class="post__author--wrapper">
-          <h5 class="post__author--text">Story by {{entry.postAuthor}}</h5>
-        </div>
-      {% endif %}
-
-      {% include 'partials/_post-builder' %}
-
-      {% if entry.recipeStatus|length %}
-        {% include 'partials/_recipe-builder' %}
-      {% endif %}
-    </article>
-    {% endcache %}
-
-    {% set vars = {'align' : 'right', 'featured' : 'false'} %}
-    {% include 'partials/_aside' with vars %}
-  </div>
+      {#{% set vars = {'align' : 'right', 'featured' : 'false'} %}
+      {% include 'partials/_aside' with vars %}#}
+    </div>
+  </article>
+  {#{% endcache %}#}
 
   {% include 'partials/_instructions' %}
   {% include 'partials/_more-posts' %}

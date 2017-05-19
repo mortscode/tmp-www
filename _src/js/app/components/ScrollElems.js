@@ -42,9 +42,10 @@ export default class ScrollElems {
 
     if (this.topOffset <= this.triggerLocation) {
       this.$elem.addClass('active');
-    } else {
-      this.$elem.removeClass('active');
     }
+    // } else {
+    //   this.$elem.removeClass('active');
+    // }
   }
 
   _resizeEvents() {

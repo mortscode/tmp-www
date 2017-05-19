@@ -1,39 +1,70 @@
 .paginate {
+  flex: 1 0 auto;
+  height: rem(170);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-  @include breakpoint($vp3) {
-    padding: 0 span(1);
+  @include breakpoint($vp2) {
+    padding: 0 rem(24);
   }
 
-  &__link {
-    font-size: 120%;
-    font-style: italic;
-    margin: $base-spacing 0;
+  &__wrapper {
+    background-color: $tmp-dark;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50vh;
+    z-index: 0;
+    display: flex;
+    align-items: flex-end;
+  }
 
-    @include breakpoint($vp1) {
-      font-size: 100%;
+  &__button {
+    flex: 1 0 20%;
+    display: flex;
+
+    &.-left {
+      justify-content: flex-start;
     }
 
-    &.prev {
-      @include span(6);
+    &.-right {
+      justify-content: flex-end;
+    }
 
-      .paginate__link--text {
-        &::before {
-          content: "<<";
-          margin-right: $small-spacing;
+    &--link {
+      @extend %title-md;
+      color: $tmp-light;
+      padding: rem(24) rem(40);
+
+      &:hover,
+      &:focus {
+        .paginate__button--icon {
+          fill: $tmp-brand;
         }
       }
     }
 
-    &.next {
-      @include span(last 6);
-      text-align: right;
+    &--icon {
+      fill: $tmp-light;
+      height: rem(16);
+      width: rem(35);
+      margin: 0 rem(3);
+      display: inline-block;
+      transition: fill $ease-fast;
 
-      .paginate__link--text {
-        &::after {
-          content: ">>";
-          margin-left: $small-spacing;
-        }
+      &.-left {
+        transform-origin: 50% 50%;
+        transform: rotate(180deg);
       }
     }
+  }
+
+  &__brand {
+    flex: 0 0 80px;
+    height: 80px;
+    fill: rgba($tmp-light, 0.8);
   }
 }

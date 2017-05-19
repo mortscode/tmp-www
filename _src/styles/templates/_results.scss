@@ -1,0 +1,23 @@
+.results {
+  padding: 0 rem(110);
+  overflow-x: hidden;
+
+  @include breakpoint($vp2) {
+    padding: 0 rem(12);
+  }
+
+  &__wrapper {
+    max-width: rem(1280);
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: flex-start;
+  }
+
+  &__header {
+    flex: 0 0 100%;
+    text-align: center;
+    margin-bottom: rem(24);
+  }
+}

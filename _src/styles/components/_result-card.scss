@@ -1,0 +1,92 @@
+.result-card {
+  display: flex;
+  flex: 0 0 20%;
+  flex-direction: column;
+  margin-bottom: rem(30);
+  padding: 0 rem(12);
+
+  @include breakpoint($vp4) {
+    flex: 0 0 25%;
+    margin-bottom: rem(24);
+  }
+
+  @include breakpoint($vp3) {
+    flex: 0 0 50%;
+  }
+
+  &__image {
+    background: 50% 50% no-repeat;
+    background-size: cover;
+    flex: 0 0 auto;
+    max-height: 70vh;
+    overflow: hidden;
+    position: relative;
+
+    &::after {
+      content: "";
+      display: block;
+      padding-bottom: (1000 / 667) * 100%;
+    }
+
+    &--border {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: 0 solid $white;
+      transition: border $ease-fast;
+    }
+
+    &--cta {
+      color: $tmp-brand;
+      font-family: $sans;
+      font-size: rem(16);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: $white;
+      padding: rem(8) 0;
+      text-align: center;
+      transform: translateY(100%);
+      transition: transform $ease-fast;
+
+      @include breakpoint($vp3) {
+        font-size: rem(14);
+      }
+    }
+
+    &:hover,
+    &:focus {
+      .result-card__image--border {
+        border: 4px solid $white;
+
+        @include breakpoint($vp3) {
+          border: 2px solid white;
+        };
+      }
+
+      .result-card__image--cta {
+        transform: none;
+      }
+
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    padding-top: rem(18);
+
+    @include breakpoint($vp3) {
+      padding-top: rem(12);
+    };
+  }
+
+  &__title {
+    @extend %title-sm;
+    color: $tmp-dark;
+  }
+}

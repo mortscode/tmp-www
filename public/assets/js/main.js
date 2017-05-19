@@ -47,6 +47,10 @@ var _Navigation = require('./components/Navigation');
 
 var _Navigation2 = _interopRequireDefault(_Navigation);
 
+var _Search = require('./components/Search');
+
+var _Search2 = _interopRequireDefault(_Search);
+
 var _ScrollElems = require('./components/ScrollElems');
 
 var _ScrollElems2 = _interopRequireDefault(_ScrollElems);
@@ -79,6 +83,7 @@ var App = function () {
       this.searchButton = new _SearchButton2.default('.js-search-icon');
       this.mobileNav = new _MobileNav2.default('.js-nav-button');
       this.navigation = new _Navigation2.default('.js-navigation');
+      this.search = new _Search2.default('.js-search');
       (0, _loadImages2.default)(this.$lazyImgs);
       this._bindEvents();
       this._mapLoadPosts();
@@ -164,7 +169,7 @@ var App = function () {
 
 exports.default = App;
 
-},{"./components/LoadPosts":2,"./components/MobileNav":3,"./components/Modal":4,"./components/Navigation":5,"./components/ScrollElems":6,"./components/SearchButton":7,"./utils/avoid-orphan":8,"./utils/emitter":9,"./utils/load-images":10,"./utils/resizer":11,"./utils/scroller":12,"properjs-hobo":15}],2:[function(require,module,exports){
+},{"./components/LoadPosts":2,"./components/MobileNav":3,"./components/Modal":4,"./components/Navigation":5,"./components/ScrollElems":6,"./components/Search":7,"./components/SearchButton":8,"./utils/avoid-orphan":9,"./utils/emitter":10,"./utils/load-images":11,"./utils/resizer":12,"./utils/scroller":13,"properjs-hobo":16}],2:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -241,7 +246,7 @@ var LoadPosts = function () {
 
 exports.default = LoadPosts;
 
-},{"../utils/emitter":9,"properjs-hobo":15}],3:[function(require,module,exports){
+},{"../utils/emitter":10,"properjs-hobo":16}],3:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -312,7 +317,7 @@ var MobileNav = function () {
 
 exports.default = MobileNav;
 
-},{"properjs-hobo":15}],4:[function(require,module,exports){
+},{"properjs-hobo":16}],4:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -404,7 +409,7 @@ var Modal = function () {
 
 exports.default = Modal;
 
-},{"properjs-hobo":15}],5:[function(require,module,exports){
+},{"properjs-hobo":16}],5:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -449,22 +454,35 @@ var Navigation = function () {
       this.$navClose.on('click', function () {
         _this._closeNav();
       });
-
-      document.addEventListener('keydown', function (e) {
-        if (e.keyCode === 27) {
-          _this._closeNav();
-        }
-      });
+    }
+  }, {
+    key: '_attachEvents',
+    value: function _attachEvents() {
+      window.addEventListener('keyup', this._keyUpHandler.bind(this));
+    }
+  }, {
+    key: '_detachEvents',
+    value: function _detachEvents() {
+      window.removeEventListener('keyup', this._keyUpHandler);
+    }
+  }, {
+    key: '_keyUpHandler',
+    value: function _keyUpHandler(event) {
+      if (event.keyCode === 27) {
+        this._closeNav();
+      }
     }
   }, {
     key: '_openNav',
     value: function _openNav() {
       this.$navigation.addClass('-active');
+      this._attachEvents();
     }
   }, {
     key: '_closeNav',
     value: function _closeNav() {
       this.$navigation.removeClass('-active');
+      this._detachEvents();
     }
   }]);
 
@@ -473,7 +491,7 @@ var Navigation = function () {
 
 exports.default = Navigation;
 
-},{"properjs-hobo":15}],6:[function(require,module,exports){
+},{"properjs-hobo":16}],6:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -539,9 +557,10 @@ var ScrollElems = function () {
 
       if (this.topOffset <= this.triggerLocation) {
         this.$elem.addClass('active');
-      } else {
-        this.$elem.removeClass('active');
       }
+      // } else {
+      //   this.$elem.removeClass('active');
+      // }
     }
   }, {
     key: '_resizeEvents',
@@ -557,7 +576,104 @@ var ScrollElems = function () {
 
 exports.default = ScrollElems;
 
-},{"../utils/emitter":9}],7:[function(require,module,exports){
+},{"../utils/emitter":10}],7:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _properjsHobo = require('properjs-hobo');
+
+var _properjsHobo2 = _interopRequireDefault(_properjsHobo);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Search = function () {
+  function Search(elem) {
+    _classCallCheck(this, Search);
+
+    this.$search = (0, _properjsHobo2.default)(elem);
+    this.$searchOpen = (0, _properjsHobo2.default)('.js-search-open');
+    this.$searchClose = (0, _properjsHobo2.default)('.js-search-close');
+    this.$searchInput = document.querySelector('.js-search-input');
+    this.searchOpen = false;
+
+    this.initialize();
+  }
+
+  _createClass(Search, [{
+    key: 'initialize',
+    value: function initialize() {
+      this._bindEvents();
+    }
+  }, {
+    key: '_bindEvents',
+    value: function _bindEvents() {
+      var _this = this;
+
+      this.$searchOpen.on('click', function () {
+        _this._openSearch();
+      });
+
+      this.$searchClose.on('click', function () {
+        _this._closeSearch();
+      });
+
+      window.addEventListener('keyup', this._inputHandler.bind(this));
+    }
+  }, {
+    key: '_attachEvents',
+    value: function _attachEvents() {
+      window.addEventListener('keyup', this._escapeHandler.bind(this));
+    }
+  }, {
+    key: '_detachEvents',
+    value: function _detachEvents() {
+      window.removeEventListener('keyup', this._escapeHandler.bind(this));
+    }
+  }, {
+    key: '_inputHandler',
+    value: function _inputHandler(event) {
+      if (!this.searchOpen && event.keyCode >= 65 && event.keyCode <= 90) {
+        this.$searchInput.value = event.key;
+        this._openSearch();
+      }
+    }
+  }, {
+    key: '_escapeHandler',
+    value: function _escapeHandler(event) {
+      if (this.searchOpen && event.keyCode === 27) {
+        this._closeSearch();
+      }
+    }
+  }, {
+    key: '_openSearch',
+    value: function _openSearch() {
+      this.$search.addClass('-active');
+      this.$searchInput.focus();
+      this._attachEvents();
+      this.searchOpen = true;
+    }
+  }, {
+    key: '_closeSearch',
+    value: function _closeSearch() {
+      this.$search.removeClass('-active');
+      this._detachEvents();
+      this.searchOpen = false;
+    }
+  }]);
+
+  return Search;
+}();
+
+exports.default = Search;
+
+},{"properjs-hobo":16}],8:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -630,7 +746,7 @@ var SearchButton = function () {
 
 exports.default = SearchButton;
 
-},{"properjs-hobo":15}],8:[function(require,module,exports){
+},{"properjs-hobo":16}],9:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -660,7 +776,7 @@ function avoidOrphan(elem) {
   }
 }
 
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -677,7 +793,7 @@ var emitter = new _properjsController2.default();
 
 exports.default = emitter;
 
-},{"properjs-controller":14}],10:[function(require,module,exports){
+},{"properjs-controller":15}],11:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -706,7 +822,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var isElementLoadable = function isElementLoadable(el) {
   if (el) {
     var bounds = el.getBoundingClientRect();
-    return bounds.top < window.innerHeight * 2;
+    return bounds.top < window.innerHeight + 50;
   }
 };
 
@@ -739,7 +855,7 @@ var loadImages = function loadImages(images, handler) {
 
 exports.default = loadImages;
 
-},{"properjs-hobo":15,"properjs-imageloader":26}],11:[function(require,module,exports){
+},{"properjs-hobo":16,"properjs-imageloader":27}],12:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -756,7 +872,7 @@ var resizer = new _properjsResizecontroller2.default();
 
 exports.default = resizer;
 
-},{"properjs-resizecontroller":27}],12:[function(require,module,exports){
+},{"properjs-resizecontroller":28}],13:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -773,7 +889,7 @@ var scroller = new _properjsScrollcontroller2.default();
 
 exports.default = scroller;
 
-},{"properjs-scrollcontroller":28}],13:[function(require,module,exports){
+},{"properjs-scrollcontroller":29}],14:[function(require,module,exports){
 'use strict';
 
 var _App = require('./app/App');
@@ -784,7 +900,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 window.app = new _App2.default();
 
-},{"./app/App":1}],14:[function(require,module,exports){
+},{"./app/App":1}],15:[function(require,module,exports){
 /*!
  *
  * Event / Animation cycle manager
@@ -1085,7 +1201,7 @@ window.app = new _App2.default();
 
     return Controller;
 });
-},{}],15:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 /*!
  *
  *
@@ -1155,7 +1271,7 @@ window.app = new _App2.default();
     return hobo;
 
 });
-},{"./lib/Hobo":16,"./lib/core/addClass":17,"./lib/core/ajax":18,"./lib/core/data":19,"./lib/core/find":20,"./lib/core/off":21,"./lib/core/on":22,"./lib/core/removeClass":23,"./lib/utils":24}],16:[function(require,module,exports){
+},{"./lib/Hobo":17,"./lib/core/addClass":18,"./lib/core/ajax":19,"./lib/core/data":20,"./lib/core/find":21,"./lib/core/off":22,"./lib/core/on":23,"./lib/core/removeClass":24,"./lib/utils":25}],17:[function(require,module,exports){
 /*!
  *
  * 
@@ -1286,7 +1402,7 @@ Hobo.prototype.map = array.map;
 
 // Export the main Hobo Class :D
 module.exports = Hobo;
-},{"./utils":24}],17:[function(require,module,exports){
+},{"./utils":25}],18:[function(require,module,exports){
 var utils = require( "../utils" );
 
 
@@ -1316,7 +1432,7 @@ module.exports = function ( classes ) {
 
     return this;
 };
-},{"../utils":24}],18:[function(require,module,exports){
+},{"../utils":25}],19:[function(require,module,exports){
 var utils = require( "../utils" );
 
 
@@ -1420,7 +1536,7 @@ module.exports = function ( config ) {
         }
     });
 };
-},{"../utils":24}],19:[function(require,module,exports){
+},{"../utils":25}],20:[function(require,module,exports){
 var utils = require( "../utils" );
 
 
@@ -1487,7 +1603,7 @@ module.exports = function ( key, value ) {
 
     return ret;
 };
-},{"../utils":24}],20:[function(require,module,exports){
+},{"../utils":25}],21:[function(require,module,exports){
 var Hobo = require( "../Hobo" ),
     utils = require( "../utils" );
 
@@ -1525,7 +1641,7 @@ module.exports = function ( selector ) {
 
     return ret;
 };
-},{"../Hobo":16,"../utils":24}],21:[function(require,module,exports){
+},{"../Hobo":17,"../utils":25}],22:[function(require,module,exports){
 /**
  *
  * @private
@@ -1640,7 +1756,7 @@ module.exports = function ( events, callback ) {
 
     return this;
 };
-},{}],22:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 var matchElement = require( "properjs-matchelement" ),
     utils = require( "../utils" );
 
@@ -1741,7 +1857,7 @@ module.exports = function ( events, selector, callback ) {
 
     return this;
 };
-},{"../utils":24,"properjs-matchelement":25}],23:[function(require,module,exports){
+},{"../utils":25,"properjs-matchelement":26}],24:[function(require,module,exports){
 var utils = require( "../utils" );
 
 
@@ -1779,7 +1895,7 @@ module.exports = function ( classes ) {
 
     return this;
 };
-},{"../utils":24}],24:[function(require,module,exports){
+},{"../utils":25}],25:[function(require,module,exports){
 /*!
  *
  *
@@ -1981,7 +2097,7 @@ module.exports = {
     removeData: removeData,
     serializeData: serializeData
 };
-},{}],25:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 /*!
  *
  * Use native element selector matching
@@ -2039,7 +2155,7 @@ module.exports = {
     return matchElement;
 
 });
-},{}],26:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 /*!
  *
  * Handle lazy-loading images with contextual load conditions.
@@ -2383,7 +2499,7 @@ module.exports = {
 
 
 });
-},{"properjs-controller":14}],27:[function(require,module,exports){
+},{"properjs-controller":15}],28:[function(require,module,exports){
 /*!
  *
  * Window resize / orientationchange event controller
@@ -2585,7 +2701,7 @@ module.exports = {
     return ResizeController;
 
 });
-},{"properjs-controller":14}],28:[function(require,module,exports){
+},{"properjs-controller":15}],29:[function(require,module,exports){
 /*!
  *
  * Window scroll event controller
@@ -2756,5 +2872,5 @@ module.exports = {
     return ScrollController;
 
 });
-},{"properjs-controller":14}]},{},[13])
+},{"properjs-controller":15}]},{},[14])
 //# sourceMappingURL=main.js.map

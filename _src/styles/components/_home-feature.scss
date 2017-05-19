@@ -66,7 +66,14 @@
 
     &--title {
       @extend %title-lg;
+      color: $tmp-dark;
       margin-bottom: rem(24);
+      transition: color $ease-fast;
+
+      &:hover,
+      &:focus {
+        color: $tmp-brand;
+      }
     }
 
     &--summary {

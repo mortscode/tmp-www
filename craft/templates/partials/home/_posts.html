@@ -1,0 +1,28 @@
+<div class="post-wrapper">
+  {% cache for 4 hours unless craft.config.devMode %}
+
+  {% if not paginate.prevUrl %}
+  {% set homePage = true %}
+  {% else %}
+  {% set homePage = false %}
+  {% endif %}
+
+  {% for post in posts %}
+    {% set vars = {
+      image: post.featuredImage,
+      summary: post.postSummary,
+      title: post.title,
+      url: post.url,
+      index: loop.index
+    } %}
+
+    {% if not paginate.prevUrl and loop.first %}
+      {% include 'partials/home/_home-feature' with vars %}
+      {% include 'partials/home/_about-card' %}
+      {% include 'partials/home/_featured' %}
+    {% else %}
+      {% include 'partials/home/_post-card' with vars %}
+    {% endif %}
+  {% endfor %}
+  {% endcache %}
+</div>

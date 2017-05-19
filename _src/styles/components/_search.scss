@@ -1,0 +1,112 @@
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  // transform: translateX(100%);
+  transition: background $ease-med, opacity $ease-med;
+  z-index: $z-nav;
+
+  &.-active {
+    background-color: $white;
+    // transform: none;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  &__inner {
+    flex: 0 0 90%;
+    position: relative;
+  }
+
+  &__title {
+    text-align: center;
+    font-size: rem(24);
+    font-family: $serif;
+    font-weight: 400;
+    font-style: italic;
+    margin-bottom: rem(24);
+
+    @include breakpoint($vp2) {
+      font-size: rem(18);
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+
+    &--input {
+      background-color: transparent;
+      flex: 0 0 100%;
+      font-size: rem(60);
+      font-family: $sans;
+      font-weight: 800;
+      text-align: center;
+      border: 0;
+      outline: 0;
+      margin-bottom: rem(24);
+
+      @include breakpoint($vp3) {
+        font-size: rem(48);
+      }
+
+      @include breakpoint($vp1) {
+        font-size: rem(24);
+      }
+
+      &::placeholder {
+        color: rgba($tmp-gray, 0.4);
+      }
+    }
+
+    &--submit {
+      flex: 0 0 auto;
+      background-color: transparent;
+      border: 0;
+      outline: 0;
+      color: $tmp-gray;
+      font-family: $sans;
+      font-size: rem(12);
+    }
+  }
+
+  &__close {
+    cursor: pointer;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: rem(50);
+    height: rem(50);
+    top: rem(40);
+    right: rem(40);
+
+    @include breakpoint($vp2) {
+      top: rem(24);
+      right: rem(24);
+    }
+
+    &:hover,
+    &:focus {
+      .navigation__close--icon {
+        fill: $tmp-light;
+      }
+    }
+
+    &--icon {
+      width: rem(24);
+      height: rem(24);
+      fill: $tmp-gray;
+      transition: fill $ease-fast;
+    }
+  }
+}

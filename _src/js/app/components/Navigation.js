@@ -21,19 +21,29 @@ export default class Navigation {
     this.$navClose.on('click', () => {
       this._closeNav();
     });
+  }
 
-    document.addEventListener('keydown', (e) => {
-      if (e.keyCode === 27) {
-        this._closeNav();
-      }
-    });
+  _attachEvents() {
+    window.addEventListener('keyup', this._keyUpHandler.bind(this));
+  }
+
+  _detachEvents() {
+    window.removeEventListener('keyup', this._keyUpHandler);
+  }
+
+  _keyUpHandler(event) {
+    if (event.keyCode === 27) {
+      this._closeNav();
+    }
   }
 
   _openNav() {
     this.$navigation.addClass('-active');
+    this._attachEvents();
   }
 
   _closeNav() {
     this.$navigation.removeClass('-active');
+    this._detachEvents();
   }
 }

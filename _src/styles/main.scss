@@ -27,7 +27,9 @@
 @import "components/post-card";
 @import "components/post-intro";
 @import "components/post-builder";
+@import "components/result-card";
 @import "components/site-search";
+@import "components/search";
 @import "components/share";
 @import "components/top-button";
 
@@ -42,5 +44,7 @@
 @import "templates/about";
 @import "templates/error";
 @import "templates/home";
+@import "templates/post-entry";
 @import "templates/posts";
-@import "templates/search-results";
+@import "templates/results";
+// @import "templates/search-results";

@@ -1,7 +1,7 @@
-<article class="about-card js-scrolls animate -fade-up" data-offset="0.85">
+<article class="about-card js-scrolls animate -fade-up" data-offset="0.9">
   <div class="about-card__image js-lazy-img" data-img-src="{{asideColumn.asidePhoto.first.url('asidePhoto')}}" title="{{ asideColumn.asideTitle }}"></div>
   <div class="about-card__text">
-    <h3 class="about-card__text--title">{{asideColumn.asideTitle|raw}}</h3>
+    <h3 class="about-card__text--title js-avoid-orphan">{{asideColumn.asideTitle|raw}}</h3>
     <p class="about-card__text--body">{{asideColumn.asideBlurb}}</p>
   </div>
   <a href="/about" class="about-card__cta btn pop">About us</a>

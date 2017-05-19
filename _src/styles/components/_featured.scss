@@ -25,13 +25,19 @@
     flex: 0 0 100%;
     position: relative;
     text-align: center;
+    margin-bottom: rem(36);
 
     &--title {
       @extend %title-lg;
       color: $tmp-gray;
       font-family: $serif;
       font-weight: 600;
-      margin-bottom: rem(24);
+      margin-bottom: 0;
+    }
+
+    &--subtitle {
+      @extend %text-lg;
+      margin: rem(6) 0 0;
     }
   }
 

@@ -5,3 +5,32 @@ body {
 .content {
   min-height: 100vh;
 }
+
+%content-wrapper {
+  position: relative;
+  padding: 0 rem(120);
+  overflow: hidden;
+  background: $tmp-light;
+  z-index: 1;
+
+  @include breakpoint($vp2) {
+    padding: 0;
+  }
+}
+
+%content-inner-wrapper {
+  max-width: rem(1280);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+%entry-inner-wrapper {
+  max-width: rem(1280);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}

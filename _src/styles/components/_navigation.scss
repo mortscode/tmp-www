@@ -55,6 +55,10 @@
     align-items: flex-end;
     justify-content: center;
 
+    @include breakpoint($vp2) {
+      flex: 0 0 50px;
+    }
+
     li {
       margin: 0 rem(12);
     }
@@ -67,6 +71,11 @@
       height: rem(40);
       position: relative;
       transition: background-color $ease-fast;
+
+      @include breakpoint($vp2) {
+        height: rem(28);
+        width: rem(28);
+      }
 
       &:hover {
         background-color: rgba($tmp-brand, 0.8);
@@ -122,12 +131,20 @@
     @extend %nav-primary;
     display: block;
     padding: rem(24) 0;
+
+    @include breakpoint($vp2) {
+      padding: rem(16) 0;
+    }
   }
 
   &__secondary {
     @extend %nav-secondary;
     display: block;
     padding: rem(24) 0;
+
+    @include breakpoint($vp2) {
+      padding: rem(16) 0;
+    }
   }
 
   &__brand {
@@ -139,6 +156,16 @@
       width: auto;
       fill: $tmp-gray;
       margin-bottom: rem(8);
+
+      @include breakpoint($vp2) {
+        height: rem(14);
+        margin-bottom: rem(3);
+      }
+
+      @include breakpoint($vp2) {
+        height: rem(12);
+        margin-bottom: 0;
+      }
     }
 
     &--copyright {
@@ -146,6 +173,10 @@
       font-family: $sans;
       font-size: rem(12);
       margin-bottom: rem(40);
+
+      @include breakpoint($vp2) {
+        margin-bottom: rem(15);
+      }
     }
   }
 
@@ -160,6 +191,12 @@
       height: rem(50);
       top: rem(40);
       left: rem(40);
+
+      @include breakpoint($vp2) {
+        top: auto;
+        left: rem(10);
+        bottom: rem(10);
+      }
 
       &:hover,
       &:focus {

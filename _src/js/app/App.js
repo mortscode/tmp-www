@@ -8,6 +8,7 @@ import SearchButton from './components/SearchButton';
 import LoadPosts from './components/LoadPosts';
 import MobileNav from './components/MobileNav';
 import Navigation from './components/Navigation';
+import Search from './components/Search';
 import ScrollElems from './components/ScrollElems';
 import Modal from './components/Modal';
 
@@ -27,6 +28,7 @@ export default class App {
     this.searchButton = new SearchButton('.js-search-icon');
     this.mobileNav = new MobileNav('.js-nav-button');
     this.navigation = new Navigation('.js-navigation');
+    this.search = new Search('.js-search');
     loadImages(this.$lazyImgs);
     this._bindEvents();
     this._mapLoadPosts();

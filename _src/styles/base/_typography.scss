@@ -16,10 +16,27 @@ h5,
 h6 {
   font-size: $base-font-size;
   line-height: $heading-line-height;
-  margin: 0 0 $small-spacing;
+  margin: 0;
 
   &.page-title {
     color: darken($tmp-gray, 10%);
+  }
+}
+
+%title-xl {
+  font-family: $sans;
+  font-size: rem(48);
+  line-height: rem(60);
+  font-weight: 600;
+
+  @include breakpoint($vp4) {
+    font-size: rem(36);
+    line-height: rem(48);
+  }
+
+  @include breakpoint($vp2) {
+    font-size: rem(30);
+    line-height: rem(36);
   }
 }
 
@@ -54,6 +71,31 @@ h6 {
   @include breakpoint($vp2) {
     font-size: rem(18);
     line-height: rem(24);
+  }
+}
+
+%title-sm {
+  font-family: $sans;
+  font-size: rem(18);
+  line-height: rem(24);
+  font-weight: 600;
+
+  @include breakpoint($vp2) {
+    font-size: rem(16);
+    line-height: rem(21);
+  }
+}
+
+%title-serif-sm {
+  font-family: $serif;
+  font-size: rem(18);
+  font-weight: 400;
+  line-height: rem(24);
+  font-style: italic;
+
+  @include breakpoint($vp2) {
+    font-size: rem(16);
+    line-height: rem(21);
   }
 }
 
@@ -123,7 +165,7 @@ p {
   line-height: rem(18);
   margin: 0;
 
-  @include breakpoint($vp2) {
+  @include breakpoint($vp3) {
     font-size: rem(11);
     line-height: rem(14);
   }

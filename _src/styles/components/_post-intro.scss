@@ -1,3 +1,75 @@
+.post-intro {
+  @extend %entry-inner-wrapper;
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 0 0 50%;
+    padding: 0 rem(60) rem(60) 0;
+    transition: flex $ease-fast;
+
+    @include breakpoint($vp3) {
+      flex: 0 1 100%;
+      margin:rem(30) 0;
+      max-width: none;
+      padding: 0 rem(24);
+      text-align: center;
+    }
+
+    &--date {
+      @extend %title-serif-sm;
+      color: $tmp-gray;
+      display: block;
+      margin-bottom: rem(12);
+    }
+
+    &--text {
+      @extend %title-xl;
+      margin-bottom: rem(12);
+    }
+
+    &--author {
+      @extend %title-sm;
+      color: $tmp-brand;
+      display: block;
+    }
+
+    &--button {
+      width: 100%;
+      max-width: rem(300);
+
+      @include breakpoint($vp3) {
+        display: none;
+      }
+    }
+  }
+
+  &__image {
+    background-size: cover;
+    flex: 0 1 50%;
+    position: relative;
+    text-align: center;
+    transition: flex $ease-fast;
+
+    @include breakpoint($vp3) {
+      flex: 0 1 100%;
+      text-align: center;
+    }
+
+    &--asset {
+      max-height: 98vh;
+      min-height: rem(750);
+      width: auto;
+      vertical-align: top;
+
+      @include breakpoint($vp4) {
+        min-height: 0;
+      }
+    }
+  }
+}
+
 .post {
   @include span(10 wide);
   z-index: $z-post-content;

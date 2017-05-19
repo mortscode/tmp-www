@@ -1,0 +1,12 @@
+{% extends "_layout" %}
+
+{% set archive = craft.entries.section('postEntries').limit(null) %}
+
+{% block content %}
+  <h2 style="margin: 0 0 30px 150px">{{ archive.total }}</h2>
+  <ul style="margin-left: 150px">
+    {% for entry in archive %}
+    <li>{{ entry.title }} / {{entry.postDate.format('F, Y')}}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

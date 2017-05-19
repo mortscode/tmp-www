@@ -1,9 +1,12 @@
 .share {
   width: 100%;
+  max-width: rem(300);
   text-align: center;
+  margin-top: rem(60);
 
   @include breakpoint($vp3) {
     margin-top: 0;
+    display: none;
   }
 
   &__title {
@@ -70,7 +73,7 @@
     }
 
     &:hover {
-      background-color: $tmp-gray;
+      background-color: $tmp-brand;
     }
   }
 }

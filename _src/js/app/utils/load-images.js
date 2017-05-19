@@ -13,7 +13,7 @@ import ImageLoader from 'properjs-imageloader';
 const isElementLoadable = (el) => {
   if (el) {
     const bounds = el.getBoundingClientRect();
-    return (bounds.top < (window.innerHeight * 2));
+    return (bounds.top < (window.innerHeight + 50));
   }
 };
 
