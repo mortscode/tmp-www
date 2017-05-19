@@ -86,6 +86,19 @@ h6 {
   }
 }
 
+%title-serif-md {
+  font-family: $serif;
+  font-size: rem(24);
+  font-weight: 400;
+  line-height: rem(30);
+  font-style: italic;
+
+  @include breakpoint($vp2) {
+    font-size: rem(18);
+    line-height: rem(24);
+  }
+}
+
 %title-serif-sm {
   font-family: $serif;
   font-size: rem(18);

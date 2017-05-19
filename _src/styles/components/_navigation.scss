@@ -14,11 +14,15 @@
     right: 0;
     bottom: 0;
     left: 0;
+    transform: translateX(100%);
+    pointer-events: none;
   }
 
   &__wrapper {
     display: flex;
     height: 100%;
+    pointer-events: none;
+    position: relative;
   }
 
   &__left {
@@ -34,7 +38,11 @@
 
   &__right {
     flex: 1 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     pointer-events: none;
+    position: relative;
     transform: translateX(100%);
     transition: transform $ease-med;
   }
@@ -46,6 +54,13 @@
     .navigation__left,
     .navigation__right {
       transform: none;
+    }
+
+    .navigation__click-area,
+    .navigation__left,
+    .newsletter {
+      transform: none;
+      pointer-events: auto;
     }
   }
 

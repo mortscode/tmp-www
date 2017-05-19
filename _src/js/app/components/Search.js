@@ -1,4 +1,5 @@
 import $ from 'properjs-hobo';
+import emitter from '../utils/emitter';
 
 export default class Search {
   constructor(elem) {
@@ -7,12 +8,21 @@ export default class Search {
     this.$searchClose = $('.js-search-close');
     this.$searchInput = document.querySelector('.js-search-input');
     this.searchOpen = false;
+    this.navOpen = false;
 
     this.initialize();
   }
 
   initialize() {
     this._bindEvents();
+
+    emitter.on('app--nav-open', () => {
+      this.navOpen = true;
+    });
+
+    emitter.on('app--nav-closed', () => {
+      this.navOpen = false;
+    });
   }
 
   _bindEvents() {
@@ -36,7 +46,11 @@ export default class Search {
   }
 
   _inputHandler(event) {
-    if (!this.searchOpen && event.keyCode >= 65 && event.keyCode <= 90) {
+    if (this.navOpen) {
+      return;
+    }
+
+    if ((!this.searchOpen) && event.keyCode >= 65 && event.keyCode <= 90) {
       this.$searchInput.value = event.key;
       this._openSearch();
     }

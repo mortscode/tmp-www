@@ -1,6 +1,6 @@
 <nav class="navigation js-navigation">
-  <div class="navigation__click-area js-nav-close"></div>
   <div class="navigation__wrapper">
+    <div class="navigation__click-area js-nav-close"></div>
     <div class="navigation__left">
       {% include 'partials/navigation/_social' %}
       {% include 'partials/navigation/_menu' %}
@@ -15,7 +15,33 @@
       </div>
     </div>
     <div class="navigation__right">
+      <div class="newsletter">
+        
+        {% include 'partials/utils/icon' with {'icon':'tmp-icon', 'classes':'newsletter__icon'} %}
+        <div id="mc_embed_signup" class="newsletter__form">
+          <form action="//cityharvestchurch.us3.list-manage.com/subscribe/post?u=3d4cd56fcb4d0627ba228943e&amp;id=0f9d1d7457" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+            <div id="mc_embed_signup_scroll">
+              <h2 class="newsletter__title">Join our Newsletter</h2>
+              <div class="mc-field-group newsletter__form--field-wrapper">
+                <input type="text" value="" name="FNAME" class="newsletter__form--field" id="mce-FNAME" placeholder="First Name" autofocus="autofocus">
+              </div>
+              <div class="mc-field-group newsletter__form--field-wrapper">
+                <input type="text" value="" name="LNAME" class="newsletter__form--field"  id="mce-LNAME" placeholder="Last Name">
+              </div>
+              <div class="mc-field-group newsletter__form--field-wrapper">
+                <input type="email" value="" name="EMAIL" class="email newsletter__form--field" id="mce-EMAIL" placeholder="your@email">
+              </div>
+              <div id="mce-responses" class="clear">
+                <div class="newsletter__form--response caption" id="mce-error-response" style="display:none"></div>
+                <div class="newsletter__form--response caption" id="mce-success-response" style="display:none"></div>
+              </div> <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups -->
+              <div style="position: absolute; left: -5000px;"><input type="text" name="b_3d4cd56fcb4d0627ba228943e_0f9d1d7457" tabindex="-1" value=""></div>
+              <div class="newsletter__form--submit clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button btn aside gray"></div>
+            </div>
+          </form>
+        </div>
 
+      </div>
     </div>
   </div>
 </nav>

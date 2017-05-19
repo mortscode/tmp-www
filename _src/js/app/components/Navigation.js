@@ -1,4 +1,5 @@
 import $ from 'properjs-hobo';
+import emitter from '../utils/emitter';
 
 export default class Navigation {
   constructor(elem) {
@@ -40,10 +41,12 @@ export default class Navigation {
   _openNav() {
     this.$navigation.addClass('-active');
     this._attachEvents();
+    emitter.fire('app--nav-open');
   }
 
   _closeNav() {
     this.$navigation.removeClass('-active');
     this._detachEvents();
+    emitter.fire('app--nav-closed');
   }
 }
