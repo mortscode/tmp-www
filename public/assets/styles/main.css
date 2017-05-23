@@ -492,20 +492,17 @@ h6 {
       font-size: 1.875rem;
       line-height: 2.25rem; } }
 
-h1,
-h2, .featured__text--title, .home-feature__text--title {
+.featured__text--title, .home-feature__text--title, .archive__title {
   font-family: "Montserrat", sans-serif;
   font-size: 2.25rem;
   line-height: 3rem;
   font-weight: 600; }
   @media (max-width: 1200px) {
-    h1,
-    h2, .featured__text--title, .home-feature__text--title {
+    .featured__text--title, .home-feature__text--title, .archive__title {
       font-size: 1.875rem;
       line-height: 2.25rem; } }
   @media (max-width: 700px) {
-    h1,
-    h2, .featured__text--title, .home-feature__text--title {
+    .featured__text--title, .home-feature__text--title, .archive__title {
       font-size: 1.5rem;
       line-height: 1.875rem; } }
 
@@ -523,13 +520,13 @@ h2, .featured__text--title, .home-feature__text--title {
       font-size: 1.125rem;
       line-height: 1.5rem; } }
 
-.post-intro__title--author, .result-card__title {
+.post-intro__title--author, .result-card__title, .archive__list-item--title {
   font-family: "Montserrat", sans-serif;
   font-size: 1.125rem;
   line-height: 1.5rem;
   font-weight: 600; }
   @media (max-width: 700px) {
-    .post-intro__title--author, .result-card__title {
+    .post-intro__title--author, .result-card__title, .archive__list-item--title {
       font-size: 1rem;
       line-height: 1.3125rem; } }
 
@@ -2159,6 +2156,7 @@ picture {
   padding: 1.875rem;
   pointer-events: none;
   position: relative;
+  transform: translateX(100%);
   z-index: 8765310; }
   .newsletter__icon {
     fill: #2c332c;
@@ -3280,23 +3278,36 @@ picture {
   bottom: 6em;
   left: 3em; }
 
+.animate.-fade-up {
+  opacity: 0;
+  transform: translate(0, 1.25em);
+  transition: opacity 400ms ease-in-out, transform 400ms ease-in-out; }
+
+.animate.-fade-in {
+  opacity: 0;
+  transition: opacity 400ms ease-in-out; }
+
+.animate.active {
+  opacity: 1;
+  transform: translate(0, 0); }
+
 body {
   background-color: #f2f2f2; }
 
 .content {
   min-height: 100vh; }
 
-.home-posts, .post-entry {
+.archive, .home-posts, .post-entry {
   position: relative;
   padding: 0 7.5rem;
   overflow: hidden;
   background: #f2f2f2;
   z-index: 1; }
   @media (max-width: 700px) {
-    .home-posts, .post-entry {
+    .archive, .home-posts, .post-entry {
       padding: 0; } }
 
-.post-wrapper {
+.archive__list, .post-wrapper {
   max-width: 80rem;
   margin: 0 auto;
   display: -ms-flexbox;
@@ -3390,19 +3401,6 @@ body {
           width: 15%;
           border-right: 1px solid #969997; } }
 
-.animate.-fade-up {
-  opacity: 0;
-  transform: translate(0, 1.25em);
-  transition: opacity 400ms ease-in-out, transform 400ms ease-in-out; }
-
-.animate.-fade-in {
-  opacity: 0;
-  transition: opacity 400ms ease-in-out; }
-
-.animate.active {
-  opacity: 1;
-  transform: translate(0, 0); }
-
 .about__image {
   width: 49.15254%;
   float: left;
@@ -3458,6 +3456,64 @@ body {
       float: left;
       margin-right: 1.69492%;
       margin-left: 8.47458%; } }
+
+.archive__title {
+  margin-bottom: 3.75rem;
+  text-align: center; }
+  @media (max-width: 960px) {
+    .archive__title {
+      margin: 1.875rem 0; } }
+
+.archive__list {
+  -ms-flex-pack: start;
+  justify-content: flex-start; }
+  @media (max-width: 700px) {
+    .archive__list {
+      padding: 0 0.375rem; } }
+
+.archive__list-item {
+  -ms-flex: 0 0 16.666%;
+  flex: 0 0 16.666%;
+  padding: 0 0.75rem;
+  margin-bottom: 1.5rem; }
+  @media (max-width: 1200px) {
+    .archive__list-item {
+      -ms-flex: 0 0 20%;
+      flex: 0 0 20%; } }
+  @media (max-width: 960px) {
+    .archive__list-item {
+      -ms-flex: 0 0 25%;
+      flex: 0 0 25%; } }
+  @media (max-width: 700px) {
+    .archive__list-item {
+      padding: 0 0.375rem;
+      -ms-flex: 0 0 33.333%;
+      flex: 0 0 33.333%; } }
+  .archive__list-item--link {
+    color: #2c332c;
+    transition: color 200ms ease-in-out; }
+    .archive__list-item--link:hover, .archive__list-item--link:focus {
+      color: #bfaf7c; }
+  .archive__list-item--image {
+    background: 50% 50% no-repeat;
+    background-size: cover; }
+    .archive__list-item--image::after {
+      content: '';
+      display: block;
+      padding-bottom: 120%; }
+  .archive__list-item--date {
+    font-style: italic;
+    font-size: 0.875rem;
+    margin: 0.75rem 0 0.375rem; }
+    @media (max-width: 700px) {
+      .archive__list-item--date {
+        font-size: 0.75rem; } }
+  @media (max-width: 960px) {
+    .archive__list-item--title {
+      font-size: 1rem; } }
+  @media (max-width: 700px) {
+    .archive__list-item--title {
+      font-size: 0.875rem; } }
 
 .error {
   width: 32.20339%;
