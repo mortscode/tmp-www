@@ -2168,7 +2168,8 @@ picture {
   .newsletter__title {
     margin-bottom: 0.75rem; }
   .newsletter__form {
-    width: 100%; }
+    width: 100%;
+    position: relative; }
     .newsletter__form--field {
       border: 0;
       border-bottom: 2px solid #f2f2f2;
@@ -2181,6 +2182,13 @@ picture {
         border-bottom: 2px solid #969997; }
     .newsletter__form--submit {
       margin-top: 3rem; }
+    .newsletter__form--response {
+      color: #969997;
+      font-family: "Montserrat", sans-serif;
+      font-size: 0.875rem;
+      transform: translateY(1.5rem); }
+      .newsletter__form--response.-error {
+        color: tomato; }
 
 .paginate {
   -ms-flex: 1 0 auto;
