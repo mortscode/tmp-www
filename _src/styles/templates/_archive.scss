@@ -1,0 +1,84 @@
+.archive {
+  @extend %content-wrapper;
+
+  &__title {
+    @extend %title-lg;
+    margin-bottom: rem(60);
+    text-align: center;
+
+    @include breakpoint($vp3) {
+      margin: rem(30) 0;
+    }
+  }
+
+  &__list {
+    @extend %content-inner-wrapper;
+    justify-content: flex-start;
+
+    @include breakpoint($vp2) {
+      padding: 0 rem(6);
+    }
+  }
+
+  &__list-item {
+    flex: 0 0 16.666%;
+    padding: 0 rem(12);
+    margin-bottom: rem(24);
+
+    @include breakpoint($vp4) {
+      flex: 0 0 20%;
+    }
+
+    @include breakpoint($vp3) {
+      flex: 0 0 25%;
+    }
+
+    @include breakpoint($vp2) {
+      padding: 0 rem(6);
+      flex: 0 0 33.333%;
+    }
+
+    &--link {
+      color: $tmp-dark;
+      transition: color $ease-fast;
+
+      &:hover,
+      &:focus {
+        color: $tmp-brand;
+      }
+    }
+
+    &--image {
+      background: 50% 50% no-repeat;
+      background-size: cover;
+
+      &::after {
+        content: '';
+        display: block;
+        padding-bottom: 120%;
+      }
+    }
+
+    &--date {
+      font-style: italic;
+      font-size: rem(14);
+      margin: rem(12) 0 rem(6);
+      
+      @include breakpoint($vp2) {
+        font-size: rem(12);
+      }
+    }
+
+    &--title {
+      @extend %title-sm;
+
+      @include breakpoint($vp3) {
+        font-size: rem(16);
+      }
+
+      @include breakpoint($vp2) {
+        font-size: rem(14);
+      }
+    }
+  }
+}

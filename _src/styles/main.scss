@@ -36,13 +36,14 @@
 
 
 // LAYOUT ================================================
+@import "layout/animate";
 @import "layout/main-layout";
 @import "layout/print";
-@import "layout/animate";
 
 // TEMPLATES =============================================
 
 @import "templates/about";
+@import "templates/archive";
 @import "templates/error";
 @import "templates/home";
 @import "templates/post-entry";

@@ -5,6 +5,7 @@
   padding: rem(30);
   pointer-events: none;
   position: relative;
+  transform: translateX(100%);
   z-index: $z-nav;
 
   &__icon {
