@@ -3,12 +3,6 @@
 {% set archive = craft.entries.section('postEntries').limit(null) %}
 
 {% block content %}
-  {#<h2 style="margin: 0 0 30px 150px">{{ archive.total }}</h2>
-  <ul style="margin-left: 150px">
-    {% for entry in archive %}
-    <li>{{ entry.title }} / {{entry.postDate.format('F, Y')}}</li>
-    {% endfor %}
-  </ul>#}
   <div class="archive">
     <h1 class="archive__title">Post Archive</h1>
     <ul class="archive__list">
@@ -16,7 +10,7 @@
       <li class="archive__list-item">
         <a href="{{entry.url}}" class="archive__list-item--link">
           <div class="archive__list-item--image js-lazy-img" data-img-src="{{entry.featuredImage.first.url}}"></div>
-          <div class="archive__list-item--date">{{entry.postDate.format('F, Y')}}</div>
+          <div class="archive__list-item--date">{{entry.postDate.format('F d, Y')}}</div>
           <h2 class="archive__list-item--title">{{ entry.title }}</h2>
         </a>
       </li>
