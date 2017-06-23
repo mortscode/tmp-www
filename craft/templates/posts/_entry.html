@@ -14,7 +14,7 @@
         {% endif %}
         {% include 'partials/_share' %}
         {% if recipe|length %}
-          <a href="#recipe" class="post-intro__title--button btn pop small">Jump to recipe</a>
+          <button class="post-intro__title--button btn pop small js-scroll-to" data-scroll-target='recipe'>Jump to recipe</button>
         {% endif %}
       </div>
       <div class="post-intro__image">
@@ -31,9 +31,6 @@
           {% include 'partials/_recipe-builder' %}
         {% endif %}
       </div>
-
-      {#{% set vars = {'align' : 'right', 'featured' : 'false'} %}
-      {% include 'partials/_aside' with vars %}#}
     </div>
   </article>
   {#{% endcache %}#}

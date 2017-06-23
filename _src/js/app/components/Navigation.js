@@ -4,8 +4,10 @@ import emitter from '../utils/emitter';
 export default class Navigation {
   constructor(elem) {
     this.$navigation = $(elem);
+    this.$body = $(document.body);
     this.$navOpen = $('.js-nav-open');
     this.$navClose = $('.js-nav-close');
+
 
     this.initialize();
   }
@@ -40,12 +42,14 @@ export default class Navigation {
 
   _openNav() {
     this.$navigation.addClass('-active');
+    this.$body.addClass('no-scroll');
     this._attachEvents();
     emitter.fire('app--nav-open');
   }
 
   _closeNav() {
     this.$navigation.removeClass('-active');
+    this.$body.removeClass('no-scroll');
     this._detachEvents();
     emitter.fire('app--nav-closed');
   }

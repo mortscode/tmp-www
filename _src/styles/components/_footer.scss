@@ -9,7 +9,7 @@
   font-family: $sans;
   font-weight: 600;
 
-  @include breakpoint($vp3) {
+  @include bp($md) {
     padding: $small-spacing 0;
     text-align: center;
   }

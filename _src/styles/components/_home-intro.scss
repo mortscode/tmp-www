@@ -8,16 +8,16 @@
     padding: $base-spacing 0;
     width: 100%;
 
-    @include breakpoint($vp4) {
+    @include bp($lg) {
       padding: $base-spacing 0;
     }
 
-    @include breakpoint($vp3) {
+    @include bp($md) {
       padding: em(15) 0;
       height: 50px;
     }
 
-    @include breakpoint($vp2) {
+    @include bp($sm) {
       padding: em(10) 0;
       max-height: 40px;
     }
@@ -28,15 +28,15 @@
       margin: 0 auto;
       text-align: center;
 
-      @include breakpoint($vp4) {
+      @include bp($lg) {
         height: rem(16);
       }
 
-      @include breakpoint($vp3) {
+      @include bp($md) {
         height: rem(14);
       }
 
-      @include breakpoint($vp3) {
+      @include bp($md) {
         height: rem(13);
       }
 
@@ -53,11 +53,11 @@
     color: $tmp-gray;
     padding: em(70) 0 0;
 
-    @include breakpoint($vp4) {
+    @include bp($lg) {
       padding: em(60) 0 0;
     }
 
-    @include breakpoint($vp3) {
+    @include bp($md) {
       padding: em(40) 0 0;
       background-color: $white;
     }
@@ -68,12 +68,12 @@
       margin-bottom: 0;
       text-align: center;
 
-      @include breakpoint($vp3) {
+      @include bp($md) {
         @include span(8);
         @include push(2);
       }
 
-      @include breakpoint($vp2) {
+      @include bp($sm) {
         @include span(10);
         @include push(1);
       }

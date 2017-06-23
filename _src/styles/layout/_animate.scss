@@ -1,6 +1,6 @@
 .animate {
   &.-fade-up {
-    opacity: 0;
+    opacity: 0.01;
     transform: translate(0, em(20));
     transition: opacity $ease-med, transform $ease-med;
   }

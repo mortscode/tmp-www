@@ -19,7 +19,7 @@
   &__link {
     @include gallery(3);
 
-    @include breakpoint($vp2) {
+    @include bp($sm) {
       @include gallery(6);
     }
   }
@@ -33,12 +33,12 @@
     border: 5px solid $white;
     transition: border $ease-fast;
 
-    @include breakpoint($vp3) {
+    @include bp($md) {
       background-size: cover;
       border: none;
     }
 
-    @include breakpoint($vp2) {
+    @include bp($sm) {
       margin-bottom: gutter(4);
     }
 
@@ -47,7 +47,7 @@
       display: block;
       padding-bottom: 70%;
 
-      @include breakpoint($vp3) {
+      @include bp($md) {
         padding-bottom: 150%;
       }
     }
@@ -55,7 +55,7 @@
     &:hover {
       border: 5px solid darken($tmp-light, 15%);
 
-      @include breakpoint($vp3) {
+      @include bp($md) {
         border: none;
       }
     }
@@ -67,7 +67,7 @@
       padding: 0 3% 0 55%;
       transform: translateY(-50%);
 
-      @include breakpoint($vp3) {
+      @include bp($md) {
         top: auto;
         bottom: 0;
         padding: $small-spacing;
@@ -79,7 +79,7 @@
         margin-bottom: 0;
         color: darken($tmp-gray, 15%);
 
-        @include breakpoint($vp3) {
+        @include bp($md) {
           font-size: 90%;
           line-height: 1.4;
         }

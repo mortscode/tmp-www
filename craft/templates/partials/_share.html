@@ -3,15 +3,11 @@
 <div class="share">
     <hr class="share__title--line">
     <h3 class="share__title">Share</h3>
-    <div class="share__icon--wrapper">
-      <a href="{{'https://twitter.com/share?text=' ~ entry.title ~ ' from @themodernproper:&' ~ entry.url }}" target="_blank">
-          <div class="share__icon"><span class="icon-logo twitter"></span></div>
-      </a>
-      <div id="fb-root" style="display:none;"></div>
-      <a href="{{ entry.url }}" data-image="{{ siteUrl ~ entry.featuredImage.first.url }}" data-title="{{ entry.title }}" data-desc="{{ entry.postSummary }}" class="fb_share">
-          <div class="share__icon"><span class="icon-logo facebook"></span></div>
-      </a>
-      {# <a href="#"><div class="share__icon"><span class="icon-logo facebook"></span></div></a> #}
-      {# <a href="{{ pinterestLink }}" target="_blank" count-layout="none"><div class="share__icon"><span class="icon-logo pinterest"></span></div></a> #}
-    </div>
+    <a href="{{'https://twitter.com/share?text=' ~ entry.title ~ ' from @themodernproper:&' ~ entry.url }}" class="share__icon" target="_blank">
+        <span class="icon-logo twitter"></span>
+    </a>
+    <div id="fb-root" style="display:none;"></div>
+    <a href="{{ entry.url }}" class="share__icon" data-image="{{ siteUrl ~ entry.featuredImage.first.url }}" data-title="{{ entry.title }}" data-desc="{{ entry.postSummary }}" class="fb_share">
+        <span class="icon-logo facebook"></span>
+    </a>
 </div>

@@ -29,14 +29,14 @@ h6 {
   line-height: rem(60);
   font-weight: 600;
 
-  @include breakpoint($vp4) {
+  @include bp($xl) {
     font-size: rem(36);
     line-height: rem(48);
   }
 
-  @include breakpoint($vp2) {
+  @include bp($lg) {
     font-size: rem(30);
-    line-height: rem(36);
+    line-height: rem(40);
   }
 }
 
@@ -46,12 +46,12 @@ h6 {
   line-height: rem(48);
   font-weight: 600;
 
-  @include breakpoint($vp4) {
+  @include bp($lg) {
     font-size: rem(30);
     line-height: rem(36);
   }
 
-  @include breakpoint($vp2) {
+  @include bp($sm) {
     font-size: rem(24);
     line-height: rem(30);
   }
@@ -63,12 +63,12 @@ h6 {
   line-height: rem(30);
   font-weight: 600;
 
-  @include breakpoint($vp4) {
+  @include bp($lg) {
     font-size: rem(21);
     line-height: rem(28);
   }
 
-  @include breakpoint($vp2) {
+  @include bp($sm) {
     font-size: rem(18);
     line-height: rem(24);
   }
@@ -80,9 +80,22 @@ h6 {
   line-height: rem(24);
   font-weight: 600;
 
-  @include breakpoint($vp2) {
+  @include bp($sm) {
     font-size: rem(16);
     line-height: rem(21);
+  }
+}
+
+%title-serif-lg {
+  font-family: $serif;
+  font-size: rem(36);
+  font-weight: 400;
+  line-height: rem(42);
+  font-style: italic;
+
+  @include bp($sm) {
+    font-size: rem(24);
+    line-height: rem(30);
   }
 }
 
@@ -93,7 +106,7 @@ h6 {
   line-height: rem(30);
   font-style: italic;
 
-  @include breakpoint($vp2) {
+  @include bp($sm) {
     font-size: rem(18);
     line-height: rem(24);
   }
@@ -106,7 +119,7 @@ h6 {
   line-height: rem(24);
   font-style: italic;
 
-  @include breakpoint($vp2) {
+  @include bp($sm) {
     font-size: rem(16);
     line-height: rem(21);
   }
@@ -138,7 +151,7 @@ h5 {
   font-style: italic;
   letter-spacing: 1px;
 
-  @include breakpoint($vp2) {
+  @include bp($sm) {
     font-size: rem(18);
     line-height: rem(21);
   }
@@ -160,15 +173,19 @@ p {
   line-height: 1.6;
   margin: 0 0 $small-spacing;
 
-  @include breakpoint($vp2) {
+  @include bp($lg) {
     font-size: rem(16);
   }
 }
 
 %text-sm {
   font-size: rem(16);
-  line-height: rem(24);
+  line-height: 1.6;
   margin: 0 0 $small-spacing;
+
+  @include bp($lg) {
+    font-size: rem(14);
+  }
 }
 
 %tagline {
@@ -178,7 +195,7 @@ p {
   line-height: rem(18);
   margin: 0;
 
-  @include breakpoint($vp3) {
+  @include bp($md) {
     font-size: rem(11);
     line-height: rem(14);
   }
@@ -191,7 +208,7 @@ p {
   font-weight: 800;
   line-height: 1;
 
-  @include breakpoint($vp2) {
+  @include bp($sm) {
     font-size: rem(24);
   }
 }
@@ -203,7 +220,7 @@ p {
   font-weight: 800;
   line-height: 1;
 
-  @include breakpoint($vp2) {
+  @include bp($sm) {
     font-size: rem(16);
   }
 }
@@ -236,12 +253,12 @@ blockquote {
   margin: 0;
   padding: 0;
 
-  @include breakpoint($vp3) {
+  @include bp($md) {
     font-size: rem(36);
     line-height: rem(48);
   }
 
-  @include breakpoint($vp2) {
+  @include bp($sm) {
     font-size: rem(30);
     line-height: rem(42);
   }

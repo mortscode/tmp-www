@@ -7,7 +7,7 @@
   order: -1;
   transition: flex $ease-fast;
 
-  @include breakpoint($vp3) {
+  @include bp($md) {
     margin-bottom: rem(60);
   }
 
@@ -19,11 +19,12 @@
     min-height: rem(750);
     transition: flex $ease-fast;
 
-    @include breakpoint($vp4) {
+    @include bp($lg) {
+      flex: 0 0 calc(50% - 15px);
       min-height: 0;
     }
 
-    @include breakpoint($vp3) {
+    @include bp($md) {
       flex: 0 1 100%;
     }
 
@@ -43,17 +44,22 @@
     padding-left: rem(60);
     transition: padding $ease-fast, flex $ease-fast;
 
-    @include breakpoint($vp4) {
+    @include bp($lg) {
+      flex: 1 0 50%;
       padding-left: rem(30);
     }
 
-    @include breakpoint($vp3) {
+    @include bp($md) {
       flex: 0 1 100%;
       padding: rem(30) 0 0;
     }
 
-    @include breakpoint($vp2) {
-      padding: rem(30) rem(24) 0;
+    @include bp($sm) {
+      padding: rem(30) rem(50) 0;
+    }
+
+    @include bp($xs) {
+      padding: rem(30) rem(30) 0;
     }
 
     &--date {
@@ -83,12 +89,12 @@
     &--cta {
       margin-top: rem(40);
 
-      @include breakpoint($vp3) {
+      @include bp($md) {
         margin-top: rem(20);
         flex: 0 0 47%;
       }
 
-      @include breakpoint($vp2) {
+      @include bp($sm) {
         flex: 0 0 100%;
       }
     }

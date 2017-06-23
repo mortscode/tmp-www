@@ -7,12 +7,12 @@
     line-height: rem(30);
     color: darken($tmp-gray, 20%);
 
-    @include breakpoint($vp4) {
+    @include bp($lg) {
       font-size: rem(21);
       line-height: rem(28);
     }
 
-    @include breakpoint($vp3) {
+    @include bp($md) {
       font-size: rem(18);
       line-height: rem(24);
     }
@@ -28,15 +28,15 @@
     @include span(5 of 24);
     padding: $large-spacing 0 $large-spacing span(1 of 24);
 
-    @include breakpoint($vp4) {
+    @include bp($lg) {
       @include span(3);
     }
 
-    @include breakpoint($vp3) {
+    @include bp($md) {
       @include span(7 of 24);
     }
 
-    @include breakpoint($vp2) {
+    @include bp($sm) {
       display: none;
     }
   }
@@ -46,7 +46,7 @@
     @include pull(2 of 24);
     padding: $large-spacing $base-spacing;
 
-    @include breakpoint($vp4) {
+    @include bp($lg) {
       display: none;
     }
 

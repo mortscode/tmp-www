@@ -5,12 +5,12 @@
   margin-bottom: rem(30);
   padding: 0 rem(12);
 
-  @include breakpoint($vp4) {
+  @include bp($lg) {
     flex: 0 0 25%;
     margin-bottom: rem(24);
   }
 
-  @include breakpoint($vp3) {
+  @include bp($md) {
     flex: 0 0 50%;
   }
 
@@ -52,7 +52,7 @@
       transform: translateY(100%);
       transition: transform $ease-fast;
 
-      @include breakpoint($vp3) {
+      @include bp($md) {
         font-size: rem(14);
       }
     }
@@ -62,7 +62,7 @@
       .result-card__image--border {
         border: 4px solid $white;
 
-        @include breakpoint($vp3) {
+        @include bp($md) {
           border: 2px solid white;
         };
       }
@@ -80,7 +80,7 @@
     flex-direction: column;
     padding-top: rem(18);
 
-    @include breakpoint($vp3) {
+    @include bp($md) {
       padding-top: rem(12);
     };
   }

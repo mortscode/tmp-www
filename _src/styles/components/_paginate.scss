@@ -1,13 +1,18 @@
 .paginate {
+  align-items: center;
   flex: 1 0 auto;
   height: rem(170);
   margin: 0 auto;
+  max-width: 100vw;
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
   justify-content: space-between;
 
-  @include breakpoint($vp2) {
-    padding: 0 rem(24);
+  @include bp($md) {
+    height: rem(150);
+    justify-content: center;
+    padding: rem(18) rem(72);
   }
 
   &__wrapper {
@@ -16,28 +21,56 @@
     bottom: 0;
     left: 0;
     right: 0;
-    height: 50vh;
+    height: rem(240);
     z-index: 0;
     display: flex;
     align-items: flex-end;
+
+    @include bp($md) {
+      justify-content: center;
+    }
   }
 
   &__button {
     flex: 1 0 20%;
     display: flex;
 
+    @include bp($md) {
+      flex: 0 0 100%;
+
+      &.-solo {
+        align-self: flex-end;
+        margin-bottom: rem(6);
+      }
+    }
+
     &.-left {
       justify-content: flex-start;
+
+      @include bp($md) {
+        justify-content: center;
+      }
     }
 
     &.-right {
       justify-content: flex-end;
+
+      @include bp($md) {
+        justify-content: center;
+      }
     }
 
     &--link {
       @extend %title-md;
       color: $tmp-light;
       padding: rem(24) rem(40);
+
+      @include bp($md) {
+        text-align: center;
+        border: 2px solid $tmp-light;
+        padding: rem(8);
+        width: 100%;
+      }
 
       &:hover,
       &:focus {
@@ -62,9 +95,20 @@
     }
   }
 
+  &__home-link {
+    position: absolute;
+    left: 50%;
+    bottom: rem(40);
+    transform: translateX(-50%);
+  }
+
   &__brand {
-    flex: 0 0 80px;
-    height: 80px;
+    height: rem(80);
+    width: rem(80);
     fill: rgba($tmp-light, 0.8);
+
+    @include bp($md) {
+      display: none;
+    }
   }
 }

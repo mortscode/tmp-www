@@ -4,10 +4,6 @@ html {
 
 body {
   position: relative;
-
-  @include breakpoint($vp2) {
-    padding-bottom: $large-spacing;
-  }
 }
 
 *,
@@ -46,4 +42,23 @@ body {
 
 .-rel {
   position: relative;
+}
+
+/* IE9  - Also picked up by most modern browsers */
+::selection {
+  background: rgba($tmp-brand, 0.75);
+  color: $tmp-dark;
+  text-shadow: none;
+}
+/* Safari & Chrome - Webkit Rendering */
+::-webkit-selection {
+  background: rgba($tmp-brand, 0.75);
+  color: $tmp-dark;
+  text-shadow: none;
+}
+/* Mozilla based - Gecko Rendering */
+::-moz-selection {
+  background: rgba($tmp-brand, 0.75);
+  color: $tmp-dark;
+  text-shadow: none;
 }
