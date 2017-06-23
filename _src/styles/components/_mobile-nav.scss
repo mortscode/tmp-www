@@ -1,7 +1,7 @@
 .mobile-nav {
   display: none;
 
-  @include breakpoint($vp3) {
+  @include bp($md) {
     display: block;
   }
 
@@ -14,7 +14,7 @@
     height: 50px;
     background-color: $white;
 
-    @include breakpoint($vp2) {
+    @include bp($sm) {
       height: 40px;
     }
   }
@@ -154,11 +154,11 @@
     outline: none;
     border: none;
 
-    @include breakpoint($vp3) {
+    @include bp($md) {
       top: 2px;
     }
 
-    @include breakpoint($vp2) {
+    @include bp($sm) {
       right: 5px;
     }
 

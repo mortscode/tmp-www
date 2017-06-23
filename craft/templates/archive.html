@@ -1,10 +1,16 @@
 {% extends "_layout" %}
 
 {% set archive = craft.entries.section('postEntries').limit(null) %}
+{% set snark = [
+  'recipes and counting.',
+  'delicious recipes so far.',
+  'game changers.',
+  'delightful dishes.',
+] %}
 
 {% block content %}
   <div class="archive">
-    <h1 class="archive__title">Post Archive</h1>
+    <h1 class="archive__title">Post archive: <span class="message">{{ archive|length }} {{ random(snark) }}</span></h1>
     <ul class="archive__list">
       {% for entry in archive %}
       <li class="archive__list-item">

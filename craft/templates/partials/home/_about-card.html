@@ -1,5 +1,5 @@
 <article class="about-card js-scrolls animate -fade-up" data-offset="0.9">
-  <div class="about-card__image js-lazy-img" data-img-src="{{asideColumn.asidePhoto.first.url('asidePhoto')}}" title="{{ asideColumn.asideTitle }}"></div>
+  <div class="about-card__image js-lazy-img js-init-img" data-img-src="{{asideColumn.asidePhoto.first.url('asidePhoto')}}" title="{{ asideColumn.asideTitle }}" data-init-load="true"></div>
   <div class="about-card__text">
     <h3 class="about-card__text--title js-avoid-orphan">{{asideColumn.asideTitle|raw}}</h3>
     <p class="about-card__text--body">{{asideColumn.asideBlurb}}</p>

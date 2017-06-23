@@ -8,8 +8,21 @@
   padding: rem(80) 0;
   position: relative;
 
-  @include breakpoint($vp3) {
-    display: none;
+  @include bp($md) {
+    flex: 0 0 calc(50% - 15px);
+    flex-direction: column;
+    padding: 30px 30px 15px;
+  }
+
+  @include bp($sm) {
+    flex: 0 0 100%;
+    flex-direction: row;
+    margin-bottom: rem(40);
+    padding: rem(40) rem(50) rem(25);
+  }
+
+  @include bp($xs) {
+    padding: rem(40) rem(30) rem(30);
   }
 
   &__bg {
@@ -19,6 +32,11 @@
     bottom: 0;
     left: -50%;
     right: -50%;
+
+    @include bp($md) {
+      left: 0;
+      right: 0;
+    }
   }
 
   &__text {
@@ -27,12 +45,24 @@
     text-align: center;
     margin-bottom: rem(36);
 
+    @include bp($md) {
+      flex: 0 0 auto;
+      margin-bottom: rem(24);
+    }
+
+    @include bp($sm) {
+      flex: 0 0 100%;
+    }
+
     &--title {
-      @extend %title-lg;
+      @extend %title-serif-lg;
       color: $tmp-gray;
-      font-family: $serif;
-      font-weight: 600;
       margin-bottom: 0;
+
+      @include bp($md) {
+        font-size: rem(24);
+        line-height: rem(30);
+      }
     }
 
     &--subtitle {
@@ -42,14 +72,18 @@
   }
 
   &__post {
-    flex: 0 0 22%;
+    flex: 0 0 calc(25% - 20px);
     outline: 0 solid $tmp-brand;
     position: relative;
-    transition: outline $ease-fast;
 
-    &:hover,
-    &:focus {
-      outline: 4px solid $tmp-brand;
+    @include bp($md) {
+      flex: 1 0 auto;
+      margin-bottom: 15px;
+    }
+
+    @include bp($sm) {
+      flex: 0 0 calc(50% - 10px);
+      margin: 10px 0;
     }
   }
 
@@ -57,11 +91,37 @@
     background-position: 50% 50%;
     background-size: cover;
     background-repeat: no-repeat;
+    transition: outline $ease-fast;
+
+    @include bp($md) {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+    }
+
+    @include bp($sm) {
+      position: relative;
+      height: auto;
+      width: auto;
+    }
 
     &::after {
       content: "";
       display: block;
-      padding-top: 100%;
+      padding-bottom: 100%;
+
+      @include bp($md) {
+        padding-bottom: 0;
+      }
+
+      @include bp($sm) {
+        padding-bottom: 100%;
+      }
+    }
+
+    &:hover,
+    &:focus {
+      outline: 4px solid $tmp-brand;
     }
   }
 }

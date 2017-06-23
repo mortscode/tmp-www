@@ -2,7 +2,7 @@
   @include full;
   padding: $large-spacing span(1 of 24) 0;
 
-  @include breakpoint($vp2) {
+  @include bp($sm) {
     margin-bottom: -$base-spacing;
   }
 
@@ -31,11 +31,11 @@
       @include span(2);
       position: relative;
 
-      @include breakpoint($vp3) {
+      @include bp($md) {
         @include span(4);
       }
 
-      @include breakpoint($vp2) {
+      @include bp($sm) {
         @include full;
       }
     }
@@ -57,7 +57,7 @@
       background-position: 50% 50%;
       transition: background-color $ease-fast;
 
-      @include breakpoint($vp2) {
+      @include bp($sm) {
         left: span(11);
       }
     }

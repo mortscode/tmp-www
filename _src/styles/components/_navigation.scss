@@ -29,15 +29,20 @@
     background-color: $tmp-dark;
     display: flex;
     flex-direction: column;
-    flex: 0 0 630px;
-    max-width: 100%;
+    flex: 1 0 55%;
+    max-width: rem(600);
     position: relative;
     transform: translateX(-100%);
     transition: transform $ease-med;
+
+    @include bp($md) {
+      flex: 0 0 100%;
+      max-width: none;
+    }
   }
 
   &__right {
-    flex: 1 0 auto;
+    flex: 1 0 45%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -45,6 +50,10 @@
     position: relative;
     transform: translateX(100%);
     transition: transform $ease-med;
+
+    @include bp($md) {
+      display: none;
+    }
   }
 
   &.-active {
@@ -70,12 +79,25 @@
     align-items: flex-end;
     justify-content: center;
 
-    @include breakpoint($vp2) {
+    @include bp($md) {
+      flex: 0 0 68px;
+    }
+
+    @include bp($sm) {
       flex: 0 0 50px;
     }
 
     li {
       margin: 0 rem(12);
+      transition: margin $ease-fast;
+
+      @include bp($lg) {
+        margin: 0 rem(6);
+      }
+
+      @include bp($md) {
+        margin: 0 rem(12);
+      }
     }
 
     &--item {
@@ -85,9 +107,14 @@
       width: rem(40);
       height: rem(40);
       position: relative;
-      transition: background-color $ease-fast;
+      transition: background-color $ease-fast, height $ease-fast, width $ease-fast;
 
-      @include breakpoint($vp2) {
+      @include bp($lg) {
+        height: rem(36);
+        width: rem(36);
+      }
+
+      @include bp($sm) {
         height: rem(28);
         width: rem(28);
       }
@@ -147,7 +174,7 @@
     display: block;
     padding: rem(24) 0;
 
-    @include breakpoint($vp2) {
+    @include bp($sm) {
       padding: rem(16) 0;
     }
   }
@@ -157,7 +184,7 @@
     display: block;
     padding: rem(24) 0;
 
-    @include breakpoint($vp2) {
+    @include bp($sm) {
       padding: rem(16) 0;
     }
   }
@@ -172,12 +199,12 @@
       fill: $tmp-gray;
       margin-bottom: rem(8);
 
-      @include breakpoint($vp2) {
+      @include bp($sm) {
         height: rem(14);
         margin-bottom: rem(3);
       }
 
-      @include breakpoint($vp2) {
+      @include bp($sm) {
         height: rem(12);
         margin-bottom: 0;
       }
@@ -189,7 +216,7 @@
       font-size: rem(12);
       margin-bottom: rem(40);
 
-      @include breakpoint($vp2) {
+      @include bp($sm) {
         margin-bottom: rem(15);
       }
     }
@@ -207,10 +234,15 @@
       top: rem(40);
       left: rem(40);
 
-      @include breakpoint($vp2) {
+      @include bp($md) {
+        top: rem(24);
+        left: rem(12);
+      }
+
+      @include bp($sm) {
         top: auto;
-        left: rem(10);
-        bottom: rem(10);
+        left: rem(4);
+        bottom: rem(16);
       }
 
       &:hover,

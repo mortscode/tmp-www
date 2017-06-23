@@ -2,7 +2,7 @@
   z-index: $z-nav;
   position: relative;
 
-  @include breakpoint($vp2) {
+  @include bp($sm) {
     background-color: $white;
   }
 
@@ -11,11 +11,7 @@
     text-align: center;
     padding: rem(40) 0 rem(60);
 
-    @include breakpoint($vp3) {
-      padding: rem(30);
-    }
-
-    @include breakpoint($vp2) {
+    @include bp($md) {
       padding: rem(24);
     }
   }
@@ -26,11 +22,11 @@
     height: 23px;
     fill: $tmp-dark;
 
-    @include breakpoint($vp3) {
+    @include bp($md) {
       width: 269px;
     }
 
-    @include breakpoint($vp2) {
+    @include bp($sm) {
       width: 220px;
       height: 20px;
     }
@@ -41,7 +37,7 @@
     display: block;
     margin-top: rem(6);
 
-    @include breakpoint($vp3) {
+    @include bp($lg) {
       margin-top: rem(4);
     }
   }
@@ -58,12 +54,21 @@
       top: rem(40);
       left: rem(40);
 
-      @include breakpoint($vp2) {
-        border-radius: 50%;
+      @include bp($lg) {
+        left: rem(12);
+      }
+
+      @include bp($md) {
+        top: rem(24);
+      }
+
+      @include bp($sm) {
         background-color: rgba($tmp-dark, 0.6);
+        width: rem(44);
+        height: rem(44);
         top: auto;
-        bottom: rem(10);
-        left: rem(10);
+        bottom: rem(18);
+        left: 0;
       }
 
       &:hover,
@@ -71,7 +76,7 @@
         .header__hamburger--icon {
           fill: $tmp-dark;
 
-          @include breakpoint($vp2) {
+          @include bp($sm) {
             fill: $white;
           }
         }
@@ -84,7 +89,7 @@
       fill: $tmp-gray;
       transition: fill $ease-fast;
 
-      @include breakpoint($vp2) {
+      @include bp($sm) {
         width: rem(24);
         fill: $tmp-light;
       }
@@ -103,12 +108,21 @@
       top: rem(40);
       right: rem(40);
 
-      @include breakpoint($vp2) {
-        border-radius: 50%;
+      @include bp($lg) {
+        right: rem(12);
+      }
+
+       @include bp($md) {
+        top: rem(24);
+      }
+
+      @include bp($sm) {
         background-color: rgba($tmp-dark, 0.6);
+        width: rem(44);
+        height: rem(44);
         top: auto;
-        bottom: rem(10);
-        left: rem(75);
+        bottom: rem(18);
+        right: 0;
       }
 
       &:hover,
@@ -116,7 +130,7 @@
         .header__search--icon {
           fill: $tmp-dark;
 
-          @include breakpoint($vp2) {
+          @include bp($sm) {
             fill: $white;
           }
         }
@@ -129,7 +143,7 @@
       fill: $tmp-gray;
       transition: fill $ease-fast;
 
-      @include breakpoint($vp2) {
+      @include bp($sm) {
         width: rem(24);
         fill: $tmp-light;
       }
@@ -143,7 +157,7 @@
   &.active {
     height: em(80);
 
-    @include breakpoint($vp3) {
+    @include bp($lg) {
       height: em(40);
     }
 
@@ -168,7 +182,7 @@
   z-index: $z-nav;
   height: em(80);
 
-  @include breakpoint($vp3) {
+  @include bp($lg) {
     height: em(40);
   }
 
@@ -186,13 +200,13 @@
     transform: translateX(-50%);
     transition: opacity $ease-fast;
 
-    @include breakpoint($vp3) {
+    @include bp($lg) {
       z-index: $z-m-nav;
       height: em(60);
       width: em(60);
     }
 
-    @include breakpoint($vp2) {
+    @include bp($sm) {
       z-index: $z-m-nav;
       height: em(45);
       width: em(45);
@@ -219,7 +233,7 @@
     top: 50%;
     transform: translateY(-50%);
 
-    @include breakpoint($vp3) {
+    @include bp($lg) {
       display: none;
     }
 
@@ -281,7 +295,7 @@
     right: $large-spacing;
     transform: translateY(-40%);
 
-    @include breakpoint($vp3) {
+    @include bp($lg) {
       display: none;
     }
 

@@ -9,7 +9,7 @@
     padding: 0 rem(60) rem(60) 0;
     transition: flex $ease-fast;
 
-    @include breakpoint($vp3) {
+    @include bp($md) {
       flex: 0 1 100%;
       margin:rem(30) 0;
       max-width: none;
@@ -38,8 +38,10 @@
     &--button {
       width: 100%;
       max-width: rem(300);
+      outline: none;
+      border: none;
 
-      @include breakpoint($vp3) {
+      @include bp($md) {
         display: none;
       }
     }
@@ -52,7 +54,7 @@
     text-align: center;
     transition: flex $ease-fast;
 
-    @include breakpoint($vp3) {
+    @include bp($md) {
       flex: 0 1 100%;
       text-align: center;
     }
@@ -63,7 +65,7 @@
       width: auto;
       vertical-align: top;
 
-      @include breakpoint($vp4) {
+      @include bp($lg) {
         min-height: 0;
       }
     }
@@ -77,12 +79,12 @@
   margin-top: $large-spacing;
   position: relative;
 
-  @include breakpoint($vp4) {
+  @include bp($lg) {
     @include full;
     padding: $large-spacing 0;
   }
 
-  @include breakpoint($vp2) {
+  @include bp($sm) {
     margin-top: $base-spacing;
     padding: $base-spacing 0;
   }
@@ -97,13 +99,13 @@
       @include push(1 of 24);
       color: $tmp-gray;
 
-      @include breakpoint($vp4) {
+      @include bp($lg) {
         @include span(8);
         @include push(2);
         text-align: center;
       }
 
-      @include breakpoint($vp2) {
+      @include bp($sm) {
         @include span(12);
         @include push(0);
       }
@@ -127,17 +129,17 @@
       font-weight: 600;
       color: darken($tmp-gray, 20%);
 
-      @include breakpoint($vp4) {
+      @include bp($lg) {
         @include span(6);
         @include push(3);
         text-align: center;
       }
 
-      @include breakpoint($vp3) {
+      @include bp($md) {
         @include span(8);
         @include push(2);      }
 
-      @include breakpoint($vp2) {
+      @include bp($sm) {
         @include span(10);
         @include push(1);
       }
@@ -148,17 +150,17 @@
     @include span(5 of 24);
     @include push(1 of 24);
 
-    @include breakpoint($vp4) {
+    @include bp($lg) {
       @include span(3);
       @include push(9 of 24);
     }
 
-    @include breakpoint($vp3) {
+    @include bp($md) {
       @include span(4);
       @include push(4);
     }
 
-    @include breakpoint($vp2) {
+    @include bp($sm) {
       @include span(6);
       @include push(3);
 
@@ -187,18 +189,18 @@
       position: relative;
       background-color: $white;
 
-      @include breakpoint($vp4) {
+      @include bp($lg) {
         @include push(3);
         margin-top: $base-spacing;
       }
 
-      @include breakpoint($vp3) {
+      @include bp($md) {
         @include span(8);
         @include push(2);
         margin-top: $base-spacing;
       }
 
-      @include breakpoint($vp2) {
+      @include bp($sm) {
         @include span(12);
         @include push(0);
         margin-top: $base-spacing;
@@ -221,7 +223,7 @@
       margin-bottom: -$base-spacing;
       text-align: center;
 
-      @include breakpoint($vp4) {
+      @include bp($lg) {
         @include span(8);
         @include push(2);
       }

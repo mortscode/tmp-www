@@ -33,17 +33,17 @@
       @include span(6 wide);
       @include push(4);
 
-      @include breakpoint($vp4) {
+      @include bp($lg) {
         @include span(6);
         @include push(3);
       }
 
-      @include breakpoint($vp3) {
+      @include bp($md) {
         @include span(8);
         @include push(2);
       }
 
-      @include breakpoint($vp2) {
+      @include bp($sm) {
         @include span(10);
         @include push(1);
       }
@@ -53,16 +53,16 @@
       @include span(5);
       @include push(2);
 
-      @include breakpoint($vp4) {
+      @include bp($lg) {
         @include push(1);
       }
 
-      @include breakpoint($vp3) {
+      @include bp($md) {
         @include span(6);
         @include push(0);
       }
 
-      @include breakpoint($vp2) {
+      @include bp($sm) {
         @include span(10);
         @include push(1);
       }
@@ -71,11 +71,11 @@
     .right {
       @include span(last 5);
 
-      @include breakpoint($vp3) {
+      @include bp($md) {
         @include span(last 6);
       }
 
-      @include breakpoint($vp2) {
+      @include bp($sm) {
         @include span(10);
         @include push(1);
       }
@@ -85,17 +85,17 @@
       @include span(10 wide);
       @include push(2);
 
-      @include breakpoint($vp4) {
+      @include bp($lg) {
         @include span(10);
         @include push(2);
       }
 
-      @include breakpoint($vp3) {
+      @include bp($md) {
         @include span(12);
         @include push(0)
       }
 
-      @include breakpoint($vp2) {
+      @include bp($sm) {
         @include span(10);
         @include push(1);
       }
@@ -119,12 +119,12 @@
       @include push(3);
       text-align: center;
 
-      @include breakpoint($vp4) {
+      @include bp($lg) {
         @include span(8);
         @include push(2);
       }
 
-      @include breakpoint($vp3) {
+      @include bp($md) {
         @include span(10);
         @include push(1);
       }
@@ -172,19 +172,20 @@
     }
 
     &--photos {
-      text-align: center;
-      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between; 
 
       &.wide {
         @include span(10 wide);
         @include push(2);
 
-        @include breakpoint($vp4) {
+        @include bp($lg) {
           @include span(10);
           @include push(1)
         }
 
-        @include breakpoint($vp3) {
+        @include bp($md) {
           @include span(12);
           @include push(0)
         }
@@ -194,17 +195,17 @@
         @include span(6 wide);
         @include push(4);
 
-        @include breakpoint($vp4) {
+        @include bp($lg) {
           @include span(6);
           @include push(3);
         }
 
-        @include breakpoint($vp3) {
+        @include bp($md) {
           @include span(8);
           @include push(2);
         }
 
-        @include breakpoint($vp2) {
+        @include bp($sm) {
           @include span(12);
           @include push(0);
         }
@@ -214,49 +215,54 @@
         @include span(4 wide);
         @include push(5);
 
-        @include breakpoint($vp4) {
+        @include bp($lg) {
           @include span(5);
           @include push(7 of 24);
         }
 
-        @include breakpoint($vp3) {
+        @include bp($md) {
           @include span(6);
           @include push(3);
         }
 
-        @include breakpoint($vp2) {
+        @include bp($sm) {
           @include span(10);
           @include push(1);
         }
       }
 
       .image-wrapper {
-        width: 100%;
-        background-color: rgba($tmp-light, 0.7);
+        flex: 0 0 100%;
+        background-color: rgba($tmp-gray, 0.1);
+        position: relative;
+        margin-bottom: $small-spacing;
+
+        &[data-ratio="vertical"]::after {
+          content: "";
+          display: block;
+          padding-bottom: (1000 / 667) * 100%;
+        }
+
+        &[data-ratio="horizontal"]::after {
+          content: "";
+          display: block;
+          padding-bottom: (667 / 1000) * 100%;
+        }
 
         &.gallery {
-          width: 50%;
-          padding-right: $small-spacing / 2;
-          float: left;
-          margin-bottom: $small-spacing;
-
-          &:nth-child(2n) {
-            padding-right: 0;
-            padding-left: $small-spacing / 2;
-          }
+          flex: 0 0 calc(50% - (1.5em / 4));
         }
 
         &.m-stack,
         &.m-stack:nth-child(2n) {
-          @include breakpoint($vp2) {
-            width: 100%;
-            padding: 0;
+          @include bp($sm) {
+            flex: 0 0 100%;
           }
         }
       }
 
       .image {
-        display: block;
+        position: absolute;
         width: 100%;
         height: auto;
       }
@@ -267,17 +273,17 @@
       @include push(4);
       text-align: center;
 
-      @include breakpoint($vp4) {
+      @include bp($lg) {
         @include span(6);
         @include push(3);
       }
 
-      @include breakpoint($vp3) {
+      @include bp($md) {
         @include span(8);
         @include push(2);
       }
 
-      @include breakpoint($vp2) {
+      @include bp($sm) {
         @include span(10);
         @include push(1);
       }
@@ -287,17 +293,17 @@
       @include span(6 wide);
       @include push(4);
 
-      @include breakpoint($vp4) {
+      @include bp($lg) {
         @include span(6);
         @include push(3);
       }
 
-      @include breakpoint($vp3) {
+      @include bp($md) {
         @include span(8);
         @include push(2);
       }
 
-      @include breakpoint($vp2) {
+      @include bp($sm) {
         @include span(10);
         @include push(1);
       }
@@ -333,7 +339,7 @@
         font-weight: 600;
         font-style: italic;
 
-        @include breakpoint($vp3) {
+        @include bp($md) {
           width: 25%;
           padding-left: $small-spacing;
           padding-right: $small-spacing;
@@ -345,7 +351,7 @@
         padding-right: $base-spacing;
         border-left: 1px solid darken($tmp-light, 10%);
 
-        @include breakpoint($vp3) {
+        @include bp($md) {
           padding-left: $small-spacing;
           padding-right: $small-spacing;
         }
@@ -369,7 +375,7 @@
       margin: $base-spacing auto 0;
       text-align: center;
 
-      @include breakpoint($vp3) {
+      @include bp($md) {
         display: none;
       }
     }

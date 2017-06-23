@@ -2,12 +2,17 @@
   @extend %content-wrapper;
 
   &__title {
-    @extend %title-lg;
+    @extend %title-md;
+    color: $tmp-gray;
     margin-bottom: rem(60);
     text-align: center;
 
     @include breakpoint($vp3) {
       margin: rem(30) 0;
+    }
+
+    .message {
+      @extend %title-serif-md;
     }
   }
 

@@ -1,11 +1,12 @@
 .newsletter {
   background-color: $white;
   text-align: center;
-  flex: 0 0 rem(500);
+  flex: 1 0 50%;
+  margin: 0 50px;
+  max-width: rem(500);
   padding: rem(30);
   pointer-events: none;
   position: relative;
-  transform: translateX(100%);
   z-index: $z-nav;
 
   &__icon {

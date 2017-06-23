@@ -1,14 +1,53 @@
 .categories {
-  @include span(2);
-  margin: $large-spacing 0;
-  padding: 0 0 0 span(1 wide of 24);
+  display: flex;
+  justify-content: center;
+  margin-top: rem(40);
 
-  @include breakpoint($vp3) {
+  @include bp($sm) {
     display: none;
   }
 
-  &__cat-title {
-    margin-top: $base-spacing;
-    color: darken($tmp-gray, 10%);
+  &__category {
+    display: flex;
+    flex: 0 0 180px;
+    flex-wrap: wrap;
+    margin-right: rem(20);
+
+    &:last-child {
+      margin: 0;
+    }
+
+    &.-double {
+      flex: 0 0 300px;
+
+      .categories__list {
+        flex: 0 0 50%;
+      }
+    }
+  }
+
+  &__title {
+    background-color: $tmp-light;
+    color: $tmp-gray;
+    flex: 1 0 100%;
+    padding: 8px;
+    text-transform: uppercase;
+  }
+
+  &__list {
+    padding: 8px;
+
+    &--item,
+    a {
+      color: $tmp-dark;
+      font-weight: 300;
+      font-style: italic;
+      margin: 0 0 8px;
+      transition: color $ease-fast;
+
+      &:hover {
+        color: $tmp-brand;
+      }
+    }
   }
 }

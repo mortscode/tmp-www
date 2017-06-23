@@ -7,25 +7,25 @@
   right: 0;
   bottom: 0;
   left: 0;
+  padding: 0 130px;
   opacity: 0;
   pointer-events: none;
-  // transform: translateX(100%);
   transition: background $ease-med, opacity $ease-med;
   z-index: $z-nav;
 
   &.-active {
     background-color: $white;
-    // transform: none;
     opacity: 1;
     pointer-events: auto;
   }
 
   &__inner {
-    flex: 0 0 90%;
+    flex: 0 0 100%;
     position: relative;
   }
 
   &__title {
+    color: $tmp-gray;
     text-align: center;
     font-size: rem(24);
     font-family: $serif;
@@ -33,7 +33,7 @@
     font-style: italic;
     margin-bottom: rem(24);
 
-    @include breakpoint($vp2) {
+    @include bp($sm) {
       font-size: rem(18);
     }
   }
@@ -42,6 +42,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-bottom: rem(80);
     width: 100%;
 
     &--input {
@@ -55,11 +56,15 @@
       outline: 0;
       margin-bottom: rem(24);
 
-      @include breakpoint($vp3) {
+      @include bp($lg) {
         font-size: rem(48);
       }
 
-      @include breakpoint($vp1) {
+      @include bp($md) {
+        font-size: rem(36);
+      }
+
+      @include bp($sm) {
         font-size: rem(24);
       }
 
@@ -90,7 +95,12 @@
     top: rem(40);
     right: rem(40);
 
-    @include breakpoint($vp2) {
+    @include bp($md) {
+      top: rem(24);
+      right: rem(12);
+    }
+
+    @include bp($sm) {
       top: rem(24);
       right: rem(24);
     }

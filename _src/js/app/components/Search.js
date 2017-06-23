@@ -9,6 +9,7 @@ export default class Search {
     this.$searchInput = document.querySelector('.js-search-input');
     this.searchOpen = false;
     this.navOpen = false;
+    this.$body = $(document.body);
 
     this.initialize();
   }
@@ -64,6 +65,7 @@ export default class Search {
 
   _openSearch() {
     this.$search.addClass('-active');
+    this.$body.addClass('no-scroll');
     this.$searchInput.focus();
     this._attachEvents();
     this.searchOpen = true;
@@ -71,6 +73,7 @@ export default class Search {
 
   _closeSearch() {
     this.$search.removeClass('-active');
+    this.$body.removeClass('no-scroll');
     this._detachEvents();
     this.searchOpen = false;
   }

@@ -1,56 +1,27 @@
 .post-card {
   display: flex;
-  flex: 0 0 30%;
+  flex: 0 0 calc(33.333% - 15px);
   flex-direction: column;
   margin-bottom: rem(60);
   order: 1;
 
-  @include breakpoint($vp4) {
+  @include bp($xl) {
     margin-bottom: rem(40);
   }
 
-  @include breakpoint($vp3) {
-    flex: 0 0 47%;
+  @include bp($lg) {
+    flex: 0 0 calc(50% - 15px);
   }
 
-  @include breakpoint($vp2) {
-    flex: 0 0 50%;
-
-    &:nth-child(odd) {
-      padding: 0 rem(12) 0 rem(24);
-    }
-
-    &:nth-child(even) {
-      padding: 0 rem(24) 0 rem(12);
-    }
-
-    &.first-loop {
-      &:nth-child(even) {
-        padding: 0 rem(12) 0 rem(24);
-      }
-
-      &:nth-child(odd) {
-        padding: 0 rem(24) 0 rem(12);
-      }
-
-      &:last-child {
-        flex: 0 1 100%;
-      }
-    }
-  }
-
-  @include breakpoint($vp1) {
+  @include bp($sm) {
     flex: 0 0 100%;
 
     &:nth-child(even),
     &:nth-child(odd) {
-      padding: 0 rem(24);
-    }
+      padding: 0 rem(50);
 
-    &.first-loop {
-      &:nth-child(even),
-      &:nth-child(odd) {
-        padding: 0 rem(24);
+      @include bp($xs) {
+        padding: 0 rem(30);
       }
     }
   }
@@ -97,7 +68,7 @@
       transform: translateY(100%);
       transition: transform $ease-fast;
 
-      @include breakpoint($vp3) {
+      @include bp($lg) {
         font-size: rem(16);
         padding: rem(8) 0;
       }
@@ -108,7 +79,7 @@
       .post-card__image--border {
         border: 5px solid $white;
 
-        @include breakpoint($vp3) {
+        @include bp($lg) {
           border: 3px solid white;
         };
       }
@@ -135,5 +106,9 @@
     &:hover {
       color: $tmp-brand;
     }
+  }
+
+  &__summary {
+    @extend %text-sm;
   }
 }

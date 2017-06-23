@@ -76,7 +76,7 @@
     float: left;
     display: inline-block;
 
-    @include breakpoint($vp2) {
+    @include bp($sm) {
       display: none;
     }
 
@@ -99,7 +99,7 @@
     background-color: $white;
     transition: height $ease-med, transform $ease-med;
 
-    @include breakpoint($vp2) {
+    @include bp($sm) {
       transform: translate(-50%, -50%);
       height: 60vh;
     }
@@ -113,7 +113,7 @@
     width: 50%;
     padding: $base-spacing;
 
-    @include breakpoint($vp2) {
+    @include bp($sm) {
       position: relative;
       transform: translateY(0);
       margin-top: $large-spacing;
@@ -130,7 +130,7 @@
       width: 100%;
       padding: $small-spacing / 2;
 
-      @include breakpoint($vp2) {
+      @include bp($sm) {
         font-size: rem(18);
         line-height: rem(24);
       }

@@ -1,0 +1,20 @@
+<div class="categories">
+  {% nav cat in craft.categories.group('recipes').level(1) %}
+  {% set catKids = craft.categories.descendantOf(cat) %}
+  <div class="categories__category {% if catKids|length > 4 %}-double{% endif %}">
+    <h4 class="categories__title">{{cat.title}}</h4>
+    <ul class="categories__list">
+      {% for kid in catKids.limit(4) %}
+      <li class="categories__list--item"><a href="{{ kid.url }}">{{ kid.title }}</a></li>
+      {% endfor %}
+    </ul>
+    {% if catKids|length > 4 %}
+    <ul class="categories__list">
+      {% for kid in catKids.offset(4).limit(4) %}
+      <li class="categories__list--item"><a href="{{ kid.url }}">{{ kid.title }}</a></li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+  {% endnav %}
+</div>

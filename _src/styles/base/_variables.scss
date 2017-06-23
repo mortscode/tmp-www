@@ -39,6 +39,19 @@ $base-background-color: $tmp-light;
 $base-font-color: $tmp-dark;
 $action-color: $tmp-brand;
 
+//breakpoints
+$breakpoint_xsmall: 370px; // small-mobile
+$breakpoint_small: 500px; // mobile
+$breakpoint_medium: 840px; // tablet
+$breakpoint_large: 1200px; // small desktop
+$breakpoint_xlarge: 1440px; // large desktop
+
+$xs: $breakpoint_xsmall;
+$sm: $breakpoint_small;
+$md: $breakpoint_medium;
+$lg: $breakpoint_large;
+$xl: $breakpoint_xlarge;
+
 // Transitions
 $ease-fast: 200ms ease-in-out;
 $ease-med: 400ms ease-in-out;

@@ -3,17 +3,17 @@
   @include push(3 of 24);
   padding: $large-spacing 0;
 
-  @include breakpoint($vp4) {
+  @include bp($lg) {
     @include span(6);
     @include push(1);
   }
 
-  @include breakpoint($vp3) {
+  @include bp($md) {
     @include span(7 wider);
     @include push(1);
   }
 
-  @include breakpoint($vp2) {
+  @include bp($sm) {
     @include span(10);
     text-align: center;
   }
@@ -28,7 +28,7 @@
     color: darken($tmp-gray, 10%);
     border-bottom: 2px solid darken($tmp-light, 5%);
 
-    @include breakpoint($vp2) {
+    @include bp($sm) {
       font-size: rem(18);
       line-height: rem(24);
     }
@@ -43,7 +43,7 @@
   &__blurb {
     margin-bottom: $large-spacing;
 
-    @include breakpoint($vp2) {
+    @include bp($sm) {
       margin-bottom: $base-spacing;
     }
   }
